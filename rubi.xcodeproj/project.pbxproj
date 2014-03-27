@@ -1,0 +1,477 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		EE94D20318E4084700C919DF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE94D20218E4084700C919DF /* Foundation.framework */; };
+		EE94D20518E4084700C919DF /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE94D20418E4084700C919DF /* CoreGraphics.framework */; };
+		EE94D20718E4084700C919DF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE94D20618E4084700C919DF /* UIKit.framework */; };
+		EE94D20918E4084700C919DF /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE94D20818E4084700C919DF /* CoreData.framework */; };
+		EE94D20F18E4084700C919DF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = EE94D20D18E4084700C919DF /* InfoPlist.strings */; };
+		EE94D21118E4084700C919DF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EE94D21018E4084700C919DF /* main.m */; };
+		EE94D21518E4084700C919DF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EE94D21418E4084700C919DF /* AppDelegate.m */; };
+		EE94D21818E4084700C919DF /* rubi.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EE94D21618E4084700C919DF /* rubi.xcdatamodeld */; };
+		EE94D21A18E4084700C919DF /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EE94D21918E4084700C919DF /* Images.xcassets */; };
+		EE94D22118E4084700C919DF /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE94D22018E4084700C919DF /* XCTest.framework */; };
+		EE94D22218E4084700C919DF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE94D20218E4084700C919DF /* Foundation.framework */; };
+		EE94D22318E4084700C919DF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE94D20618E4084700C919DF /* UIKit.framework */; };
+		EE94D22418E4084700C919DF /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE94D20818E4084700C919DF /* CoreData.framework */; };
+		EE94D22C18E4084700C919DF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = EE94D22A18E4084700C919DF /* InfoPlist.strings */; };
+		EE94D22E18E4084700C919DF /* rubiTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EE94D22D18E4084700C919DF /* rubiTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		EE94D22518E4084700C919DF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EE94D1F718E4084700C919DF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EE94D1FE18E4084700C919DF;
+			remoteInfo = rubi;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		EE94D1FF18E4084700C919DF /* rubi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = rubi.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		EE94D20218E4084700C919DF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		EE94D20418E4084700C919DF /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		EE94D20618E4084700C919DF /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		EE94D20818E4084700C919DF /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		EE94D20C18E4084700C919DF /* rubi-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "rubi-Info.plist"; sourceTree = "<group>"; };
+		EE94D20E18E4084700C919DF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		EE94D21018E4084700C919DF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		EE94D21218E4084700C919DF /* rubi-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "rubi-Prefix.pch"; sourceTree = "<group>"; };
+		EE94D21318E4084700C919DF /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		EE94D21418E4084700C919DF /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		EE94D21718E4084700C919DF /* rubi.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = rubi.xcdatamodel; sourceTree = "<group>"; };
+		EE94D21918E4084700C919DF /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		EE94D21F18E4084700C919DF /* rubiTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = rubiTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		EE94D22018E4084700C919DF /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		EE94D22918E4084700C919DF /* rubiTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "rubiTests-Info.plist"; sourceTree = "<group>"; };
+		EE94D22B18E4084700C919DF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		EE94D22D18E4084700C919DF /* rubiTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = rubiTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		EE94D1FC18E4084700C919DF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EE94D20518E4084700C919DF /* CoreGraphics.framework in Frameworks */,
+				EE94D20918E4084700C919DF /* CoreData.framework in Frameworks */,
+				EE94D20718E4084700C919DF /* UIKit.framework in Frameworks */,
+				EE94D20318E4084700C919DF /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EE94D21C18E4084700C919DF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EE94D22118E4084700C919DF /* XCTest.framework in Frameworks */,
+				EE94D22418E4084700C919DF /* CoreData.framework in Frameworks */,
+				EE94D22318E4084700C919DF /* UIKit.framework in Frameworks */,
+				EE94D22218E4084700C919DF /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		EE94D1F618E4084700C919DF = {
+			isa = PBXGroup;
+			children = (
+				EE94D20A18E4084700C919DF /* rubi */,
+				EE94D22718E4084700C919DF /* rubiTests */,
+				EE94D20118E4084700C919DF /* Frameworks */,
+				EE94D20018E4084700C919DF /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		EE94D20018E4084700C919DF /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EE94D1FF18E4084700C919DF /* rubi.app */,
+				EE94D21F18E4084700C919DF /* rubiTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		EE94D20118E4084700C919DF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				EE94D20218E4084700C919DF /* Foundation.framework */,
+				EE94D20418E4084700C919DF /* CoreGraphics.framework */,
+				EE94D20618E4084700C919DF /* UIKit.framework */,
+				EE94D20818E4084700C919DF /* CoreData.framework */,
+				EE94D22018E4084700C919DF /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		EE94D20A18E4084700C919DF /* rubi */ = {
+			isa = PBXGroup;
+			children = (
+				EE94D21318E4084700C919DF /* AppDelegate.h */,
+				EE94D21418E4084700C919DF /* AppDelegate.m */,
+				EE94D21918E4084700C919DF /* Images.xcassets */,
+				EE94D21618E4084700C919DF /* rubi.xcdatamodeld */,
+				EE94D20B18E4084700C919DF /* Supporting Files */,
+			);
+			path = rubi;
+			sourceTree = "<group>";
+		};
+		EE94D20B18E4084700C919DF /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				EE94D20C18E4084700C919DF /* rubi-Info.plist */,
+				EE94D20D18E4084700C919DF /* InfoPlist.strings */,
+				EE94D21018E4084700C919DF /* main.m */,
+				EE94D21218E4084700C919DF /* rubi-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		EE94D22718E4084700C919DF /* rubiTests */ = {
+			isa = PBXGroup;
+			children = (
+				EE94D22D18E4084700C919DF /* rubiTests.m */,
+				EE94D22818E4084700C919DF /* Supporting Files */,
+			);
+			path = rubiTests;
+			sourceTree = "<group>";
+		};
+		EE94D22818E4084700C919DF /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				EE94D22918E4084700C919DF /* rubiTests-Info.plist */,
+				EE94D22A18E4084700C919DF /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		EE94D1FE18E4084700C919DF /* rubi */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EE94D23118E4084700C919DF /* Build configuration list for PBXNativeTarget "rubi" */;
+			buildPhases = (
+				EE94D1FB18E4084700C919DF /* Sources */,
+				EE94D1FC18E4084700C919DF /* Frameworks */,
+				EE94D1FD18E4084700C919DF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = rubi;
+			productName = rubi;
+			productReference = EE94D1FF18E4084700C919DF /* rubi.app */;
+			productType = "com.apple.product-type.application";
+		};
+		EE94D21E18E4084700C919DF /* rubiTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EE94D23418E4084700C919DF /* Build configuration list for PBXNativeTarget "rubiTests" */;
+			buildPhases = (
+				EE94D21B18E4084700C919DF /* Sources */,
+				EE94D21C18E4084700C919DF /* Frameworks */,
+				EE94D21D18E4084700C919DF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EE94D22618E4084700C919DF /* PBXTargetDependency */,
+			);
+			name = rubiTests;
+			productName = rubiTests;
+			productReference = EE94D21F18E4084700C919DF /* rubiTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		EE94D1F718E4084700C919DF /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = koerbler;
+				TargetAttributes = {
+					EE94D21E18E4084700C919DF = {
+						TestTargetID = EE94D1FE18E4084700C919DF;
+					};
+				};
+			};
+			buildConfigurationList = EE94D1FA18E4084700C919DF /* Build configuration list for PBXProject "rubi" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = EE94D1F618E4084700C919DF;
+			productRefGroup = EE94D20018E4084700C919DF /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				EE94D1FE18E4084700C919DF /* rubi */,
+				EE94D21E18E4084700C919DF /* rubiTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		EE94D1FD18E4084700C919DF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EE94D20F18E4084700C919DF /* InfoPlist.strings in Resources */,
+				EE94D21A18E4084700C919DF /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EE94D21D18E4084700C919DF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EE94D22C18E4084700C919DF /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		EE94D1FB18E4084700C919DF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EE94D21518E4084700C919DF /* AppDelegate.m in Sources */,
+				EE94D21818E4084700C919DF /* rubi.xcdatamodeld in Sources */,
+				EE94D21118E4084700C919DF /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EE94D21B18E4084700C919DF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EE94D22E18E4084700C919DF /* rubiTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		EE94D22618E4084700C919DF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EE94D1FE18E4084700C919DF /* rubi */;
+			targetProxy = EE94D22518E4084700C919DF /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		EE94D20D18E4084700C919DF /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EE94D20E18E4084700C919DF /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		EE94D22A18E4084700C919DF /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EE94D22B18E4084700C919DF /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		EE94D22F18E4084700C919DF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+			};
+			name = Debug;
+		};
+		EE94D23018E4084700C919DF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		EE94D23218E4084700C919DF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "rubi/rubi-Prefix.pch";
+				INFOPLIST_FILE = "rubi/rubi-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		EE94D23318E4084700C919DF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "rubi/rubi-Prefix.pch";
+				INFOPLIST_FILE = "rubi/rubi-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		EE94D23518E4084700C919DF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/rubi.app/rubi";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "rubi/rubi-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "rubiTests/rubiTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		EE94D23618E4084700C919DF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/rubi.app/rubi";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "rubi/rubi-Prefix.pch";
+				INFOPLIST_FILE = "rubiTests/rubiTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		EE94D1FA18E4084700C919DF /* Build configuration list for PBXProject "rubi" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EE94D22F18E4084700C919DF /* Debug */,
+				EE94D23018E4084700C919DF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EE94D23118E4084700C919DF /* Build configuration list for PBXNativeTarget "rubi" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EE94D23218E4084700C919DF /* Debug */,
+				EE94D23318E4084700C919DF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		EE94D23418E4084700C919DF /* Build configuration list for PBXNativeTarget "rubiTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EE94D23518E4084700C919DF /* Debug */,
+				EE94D23618E4084700C919DF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		EE94D21618E4084700C919DF /* rubi.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				EE94D21718E4084700C919DF /* rubi.xcdatamodel */,
+			);
+			currentVersion = EE94D21718E4084700C919DF /* rubi.xcdatamodel */;
+			path = rubi.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = EE94D1F718E4084700C919DF /* Project object */;
+}
