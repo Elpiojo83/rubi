@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		25B2193F18FC5FCE006C00D2 /* CoreDataTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25B2193E18FC5FCE006C00D2 /* CoreDataTableViewController.m */; };
 		EE94D20318E4084700C919DF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE94D20218E4084700C919DF /* Foundation.framework */; };
 		EE94D20518E4084700C919DF /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE94D20418E4084700C919DF /* CoreGraphics.framework */; };
 		EE94D20718E4084700C919DF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE94D20618E4084700C919DF /* UIKit.framework */; };
@@ -50,6 +51,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		25B2193D18FC5FCE006C00D2 /* CoreDataTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataTableViewController.h; sourceTree = "<group>"; };
+		25B2193E18FC5FCE006C00D2 /* CoreDataTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataTableViewController.m; sourceTree = "<group>"; };
 		EE94D1FF18E4084700C919DF /* rubi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = rubi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE94D20218E4084700C919DF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		EE94D20418E4084700C919DF /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -125,6 +128,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		25B2193C18FC5FC7006C00D2 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				25B2193D18FC5FCE006C00D2 /* CoreDataTableViewController.h */,
+				25B2193E18FC5FCE006C00D2 /* CoreDataTableViewController.m */,
+			);
+			name = Helper;
+			sourceTree = "<group>";
+		};
 		EE94D1F618E4084700C919DF = {
 			isa = PBXGroup;
 			children = (
@@ -159,6 +171,7 @@
 		EE94D20A18E4084700C919DF /* rubi */ = {
 			isa = PBXGroup;
 			children = (
+				25B2193C18FC5FC7006C00D2 /* Helper */,
 				EE94D25018E4096E00C919DF /* GUI */,
 				EE94D23718E408E100C919DF /* SubClasses */,
 				EE94D21318E4084700C919DF /* AppDelegate.h */,
@@ -340,6 +353,7 @@
 			files = (
 				EE94D21518E4084700C919DF /* AppDelegate.m in Sources */,
 				EE94D24C18E4090200C919DF /* Section.m in Sources */,
+				25B2193F18FC5FCE006C00D2 /* CoreDataTableViewController.m in Sources */,
 				EE94D24E18E4090200C919DF /* Contact.m in Sources */,
 				EE956E2918E44B8100E46F8D /* ProjectStreetsTableTableViewController.m in Sources */,
 				EE94D25D18E4199500C919DF /* NewProjectFormView.m in Sources */,
