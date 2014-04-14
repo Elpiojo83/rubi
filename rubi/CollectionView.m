@@ -114,7 +114,8 @@
 -(void)viewDidAppear:(BOOL)animated{
     [[self fetchedResultsController] delegate];
     
-//    NSLog(@"Test GIT");
+    //    NSLog(@"Test GIT");
+    NSLog(@"Test MK");
 }
 
 - (void)didReceiveMemoryWarning
