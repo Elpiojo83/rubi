@@ -22,6 +22,21 @@
 		EE94D22418E4084700C919DF /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE94D20818E4084700C919DF /* CoreData.framework */; };
 		EE94D22C18E4084700C919DF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = EE94D22A18E4084700C919DF /* InfoPlist.strings */; };
 		EE94D22E18E4084700C919DF /* rubiTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EE94D22D18E4084700C919DF /* rubiTests.m */; };
+		EE94D24818E4090200C919DF /* RatingsectionSafetyHazard.m in Sources */ = {isa = PBXBuildFile; fileRef = EE94D23918E4090200C919DF /* RatingsectionSafetyHazard.m */; };
+		EE94D24918E4090200C919DF /* Project.m in Sources */ = {isa = PBXBuildFile; fileRef = EE94D23B18E4090200C919DF /* Project.m */; };
+		EE94D24A18E4090200C919DF /* RatingImage.m in Sources */ = {isa = PBXBuildFile; fileRef = EE94D23D18E4090200C919DF /* RatingImage.m */; };
+		EE94D24B18E4090200C919DF /* Employees.m in Sources */ = {isa = PBXBuildFile; fileRef = EE94D23F18E4090200C919DF /* Employees.m */; };
+		EE94D24C18E4090200C919DF /* Section.m in Sources */ = {isa = PBXBuildFile; fileRef = EE94D24118E4090200C919DF /* Section.m */; };
+		EE94D24D18E4090200C919DF /* Street.m in Sources */ = {isa = PBXBuildFile; fileRef = EE94D24318E4090200C919DF /* Street.m */; };
+		EE94D24E18E4090200C919DF /* Contact.m in Sources */ = {isa = PBXBuildFile; fileRef = EE94D24518E4090200C919DF /* Contact.m */; };
+		EE94D24F18E4090200C919DF /* Ratingsection.m in Sources */ = {isa = PBXBuildFile; fileRef = EE94D24718E4090200C919DF /* Ratingsection.m */; };
+		EE94D25218E4098D00C919DF /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EE94D25118E4098D00C919DF /* Storyboard.storyboard */; };
+		EE94D25518E40A3B00C919DF /* CollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = EE94D25418E40A3B00C919DF /* CollectionView.m */; };
+		EE94D25818E40BF500C919DF /* CollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EE94D25718E40BF500C919DF /* CollectionViewCell.m */; };
+		EE94D25D18E4199500C919DF /* NewProjectFormView.m in Sources */ = {isa = PBXBuildFile; fileRef = EE94D25C18E4199500C919DF /* NewProjectFormView.m */; };
+		EE956E2618E4418D00E46F8D /* ProjectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE956E2518E4418D00E46F8D /* ProjectViewController.m */; };
+		EE956E2918E44B8100E46F8D /* ProjectStreetsTableTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE956E2818E44B8100E46F8D /* ProjectStreetsTableTableViewController.m */; };
+		EE956E2C18E4535D00E46F8D /* NewStreetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE956E2B18E4535D00E46F8D /* NewStreetViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +68,35 @@
 		EE94D22918E4084700C919DF /* rubiTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "rubiTests-Info.plist"; sourceTree = "<group>"; };
 		EE94D22B18E4084700C919DF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		EE94D22D18E4084700C919DF /* rubiTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = rubiTests.m; sourceTree = "<group>"; };
+		EE94D23818E4090200C919DF /* RatingsectionSafetyHazard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RatingsectionSafetyHazard.h; sourceTree = "<group>"; };
+		EE94D23918E4090200C919DF /* RatingsectionSafetyHazard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RatingsectionSafetyHazard.m; sourceTree = "<group>"; };
+		EE94D23A18E4090200C919DF /* Project.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Project.h; sourceTree = "<group>"; };
+		EE94D23B18E4090200C919DF /* Project.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Project.m; sourceTree = "<group>"; };
+		EE94D23C18E4090200C919DF /* RatingImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RatingImage.h; sourceTree = "<group>"; };
+		EE94D23D18E4090200C919DF /* RatingImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RatingImage.m; sourceTree = "<group>"; };
+		EE94D23E18E4090200C919DF /* Employees.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Employees.h; sourceTree = "<group>"; };
+		EE94D23F18E4090200C919DF /* Employees.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Employees.m; sourceTree = "<group>"; };
+		EE94D24018E4090200C919DF /* Section.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Section.h; sourceTree = "<group>"; };
+		EE94D24118E4090200C919DF /* Section.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Section.m; sourceTree = "<group>"; };
+		EE94D24218E4090200C919DF /* Street.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Street.h; sourceTree = "<group>"; };
+		EE94D24318E4090200C919DF /* Street.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Street.m; sourceTree = "<group>"; };
+		EE94D24418E4090200C919DF /* Contact.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Contact.h; sourceTree = "<group>"; };
+		EE94D24518E4090200C919DF /* Contact.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Contact.m; sourceTree = "<group>"; };
+		EE94D24618E4090200C919DF /* Ratingsection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Ratingsection.h; sourceTree = "<group>"; };
+		EE94D24718E4090200C919DF /* Ratingsection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Ratingsection.m; sourceTree = "<group>"; };
+		EE94D25118E4098D00C919DF /* Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
+		EE94D25318E40A3B00C919DF /* CollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionView.h; sourceTree = "<group>"; };
+		EE94D25418E40A3B00C919DF /* CollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionView.m; sourceTree = "<group>"; };
+		EE94D25618E40BF500C919DF /* CollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionViewCell.h; sourceTree = "<group>"; };
+		EE94D25718E40BF500C919DF /* CollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionViewCell.m; sourceTree = "<group>"; };
+		EE94D25B18E4199500C919DF /* NewProjectFormView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewProjectFormView.h; sourceTree = "<group>"; };
+		EE94D25C18E4199500C919DF /* NewProjectFormView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewProjectFormView.m; sourceTree = "<group>"; };
+		EE956E2418E4418D00E46F8D /* ProjectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectViewController.h; sourceTree = "<group>"; };
+		EE956E2518E4418D00E46F8D /* ProjectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProjectViewController.m; sourceTree = "<group>"; };
+		EE956E2718E44B8100E46F8D /* ProjectStreetsTableTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectStreetsTableTableViewController.h; sourceTree = "<group>"; };
+		EE956E2818E44B8100E46F8D /* ProjectStreetsTableTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProjectStreetsTableTableViewController.m; sourceTree = "<group>"; };
+		EE956E2A18E4535D00E46F8D /* NewStreetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewStreetViewController.h; sourceTree = "<group>"; };
+		EE956E2B18E4535D00E46F8D /* NewStreetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewStreetViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +159,8 @@
 		EE94D20A18E4084700C919DF /* rubi */ = {
 			isa = PBXGroup;
 			children = (
+				EE94D25018E4096E00C919DF /* GUI */,
+				EE94D23718E408E100C919DF /* SubClasses */,
 				EE94D21318E4084700C919DF /* AppDelegate.h */,
 				EE94D21418E4084700C919DF /* AppDelegate.m */,
 				EE94D21918E4084700C919DF /* Images.xcassets */,
@@ -151,6 +197,49 @@
 				EE94D22A18E4084700C919DF /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		EE94D23718E408E100C919DF /* SubClasses */ = {
+			isa = PBXGroup;
+			children = (
+				EE94D23818E4090200C919DF /* RatingsectionSafetyHazard.h */,
+				EE94D23918E4090200C919DF /* RatingsectionSafetyHazard.m */,
+				EE94D23A18E4090200C919DF /* Project.h */,
+				EE94D23B18E4090200C919DF /* Project.m */,
+				EE94D23C18E4090200C919DF /* RatingImage.h */,
+				EE94D23D18E4090200C919DF /* RatingImage.m */,
+				EE94D23E18E4090200C919DF /* Employees.h */,
+				EE94D23F18E4090200C919DF /* Employees.m */,
+				EE94D24018E4090200C919DF /* Section.h */,
+				EE94D24118E4090200C919DF /* Section.m */,
+				EE94D24218E4090200C919DF /* Street.h */,
+				EE94D24318E4090200C919DF /* Street.m */,
+				EE94D24418E4090200C919DF /* Contact.h */,
+				EE94D24518E4090200C919DF /* Contact.m */,
+				EE94D24618E4090200C919DF /* Ratingsection.h */,
+				EE94D24718E4090200C919DF /* Ratingsection.m */,
+			);
+			name = SubClasses;
+			sourceTree = "<group>";
+		};
+		EE94D25018E4096E00C919DF /* GUI */ = {
+			isa = PBXGroup;
+			children = (
+				EE94D25118E4098D00C919DF /* Storyboard.storyboard */,
+				EE956E2718E44B8100E46F8D /* ProjectStreetsTableTableViewController.h */,
+				EE956E2818E44B8100E46F8D /* ProjectStreetsTableTableViewController.m */,
+				EE94D25B18E4199500C919DF /* NewProjectFormView.h */,
+				EE94D25C18E4199500C919DF /* NewProjectFormView.m */,
+				EE956E2A18E4535D00E46F8D /* NewStreetViewController.h */,
+				EE956E2B18E4535D00E46F8D /* NewStreetViewController.m */,
+				EE956E2418E4418D00E46F8D /* ProjectViewController.h */,
+				EE956E2518E4418D00E46F8D /* ProjectViewController.m */,
+				EE94D25318E40A3B00C919DF /* CollectionView.h */,
+				EE94D25418E40A3B00C919DF /* CollectionView.m */,
+				EE94D25618E40BF500C919DF /* CollectionViewCell.h */,
+				EE94D25718E40BF500C919DF /* CollectionViewCell.m */,
+			);
+			name = GUI;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -230,6 +319,7 @@
 			files = (
 				EE94D20F18E4084700C919DF /* InfoPlist.strings in Resources */,
 				EE94D21A18E4084700C919DF /* Images.xcassets in Resources */,
+				EE94D25218E4098D00C919DF /* Storyboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -249,7 +339,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				EE94D21518E4084700C919DF /* AppDelegate.m in Sources */,
+				EE94D24C18E4090200C919DF /* Section.m in Sources */,
+				EE94D24E18E4090200C919DF /* Contact.m in Sources */,
+				EE956E2918E44B8100E46F8D /* ProjectStreetsTableTableViewController.m in Sources */,
+				EE94D25D18E4199500C919DF /* NewProjectFormView.m in Sources */,
+				EE956E2618E4418D00E46F8D /* ProjectViewController.m in Sources */,
 				EE94D21818E4084700C919DF /* rubi.xcdatamodeld in Sources */,
+				EE94D24818E4090200C919DF /* RatingsectionSafetyHazard.m in Sources */,
+				EE94D24918E4090200C919DF /* Project.m in Sources */,
+				EE94D25518E40A3B00C919DF /* CollectionView.m in Sources */,
+				EE956E2C18E4535D00E46F8D /* NewStreetViewController.m in Sources */,
+				EE94D24F18E4090200C919DF /* Ratingsection.m in Sources */,
+				EE94D24D18E4090200C919DF /* Street.m in Sources */,
+				EE94D24B18E4090200C919DF /* Employees.m in Sources */,
+				EE94D24A18E4090200C919DF /* RatingImage.m in Sources */,
+				EE94D25818E40BF500C919DF /* CollectionViewCell.m in Sources */,
 				EE94D21118E4084700C919DF /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -449,6 +553,7 @@
 				EE94D23318E4084700C919DF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		EE94D23418E4084700C919DF /* Build configuration list for PBXNativeTarget "rubiTests" */ = {
 			isa = XCConfigurationList;
@@ -457,6 +562,7 @@
 				EE94D23618E4084700C919DF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

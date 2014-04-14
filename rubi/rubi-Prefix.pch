@@ -14,4 +14,15 @@
     #import <UIKit/UIKit.h>
     #import <Foundation/Foundation.h>
     #import <CoreData/CoreData.h>
+
+    #import "AppDelegate.h"
+
+    #import "Ratingsection.h"
+    #import "Project.h"
+    #import "Contact.h"
+    #import "Employees.h"
+    #import "Street.h"
+    #import "RatingImage.h"
+    #import "Section.h"
+    #import "RatingsectionSafetyHazard.h"
 #endif
