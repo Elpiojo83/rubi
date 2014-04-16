@@ -99,7 +99,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KBy-bY-z2k">
-                                <rect key="frame" x="428" y="80" width="576" height="460"/>
+                                <rect key="frame" x="428" y="288" width="576" height="460"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="glV-CA-UpU">
@@ -141,6 +141,23 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6mw-Rp-qjV">
+                                <rect key="frame" x="428" y="80" width="314" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="neue Person aus dem Telefonbuch auswählen">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="openContacts:" destination="uvL-MW-WgW" eventType="touchUpInside" id="IJP-Dv-MZ5"/>
+                                </connections>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" showsHorizontalScrollIndicator="NO" text="Daten der Person" translatesAutoresizingMaskIntoConstraints="NO" id="wdC-av-EQg">
+                                <rect key="frame" x="428" y="118" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
@@ -151,6 +168,7 @@
                         <outlet property="projectNoteTextField" destination="poF-lB-PVR" id="1kZ-jb-oK1"/>
                         <outlet property="projectNotesTextView" destination="poF-lB-PVR" id="R8a-Fc-U9P"/>
                         <outlet property="projectNotesView" destination="twv-2a-T5a" id="SkR-ZL-dNn"/>
+                        <outlet property="textViewPersonendaten" destination="wdC-av-EQg" id="7eG-Wn-ur8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lQJ-IQ-0Cf" userLabel="First Responder" sceneMemberID="firstResponder"/>
