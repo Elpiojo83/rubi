@@ -13,6 +13,8 @@
 
 @interface Section : NSManagedObject
 
++(Section*) createSectionInmanagedObjectContext: (NSManagedObjectContext*) managedObjectContext;
+
 @property (nonatomic, retain) NSString * sectionname;
 @property (nonatomic, retain) Street *street;
 @property (nonatomic, retain) NSSet *ratingSection;

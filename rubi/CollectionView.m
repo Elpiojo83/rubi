@@ -114,7 +114,7 @@
 -(void)viewDidAppear:(BOOL)animated{
     [[self fetchedResultsController] delegate];
     
-    NSLog(@"Test GITHub");
+   // NSLog(@"Test GITHub");
 }
 
 - (void)didReceiveMemoryWarning
@@ -168,7 +168,7 @@
 
     [self.collectionView reloadData];
     
-    NSLog(@"Data reloaded");
+    //NSLog(@"Data reloaded");
 }
 
 

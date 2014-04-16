@@ -13,6 +13,11 @@
 
 @implementation Section
 
++(Section *)createSectionInmanagedObjectContext:(NSManagedObjectContext *)managedObjectContext
+{
+    return [NSEntityDescription insertNewObjectForEntityForName:@"Section" inManagedObjectContext:managedObjectContext];
+}
+
 @dynamic sectionname;
 @dynamic street;
 @dynamic ratingSection;

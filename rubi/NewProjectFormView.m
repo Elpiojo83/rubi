@@ -36,7 +36,7 @@
         NSLog(@"Error: %@", error);
     }
     
-    NSLog(@"%@", self.project);
+   // NSLog(@"%@", self.project);
 
     [self dismissViewControllerAnimated:YES completion:nil];
 }
@@ -54,9 +54,11 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+   
     self.managedObjectContext = [[NSManagedObjectContext alloc]initWithConcurrencyType:NSMainQueueConcurrencyType];
     self.managedObjectContext.parentContext = self.parentManagedObjectContext;
     self.project = [Project createProjectInmanagedObjectContext:self.managedObjectContext];
+    
 }
 
 - (void)didReceiveMemoryWarning

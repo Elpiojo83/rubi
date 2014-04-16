@@ -7,6 +7,11 @@
 //
 
 #import "ProjectStreetsTableTableViewController.h"
+#import "Street.h"
+#import "Project.h"
+#import "Section.h"
+#import "ProjectViewController.h"
+#import "NewSectionFormView.h"
 
 @interface ProjectStreetsTableTableViewController ()
 
@@ -14,107 +19,140 @@
 
 @implementation ProjectStreetsTableTableViewController
 
-- (id)initWithStyle:(UITableViewStyle)style
-{
-    self = [super initWithStyle:style];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
+//@synthesize section = _section;
 
-- (void)viewDidLoad
+// 17. Create a fetch request that looks for Photographers with the given name and hook it up through NSFRC
+// (we inherited the code to integrate with NSFRC from CoreDataTableViewController)
+
+
+- (void)setupFetchedResultsController // attaches an NSFetchRequest to this UITableViewController
 {
-    [super viewDidLoad];
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Project"];
+    request.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"project"
+                                                                                     ascending:YES
+                                                                                      selector:@selector(localizedCaseInsensitiveCompare:)]];
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
     
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    //request.predicate = [NSPredicate predicateWithFormat:@"street.streetname = %@", self.street.streetname];
+    
+    
+    self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request
+                                                                        managedObjectContext:self.project.managedObjectContext
+                                                                          sectionNameKeyPath:nil
+                                                                                   cacheName:nil];
 }
 
-- (void)didReceiveMemoryWarning
+// 16. Update our title and set up our NSFRC when our Model is set
+
+- (void)setSection:(Section *)section
 {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    _section = section;
+    self.title = section.sectionname;
+    
+  //  NSLog(@"TitleData: %@", section.sectionname);
+    
+    [self setupFetchedResultsController];
 }
 
-#pragma mark - Table view data source
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-
-    // Return the number of sections.
-    return 1;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-
-    // Return the number of rows in the section.
-    return 1;
-}
-
+// 18. Load up our cell using the NSManagedObject retrieved using NSFRC's objectAtIndexPath:
+// (back to PhotographersTableViewController.m for next step, segueing)
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"streetsCell" forIndexPath:indexPath];
+    
+    static NSString *CellIdentifier = @"SectionCell";
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+    }
     
     // Configure the cell...
-    cell.textLabel.text = @"name";
+    Section *section = [self.fetchedResultsController objectAtIndexPath:indexPath]; // ask NSFRC for the NSMO at the row in question
+    cell.textLabel.text = section.sectionname;
+    
+    //NSLog(@"Sections: %@", section.sectionname);
     
     return cell;
 }
 
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    
+
+    //Project *dvcProject = self.project;
+    if([segue.identifier isEqualToString:@"addSection"]){
+        
+        
+        //Street *dvcStreet = [[self.project.streets allObjects] objectAtIndex:0];
+        NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
+        Street *dvcStreet = [self.fetchedResultsController objectAtIndexPath:indexPath];
+        
+       // Street *dvcStreet = self.street;
+        NewSectionFormView *dvc = [segue destinationViewController];
+        dvc.street = dvcStreet;
+        NSLog(@"DVC Street: %@", dvcStreet);
+
+    }
+
+    
+    //Street *street = [self.fetchedResultsController objectAtIndexPath:indexPath]; // ask NSFRC for the NSMO at the row in question
+    /*
+    if ([segue.identifier isEqualToString:@"addSection"]) {
+        
+        NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
+        Street *dvcStreet = [self.fetchedResultsController objectAtIndexPath:indexPath];
+        NewSectionFormView *dvc = [segue destinationViewController];
+        dvc.street = dvcStreet;
+        NSLog(@"DVC Street: %@", dvcStreet);
+    
+    }
+     */
+    
+}
 
 /*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
+-(void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath{
+    Street *street = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    
 }
 */
 
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
+
+
+-(void)viewDidAppear:(BOOL)animated{
+    
+    
+    NSLog(@"Project: %@", self.project.streets);
+    
+   // NSLog(@"Sections: %@", self.street.section);
+    /*
+    AppDelegate* appDelegate = [[UIApplication sharedApplication] delegate];
+    NSManagedObjectContext* manageObjectContext = appDelegate.managedObjectContext;
+    
+    NSManagedObject* section = [NSEntityDescription insertNewObjectForEntityForName:@"Section" inManagedObjectContext:manageObjectContext];
+    
+    NSString* newSection = [NSString stringWithFormat:@"%@", @"Testsection"];
+    
+    [section setValue:newSection forKey:@"sectionname"];
+    
+    
+    [self.street addSectionObject:(Section*)section];
+    
+     
+    NSLog(@"New Section: %@", section);
+    */
 }
-*/
 
+// 20. Add segue to show the photo (ADDED AFTER LECTURE)
 /*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
+    Photo *photo = [self.fetchedResultsController objectAtIndexPath:indexPath]; // ask NSFRC for the NSMO at the row in question
+    if ([segue.identifier isEqualToString:@"Show Photo"]) {
+        [segue.destinationViewController setImageURL:[NSURL URLWithString:photo.imageURL]];
+        [segue.destinationViewController setTitle:photo.title];
+    }
 }
 */
-
 @end

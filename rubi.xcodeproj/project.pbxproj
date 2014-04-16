@@ -38,6 +38,7 @@
 		EE956E2618E4418D00E46F8D /* ProjectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE956E2518E4418D00E46F8D /* ProjectViewController.m */; };
 		EE956E2918E44B8100E46F8D /* ProjectStreetsTableTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE956E2818E44B8100E46F8D /* ProjectStreetsTableTableViewController.m */; };
 		EE956E2C18E4535D00E46F8D /* NewStreetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE956E2B18E4535D00E46F8D /* NewStreetViewController.m */; };
+		EEE5449318FEA33A00E6570B /* NewSectionFormView.m in Sources */ = {isa = PBXBuildFile; fileRef = EEE5449218FEA33A00E6570B /* NewSectionFormView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -100,6 +101,8 @@
 		EE956E2818E44B8100E46F8D /* ProjectStreetsTableTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProjectStreetsTableTableViewController.m; sourceTree = "<group>"; };
 		EE956E2A18E4535D00E46F8D /* NewStreetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewStreetViewController.h; sourceTree = "<group>"; };
 		EE956E2B18E4535D00E46F8D /* NewStreetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewStreetViewController.m; sourceTree = "<group>"; };
+		EEE5449118FEA33A00E6570B /* NewSectionFormView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewSectionFormView.h; sourceTree = "<group>"; };
+		EEE5449218FEA33A00E6570B /* NewSectionFormView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewSectionFormView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -243,6 +246,8 @@
 				EE956E2818E44B8100E46F8D /* ProjectStreetsTableTableViewController.m */,
 				EE94D25B18E4199500C919DF /* NewProjectFormView.h */,
 				EE94D25C18E4199500C919DF /* NewProjectFormView.m */,
+				EEE5449118FEA33A00E6570B /* NewSectionFormView.h */,
+				EEE5449218FEA33A00E6570B /* NewSectionFormView.m */,
 				EE956E2A18E4535D00E46F8D /* NewStreetViewController.h */,
 				EE956E2B18E4535D00E46F8D /* NewStreetViewController.m */,
 				EE956E2418E4418D00E46F8D /* ProjectViewController.h */,
@@ -351,6 +356,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EEE5449318FEA33A00E6570B /* NewSectionFormView.m in Sources */,
 				EE94D21518E4084700C919DF /* AppDelegate.m in Sources */,
 				EE94D24C18E4090200C919DF /* Section.m in Sources */,
 				25B2193F18FC5FCE006C00D2 /* CoreDataTableViewController.m in Sources */,

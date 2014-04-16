@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ProjectViewController : UIViewController<UITextFieldDelegate, UITableViewDataSource, UITableViewDelegate>
+@interface ProjectViewController : UIViewController <UITextFieldDelegate, UITableViewDataSource, UITableViewDelegate>
 
 @property (strong, nonatomic) IBOutlet UITextView *projectNoteTextField;
 

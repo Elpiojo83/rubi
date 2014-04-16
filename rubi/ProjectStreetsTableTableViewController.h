@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ProjectStreetsTableTableViewController : UITableViewController
+@interface ProjectStreetsTableTableViewController : CoreDataTableViewController
+
+@property (nonatomic, strong) Section *section;
+@property (nonatomic, strong) Street* street;
+@property (nonatomic, strong) Project* project;
 
 @end

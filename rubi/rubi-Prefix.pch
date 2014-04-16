@@ -16,6 +16,7 @@
     #import <CoreData/CoreData.h>
 
     #import "AppDelegate.h"
+    #import "CoreDataTableViewController.h"
 
     #import "Ratingsection.h"
     #import "Project.h"

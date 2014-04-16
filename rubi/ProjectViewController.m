@@ -27,23 +27,7 @@
 
 @implementation ProjectViewController
 
-- (IBAction)addNewStreetTest:(id)sender {
-    
-    self.street.streetname = @"Teststreet";
-    self.street.streetCrdate = [NSDate date];
-    
-    NSError* error;
-    [self.managedObjectContext save:&error];
-    
-    if(error){
-        NSLog(@"Error: %@", error);
-    }
-    
-    NSLog(@"%@", self.street);
-    
-   // [self.project addStreetsObject:_street];
-    
-}
+
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -58,7 +42,7 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    NSLog(@"Title: %@", self.project.projectTitle);
+ //   NSLog(@"Title: %@", self.project.projectTitle);
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(onKeyboardHide:) name:UIKeyboardWillHideNotification object:nil];
     
     self.projectNotesView.layer.borderColor = [UIColor grayColor].CGColor;
@@ -67,13 +51,13 @@
     
     self.projectNotesTextView.layer.backgroundColor = [UIColor clearColor].CGColor;
     
-    NSLog(@"ProjectStreets: %@", self.project.streets);
+//    NSLog(@"ProjectStreets: %@", self.project.streets);
     
 }
 
 - (void)viewDidAppear:(BOOL)animated{
     self.navigationItem.title = [NSString stringWithFormat:@" %@", self.project.projectTitle];
-    NSLog(@"Title: %@", self.project.projectTitle);
+  //  NSLog(@"Title: %@", self.project.projectTitle);
     
     if(!self.project.projectNote){
         self.projectNoteTextField.text = [NSString stringWithFormat:@""];
@@ -93,7 +77,7 @@
     AppDelegate* delegate = [[UIApplication sharedApplication] delegate];
     [delegate saveContext];
     
-    NSLog(@"Save Notes");
+   // NSLog(@"Save Notes");
 }
 
 - (void)didReceiveMemoryWarning
@@ -124,9 +108,12 @@
 {
     
     // Return the number of rows in the section.
+  
+  /*
+    NSLog(@"Rows: %i", [[[self.fetchedResultsController sections] objectAtIndex:section] numberOfObjects]);
     
-   
-    
+   return [[[self.fetchedResultsController sections] objectAtIndex:section] numberOfObjects];
+   */
     return [self.project.streets count];
     
 }
@@ -141,8 +128,8 @@
     
     NSString* streetTitle = [NSString stringWithFormat:@"%@", street.streetname];
     
-    NSArray *names = [self.project.streets valueForKeyPath:@"streetname"];
-    NSLog(@"Streetnames: %@", names);
+   // NSArray *names = [self.project.streets valueForKeyPath:@"streetname"];
+   // NSLog(@"Streetnames: %@", names);
     
     //cell.textLabel.text = [names objectAtIndex:indexPath.row];
     cell.textLabel.text = streetTitle;
@@ -154,15 +141,24 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     
-    //if([segue.identifier isEqualToString:@"addStreet"]){
+    if([segue.identifier isEqualToString:@"addStreet"]){
         
         Project *dvcProject = self.project;
         NewStreetViewController *dvc = [segue destinationViewController];
         dvc.project = dvcProject;
-    //}
+        
+         NSLog(@"dvc Item: %@", dvcProject);
+    }
     //Project *dvcProject = self.project;
+    if([segue.identifier isEqualToString:@"Streets"]){
+        
+        Project *dvcProject = self.project;
+        ProjectStreetsTableTableViewController *dvc = [segue destinationViewController];
+        dvc.project = dvcProject;
+        NSLog(@"DVC: %@", dvcProject);
+    }
     
-    NSLog(@"dvc Item: %@", dvcProject);
+   
     
     
 }

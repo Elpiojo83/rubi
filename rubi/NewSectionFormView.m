@@ -1,55 +1,49 @@
 //
-//  NewStreetViewController.m
+//  NewSectionFormView.m
 //  rubi
 //
-//  Created by David Krachler on 27.03.14.
+//  Created by David Krachler on 16.04.14.
 //  Copyright (c) 2014 koerbler. All rights reserved.
 //
 
-#import "Project.h"
-#import "Street.h"
+#import "NewSectionFormView.h"
+#import "ProjectStreetsTableTableViewController.h"
 #import "ProjectViewController.h"
-#import "CollectionView.h"
 
-#import "NewStreetViewController.h"
+@interface NewSectionFormView ()
 
-@interface NewStreetViewController ()
-
-@property (nonatomic, strong) NSManagedObject* theStreet;
 @property (nonatomic, strong) NSManagedObjectContext* managedObjectContext;
 @property (nonatomic, strong) NSFetchedResultsController* fetchedResultsController;
-@property (weak, nonatomic) IBOutlet UITextField *streetTextField;
-
 
 @end
 
-@implementation NewStreetViewController
+@implementation NewSectionFormView
 
-- (IBAction)addNewStreet:(id)sender {
+
+- (IBAction)AddNewSection:(id)sender {
     
     AppDelegate* appDelegate = [[UIApplication sharedApplication] delegate];
     NSManagedObjectContext* manageObjectContext = appDelegate.managedObjectContext;
+
+    NSManagedObject* section = [NSEntityDescription insertNewObjectForEntityForName:@"Section" inManagedObjectContext:manageObjectContext];
     
-    NSManagedObject* street = [NSEntityDescription insertNewObjectForEntityForName:@"Street" inManagedObjectContext:manageObjectContext];
+    NSString* newSection = [NSString stringWithFormat:@"%@", self.NewSectionTextField.text];
     
-    NSString* newStreet = [NSString stringWithFormat:@"%@", self.streetTextField.text];
-    
-    [street setValue:[NSDate date] forKey:@"streetCrdate"];
-    [street setValue:newStreet forKey:@"streetname"];
+    [section setValue:newSection forKey:@"sectionname"];
     
     
-    [self.project addStreetsObject:(Street*)street];
+    [self.street addSectionObject:(Section*)section];
     
- //   NSLog(@"theObejct: %@", street);
+    NSLog(@"New Section: %@", section);
     
     [self dismissViewControllerAnimated:YES completion:nil];
-    
 }
 
 
-- (IBAction)cancelNewStreetFormTouchUpInside:(id)sender {
+- (IBAction)CancelNewSection:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
+
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -63,13 +57,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
-    // Do any additional setup after loading the view.
     
-}
-
--(void)viewDidAppear:(BOOL)animated{
-  //  NSLog(@"Object1: %@", self.project.streets);
+    //NSLog(@"Street in Form%@", [[self.street.section allObjects] objectAtIndex:0]);
+    
+    
 }
 
 - (void)didReceiveMemoryWarning
