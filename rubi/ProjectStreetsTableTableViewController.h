@@ -14,4 +14,6 @@
 @property (nonatomic, strong) Street* street;
 @property (nonatomic, strong) Project* project;
 
+@property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
+
 @end

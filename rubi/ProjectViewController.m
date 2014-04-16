@@ -155,6 +155,11 @@
         Project *dvcProject = self.project;
         ProjectStreetsTableTableViewController *dvc = [segue destinationViewController];
         dvc.project = dvcProject;
+        Street *street = [[self.project.streets allObjects] objectAtIndex: self.tableView.indexPathForSelectedRow.row];
+        dvc.street = street;
+        
+        dvc.managedObjectContext = street.managedObjectContext;
+        
         NSLog(@"DVC: %@", dvcProject);
     }
     

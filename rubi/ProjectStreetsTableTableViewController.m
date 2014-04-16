@@ -15,19 +15,34 @@
 
 @interface ProjectStreetsTableTableViewController ()
 
+
 @end
 
 @implementation ProjectStreetsTableTableViewController
 
-//@synthesize section = _section;
-
-// 17. Create a fetch request that looks for Photographers with the given name and hook it up through NSFRC
-// (we inherited the code to integrate with NSFRC from CoreDataTableViewController)
 
 
+-(void)setManagedObjectContext:(NSManagedObjectContext *)managedObjectContext {
+    
+    _managedObjectContext = managedObjectContext;
+    if (managedObjectContext) {
+        NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName: @"Section"];
+        request.sortDescriptors = @[[ NSSortDescriptor  sortDescriptorWithKey: @"sectionname" ascending:YES ]];
+        request.predicate = nil;    // Alle Routen, keine Einschränkungen
+        
+        self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest: request managedObjectContext:managedObjectContext sectionNameKeyPath: nil cacheName: nil];
+    }
+    else {
+        self.fetchedResultsController = nil;
+    }
+}
+
+
+
+/*
 - (void)setupFetchedResultsController // attaches an NSFetchRequest to this UITableViewController
 {
-    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Project"];
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName: @"Street"];
     request.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"project"
                                                                                      ascending:YES
                                                                                       selector:@selector(localizedCaseInsensitiveCompare:)]];
@@ -41,9 +56,9 @@
                                                                           sectionNameKeyPath:nil
                                                                                    cacheName:nil];
 }
-
+*/
 // 16. Update our title and set up our NSFRC when our Model is set
-
+/*
 - (void)setSection:(Section *)section
 {
     _section = section;
@@ -53,7 +68,7 @@
     
     [self setupFetchedResultsController];
 }
-
+*/
 // 18. Load up our cell using the NSManagedObject retrieved using NSFRC's objectAtIndexPath:
 // (back to PhotographersTableViewController.m for next step, segueing)
 
@@ -82,16 +97,9 @@
     //Project *dvcProject = self.project;
     if([segue.identifier isEqualToString:@"addSection"]){
         
-        
-        //Street *dvcStreet = [[self.project.streets allObjects] objectAtIndex:0];
-        NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
-        Street *dvcStreet = [self.fetchedResultsController objectAtIndexPath:indexPath];
-        
-       // Street *dvcStreet = self.street;
         NewSectionFormView *dvc = [segue destinationViewController];
-        dvc.street = dvcStreet;
-        NSLog(@"DVC Street: %@", dvcStreet);
-
+        dvc.street = self.street;
+        
     }
 
     
