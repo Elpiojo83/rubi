@@ -30,20 +30,18 @@
 
 
 - (IBAction)AddRatingsectionTouchUpInside:(id)sender {
+
+    NSLog(@"Current Section: %@", _section);
+    
+    //AppDelegate* appDelegate = [[UIApplication sharedApplication] delegate];
+    //NSManagedObjectContext* manageObjectContext = appDelegate.managedObjectContext;
+    
+    NSManagedObject* ratingsection = [NSEntityDescription insertNewObjectForEntityForName:@"Ratingsection" inManagedObjectContext:_managedObjectContext];
+    
+   // NSString* newRatingsectionStartPosition = [NSString stringWithFormat:@"Abschnitt"];
     
     
-    NSLog(@"Current Section %@", _street.section);
-    
-    
-    AppDelegate* appDelegate = [[UIApplication sharedApplication] delegate];
-    NSManagedObjectContext* manageObjectContext = appDelegate.managedObjectContext;
-    
-    NSManagedObject* ratingsection = [NSEntityDescription insertNewObjectForEntityForName:@"Ratingsection" inManagedObjectContext:manageObjectContext];
-    
-    NSString* newRatingsectionStartPosition = [NSString stringWithFormat:@"Abschnitt"];
-    
-    
-    //NSString *newRatingsectionStartPosition = [NSString stringWithFormat:@"%@,%@", _longitude, _latidude];
+    NSString *newRatingsectionStartPosition = [NSString stringWithFormat:@"%@,%@", _longitude, _latidude];
     
     [ratingsection setValue:newRatingsectionStartPosition forKey:@"startPositionGPS"];
     
@@ -131,9 +129,9 @@
     
     // Configure the cell...
     Ratingsection *ratingsection = [self.fetchedResultsController objectAtIndexPath:indexPath]; // ask NSFRC for the NSMO at the row in question
-    cell.textLabel.text = ratingsection.startPosition;
+    cell.textLabel.text = [NSString stringWithFormat:@"%@",  ratingsection.startPositionGPS];
     
-
+    NSLog(@"RATINGSECTION: %@", ratingsection);
     
     return cell;
 }
@@ -171,7 +169,7 @@
 -(void)viewDidAppear:(BOOL)animated{
     
     
-   NSLog(@"Current Section: %@", self.section);
+   NSLog(@"Current Section: %@", _section);
 
 }
 
