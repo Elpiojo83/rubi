@@ -12,6 +12,7 @@
 #import "Section.h"
 #import "ProjectViewController.h"
 #import "NewSectionFormView.h"
+#import "RatingSectionsTableViewController.h"
 
 @interface ProjectStreetsTableTableViewController ()
 
@@ -94,13 +95,19 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     
 
-    //Project *dvcProject = self.project;
     if([segue.identifier isEqualToString:@"addSection"]){
         
         NewSectionFormView *dvc = [segue destinationViewController];
         dvc.street = self.street;
         
     }
+    if([segue.identifier isEqualToString:@"toRatingSections"]){
+        
+        RatingSectionsTableViewController *dvc = [segue destinationViewController];
+        dvc.section = self.section;
+        
+    }
+
 
     
     //Street *street = [self.fetchedResultsController objectAtIndexPath:indexPath]; // ask NSFRC for the NSMO at the row in question

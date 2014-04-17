@@ -10,6 +10,7 @@
 		25B2193F18FC5FCE006C00D2 /* CoreDataTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25B2193E18FC5FCE006C00D2 /* CoreDataTableViewController.m */; };
 		25B68A8318FF2AAB00C82C25 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25B68A8118FF2AAB00C82C25 /* AddressBook.framework */; };
 		25B68A8418FF2AAB00C82C25 /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25B68A8218FF2AAB00C82C25 /* AddressBookUI.framework */; };
+		EE586C9018FFB14700BB5F6A /* RatingSectionsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE586C8F18FFB14700BB5F6A /* RatingSectionsTableViewController.m */; };
 		EE94D20318E4084700C919DF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE94D20218E4084700C919DF /* Foundation.framework */; };
 		EE94D20518E4084700C919DF /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE94D20418E4084700C919DF /* CoreGraphics.framework */; };
 		EE94D20718E4084700C919DF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE94D20618E4084700C919DF /* UIKit.framework */; };
@@ -58,6 +59,8 @@
 		25B2193E18FC5FCE006C00D2 /* CoreDataTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataTableViewController.m; sourceTree = "<group>"; };
 		25B68A8118FF2AAB00C82C25 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
 		25B68A8218FF2AAB00C82C25 /* AddressBookUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBookUI.framework; path = System/Library/Frameworks/AddressBookUI.framework; sourceTree = SDKROOT; };
+		EE586C8E18FFB14700BB5F6A /* RatingSectionsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RatingSectionsTableViewController.h; sourceTree = "<group>"; };
+		EE586C8F18FFB14700BB5F6A /* RatingSectionsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RatingSectionsTableViewController.m; sourceTree = "<group>"; };
 		EE94D1FF18E4084700C919DF /* rubi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = rubi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE94D20218E4084700C919DF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		EE94D20418E4084700C919DF /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -252,6 +255,8 @@
 				EE94D25118E4098D00C919DF /* Storyboard.storyboard */,
 				EE956E2718E44B8100E46F8D /* ProjectStreetsTableTableViewController.h */,
 				EE956E2818E44B8100E46F8D /* ProjectStreetsTableTableViewController.m */,
+				EE586C8E18FFB14700BB5F6A /* RatingSectionsTableViewController.h */,
+				EE586C8F18FFB14700BB5F6A /* RatingSectionsTableViewController.m */,
 				EE94D25B18E4199500C919DF /* NewProjectFormView.h */,
 				EE94D25C18E4199500C919DF /* NewProjectFormView.m */,
 				EEE5449118FEA33A00E6570B /* NewSectionFormView.h */,
@@ -370,6 +375,7 @@
 				25B2193F18FC5FCE006C00D2 /* CoreDataTableViewController.m in Sources */,
 				EE94D24E18E4090200C919DF /* Contact.m in Sources */,
 				EE956E2918E44B8100E46F8D /* ProjectStreetsTableTableViewController.m in Sources */,
+				EE586C9018FFB14700BB5F6A /* RatingSectionsTableViewController.m in Sources */,
 				EE94D25D18E4199500C919DF /* NewProjectFormView.m in Sources */,
 				EE956E2618E4418D00E46F8D /* ProjectViewController.m in Sources */,
 				EE94D21818E4084700C919DF /* rubi.xcdatamodeld in Sources */,

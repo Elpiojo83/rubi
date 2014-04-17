@@ -234,7 +234,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vz7-D8-sa4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3698" y="-229"/>
+            <point key="canvasLocation" x="3576" y="-705"/>
         </scene>
         <!--New Section Form View-->
         <scene sceneID="yJF-Df-Ynw">
@@ -295,9 +295,42 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CT7-PG-dqK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4852" y="-202"/>
+            <point key="canvasLocation" x="4694" y="-956"/>
         </scene>
-        <!--Project Streets Table Table View Controller-->
+        <!--Rating Sections Table View Controller - Bewertungsabschnitte-->
+        <scene sceneID="lfN-JV-ldZ">
+            <objects>
+                <tableViewController id="O19-K8-Elh" customClass="RatingSectionsTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="jxG-LT-8Xg">
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="RatingCell" id="usv-P1-yPz">
+                                <rect key="frame" x="0.0" y="86" width="1024" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="usv-P1-yPz" id="GW7-6c-BC0">
+                                    <rect key="frame" x="0.0" y="0.0" width="1024" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="O19-K8-Elh" id="JEQ-Gh-X3c"/>
+                            <outlet property="delegate" destination="O19-K8-Elh" id="K1c-Ud-cIq"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Bewertungsabschnitte" id="YB8-kV-OE8">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="MDk-dp-EZg"/>
+                    </navigationItem>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="84M-lS-7JE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5017" y="247"/>
+        </scene>
+        <!--Project Streets Table Table View Controller - Abschnitte-->
         <scene sceneID="uMP-nc-MZZ">
             <objects>
                 <tableViewController id="o3P-fI-sac" customClass="ProjectStreetsTableTableViewController" sceneMemberID="viewController">
@@ -307,13 +340,16 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="StreetCell" id="tVf-dU-sAH">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="StreetCell" editingAccessoryType="disclosureIndicator" id="tVf-dU-sAH">
                                 <rect key="frame" x="0.0" y="86" width="1024" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="tVf-dU-sAH" id="GLH-ZP-iuq">
-                                    <rect key="frame" x="0.0" y="0.0" width="1024" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="991" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="O19-K8-Elh" kind="push" identifier="toRatingSections" id="Vq8-ND-Hqw"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -321,7 +357,7 @@
                             <outlet property="delegate" destination="o3P-fI-sac" id="lHN-G5-mSH"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="m1G-UM-x24">
+                    <navigationItem key="navigationItem" title="Abschnitte" id="m1G-UM-x24">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="s3C-LH-MLw">
                             <connections>
                                 <segue destination="fxk-eh-SCQ" kind="modal" identifier="addSection" modalPresentationStyle="formSheet" id="kie-0L-PQa"/>
@@ -331,7 +367,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fVa-f0-vrc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3570" y="589"/>
+            <point key="canvasLocation" x="3532" y="241"/>
         </scene>
         <!--Collection View-->
         <scene sceneID="2sO-rK-ozH">
