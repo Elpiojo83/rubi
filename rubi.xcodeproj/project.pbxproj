@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		25AD67AE1900671B0007DF99 /* AnsprechpartnerTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 25AD67AD1900671B0007DF99 /* AnsprechpartnerTVC.m */; };
 		25B2193F18FC5FCE006C00D2 /* CoreDataTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25B2193E18FC5FCE006C00D2 /* CoreDataTableViewController.m */; };
 		25B68A8318FF2AAB00C82C25 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25B68A8118FF2AAB00C82C25 /* AddressBook.framework */; };
 		25B68A8418FF2AAB00C82C25 /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25B68A8218FF2AAB00C82C25 /* AddressBookUI.framework */; };
@@ -56,6 +57,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		25AD67AC1900671B0007DF99 /* AnsprechpartnerTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnsprechpartnerTVC.h; sourceTree = "<group>"; };
+		25AD67AD1900671B0007DF99 /* AnsprechpartnerTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnsprechpartnerTVC.m; sourceTree = "<group>"; };
 		25B2193D18FC5FCE006C00D2 /* CoreDataTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataTableViewController.h; sourceTree = "<group>"; };
 		25B2193E18FC5FCE006C00D2 /* CoreDataTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataTableViewController.m; sourceTree = "<group>"; };
 		25B68A8118FF2AAB00C82C25 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
@@ -273,6 +276,8 @@
 				EE94D25418E40A3B00C919DF /* CollectionView.m */,
 				EE94D25618E40BF500C919DF /* CollectionViewCell.h */,
 				EE94D25718E40BF500C919DF /* CollectionViewCell.m */,
+				25AD67AC1900671B0007DF99 /* AnsprechpartnerTVC.h */,
+				25AD67AD1900671B0007DF99 /* AnsprechpartnerTVC.m */,
 			);
 			name = GUI;
 			sourceTree = "<group>";
@@ -378,6 +383,7 @@
 				EE94D24C18E4090200C919DF /* Section.m in Sources */,
 				25B2193F18FC5FCE006C00D2 /* CoreDataTableViewController.m in Sources */,
 				EE94D24E18E4090200C919DF /* Contact.m in Sources */,
+				25AD67AE1900671B0007DF99 /* AnsprechpartnerTVC.m in Sources */,
 				EE956E2918E44B8100E46F8D /* ProjectStreetsTableTableViewController.m in Sources */,
 				EE586C9018FFB14700BB5F6A /* RatingSectionsTableViewController.m in Sources */,
 				EE94D25D18E4199500C919DF /* NewProjectFormView.m in Sources */,

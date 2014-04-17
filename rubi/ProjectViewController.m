@@ -13,156 +13,23 @@
 #import "CollectionView.h"
 #import "ProjectStreetsTableTableViewController.h"
 #import "NewStreetViewController.h"
-#import <AddressBook/AddressBook.h>
-#import <AddressBookUI/AddressBookUI.h>
+#import "AnsprechpartnerTVC.h"
 
 
-@interface ProjectViewController ()<ABPeoplePickerNavigationControllerDelegate, ABPersonViewControllerDelegate>
+@interface ProjectViewController ()
 @property (weak, nonatomic) IBOutlet UIView *projectNotesView;
 @property (weak, nonatomic) IBOutlet UITextView *projectNotesTextView;
 @property (nonatomic, strong) NSFetchedResultsController* fetchedResultsController;
 @property (nonatomic, strong) NSManagedObjectContext* managedObjectContext;
 
 @property (nonatomic, strong) UITableView* tableView;
-
-// ID der Person im Adressbuch
-@property (nonatomic, assign) ABRecordID selPersonID;
-// einfache Textview um die Daten der ausgewählten Person anzuzeigen
-@property (weak, nonatomic) IBOutlet UITextView *textViewPersonendaten;
-// YES = zeigt dir nach Auswahl einer Person den Addresspicker an, wird automatisch gemacht, wenn >= 2 Adressen bei der Person hinterlegt ist
-@property (assign)  BOOL showAddressPicker;
+@property (weak, nonatomic) IBOutlet UIView *AnsprechpartnerView;
+@property (weak, nonatomic) IBOutlet UIView *TeamView;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *segmentedControl;
 
 @end
 
 @implementation ProjectViewController
-
-// Action die vom Button ausgelöst wird....
-- (IBAction)openContacts:(id)sender {
- 
-    ABPeoplePickerNavigationController *picker = [[ABPeoplePickerNavigationController alloc] init];
-	picker.peoplePickerDelegate = self;
-    
-    [self presentViewController: picker animated: YES completion: nil];
-    
-}
-
-// Eine Person wurde ausgewählt
-- (BOOL)peoplePickerNavigationController: (ABPeoplePickerNavigationController *)peoplePicker shouldContinueAfterSelectingPerson:(ABRecordRef)person {
-    
-// Name der Person wird ausgelesen
-    NSString *firstName=(__bridge NSString *)ABRecordCopyValue(person, kABPersonFirstNameProperty);
-    NSString *lastName=(__bridge NSString *)ABRecordCopyValue(person, kABPersonLastNameProperty);
-    
-    self.textViewPersonendaten.text = [NSString stringWithFormat: @"%@ %@", firstName, lastName];
-    ABMutableMultiValueRef multi = ABRecordCopyValue(person, kABPersonEmailProperty);
-    
-// Adressdaten werden abgerufen und je nach Anzahl verarbeitet
-    ABMutableMultiValueRef addresses = ABRecordCopyValue(person, kABPersonAddressProperty);
-    
-    if (ABMultiValueGetCount(addresses) > 1) {  // many addresses found, set "" and enable Button, ViewDidAppear handels PickerViewer
-        self.showAddressPicker = YES;
-    }
-    else if (ABMultiValueGetCount(addresses) == 1 ){ // only one address, set it up!
-    
-        ABMutableMultiValueRef addresses = ABRecordCopyValue(person, kABPersonAddressProperty);
-        
-        NSString * street = [self getAddressProperty: kABPersonAddressStreetKey fromMultiValueRef:addresses atPosition:0];
-        
-        self.textViewPersonendaten.text = [NSString stringWithFormat: @"%@ %@", self.textViewPersonendaten.text, street];
-        self.showAddressPicker = NO;
-    }
-    
-    CFRelease(addresses);
-    CFRelease(multi);
-    
-    
-    
-//  ID der Person wird gespeichert... Wichtig!
-//  Nach [self dismissViewControllerAnimated:YES completion:nil] wird ViewWillAppear aufgerufen...
-//  die ID wird dort weiterverarbeitet
-    self.selPersonID = ABRecordGetRecordID( person );
-    
-    
-    
-    [self dismissViewControllerAnimated:YES completion:nil];
-    return NO;
-}
-
-// Ein Picker nur mit den Adressen der Person wird aufgerufen
--(void)presentAddresspicker {
-    if( self.selPersonID ) {
-        ABPersonViewController * personController = [[ABPersonViewController alloc] init];
-        ABRecordRef person = ABAddressBookGetPersonWithRecordID(ABAddressBookCreateWithOptions(NULL, NULL), self.selPersonID);
-        
-        [personController setDisplayedPerson: person];
-        [personController setPersonViewDelegate: self];
-        personController.displayedProperties = @[[NSNumber numberWithInt: kABPersonAddressProperty]];
-        [personController setAllowsEditing: NO];
-        
-        [self presentViewController: personController animated: YES completion: nil];
-    }
-}
-
-// Adressdatensatz wurde ausgewählt
-- (BOOL) personViewController:(ABPersonViewController*)personView
-     shouldPerformDefaultActionForPerson: (ABRecordRef)person
-                                property: (ABPropertyID)property
-                              identifier: (ABMultiValueIdentifier)identifierForValue
-{
-
-    if(property == kABPersonEmailProperty){
-        
-        ABMutableMultiValueRef multi = ABRecordCopyValue(person, kABPersonEmailProperty);
-        CFStringRef emailRef = ABMultiValueCopyValueAtIndex(multi, identifierForValue);
-        NSString* emailAddress = (__bridge NSString *)emailRef;
-        
-        self.textViewPersonendaten.text = [NSString stringWithFormat: @"%@ /n/r %@", self.textViewPersonendaten.text, emailAddress];
-        
-        CFRelease(multi);
-        
-    }
-    if(property == kABPersonAddressProperty){
-        //        NSString* address = (__bridge NSString *)ABRecordCopyValue(person, property);
-        
-        ABMutableMultiValueRef addresses = ABRecordCopyValue(person, kABPersonAddressProperty);
-        
-        NSString * street = [self getAddressProperty: kABPersonAddressStreetKey fromMultiValueRef:addresses atPosition:0];
-        
-        self.textViewPersonendaten.text = [NSString stringWithFormat: @"%@ /n/r %@", self.textViewPersonendaten.text, street];
-        
-        CFRelease(addresses);
-        self.showAddressPicker = NO;
-    }
-    
-    [self dismissViewControllerAnimated:YES completion:nil];
-    return NO;
-}
-
-// Nachdem wir nur eine Person haben wollen, keine weitere Action...
-- (BOOL)peoplePickerNavigationController:(ABPeoplePickerNavigationController *)peoplePicker shouldContinueAfterSelectingPerson:(ABRecordRef)person property:(ABPropertyID)property identifier:(ABMultiValueIdentifier)identifier {
-    [self dismissViewControllerAnimated:YES completion:nil];
-    return NO;
-}
-
-// Cancel, eh klar ;)
-- (void)peoplePickerNavigationControllerDidCancel:(ABPeoplePickerNavigationController *)peoplePicker {
-    // assigning control back to the main controller
-    [self dismissViewControllerAnimated:YES completion:nil];
-}
-
-
--(NSString *) getAddressProperty: (CFStringRef)property fromMultiValueRef: (ABMutableMultiValueRef) multi atPosition: (int) position {
-    
-    CFDictionaryRef dict = ABMultiValueCopyValueAtIndex(multi, position);
-    CFStringRef typeTmp = ABMultiValueCopyLabelAtIndex(multi, position);
-    
-    NSString * returnString = (NSString *)CFDictionaryGetValue(dict, property);
-    
-    CFRelease(dict);
-    CFRelease(typeTmp);
-    
-    return returnString;
-}
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -194,10 +61,6 @@
    
     [super viewDidAppear:animated];
     
-// Aufruf des Adresspickers, wenn gewünscht
-    if (self.selPersonID && self.showAddressPicker) {
-        [self presentAddresspicker];
-    }
     
     self.navigationItem.title = [NSString stringWithFormat:@" %@", self.project.projectTitle];
   //  NSLog(@"Title: %@", self.project.projectTitle);
@@ -211,6 +74,32 @@
     [self.tableView reloadData];
     
 }
+
+-(void)viewWillAppear:(BOOL)animated {
+    
+    [super viewWillAppear: animated];
+    
+    
+    [self.segmentedControl addTarget:self action:@selector(changeView:) forControlEvents:UIControlEventValueChanged];
+    
+}
+
+-(void)changeView: (UISegmentedControl *) control {
+    switch (control.selectedSegmentIndex) {
+        case 0:
+            self.TeamView.hidden = YES;
+            self.AnsprechpartnerView.hidden = NO;
+            break;
+        case 1:
+            self.AnsprechpartnerView.hidden = YES;
+            self.TeamView.hidden = NO;
+            break;
+            
+        default:
+            break;
+    }
+}
+
 
 -(void)onKeyboardHide:(NSNotification *)notification
 {
@@ -306,8 +195,13 @@
         NSLog(@"DVC: %@", dvcProject);
     }
     
-   
     
+    if ( [segue.identifier isEqualToString: @"Ansprechpartner"]) {
+        AnsprechpartnerTVC *controller = (AnsprechpartnerTVC *)segue.destinationViewController;
+        controller.project = self.project;
+        controller.contact = [[self.project.contacts allObjects] firstObject];
+        controller.managedObjectContext = self.project.managedObjectContext;
+    }
     
 }
 
