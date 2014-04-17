@@ -28,7 +28,7 @@
     if (managedObjectContext) {
         NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName: @"Section"];
         request.sortDescriptors = @[[ NSSortDescriptor  sortDescriptorWithKey: @"sectionname" ascending:YES ]];
-        request.predicate = nil;    // Alle Routen, keine Einschränkungen
+        request.predicate = [NSPredicate predicateWithFormat: @" street == %@" , self.street];
         
         self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest: request managedObjectContext:managedObjectContext sectionNameKeyPath: nil cacheName: nil];
     }
