@@ -376,7 +376,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="O19-K8-Elh" kind="push" id="7bJ-9X-fOI"/>
+                                    <segue destination="O19-K8-Elh" kind="push" identifier="toRatingSections" id="7bJ-9X-fOI"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>

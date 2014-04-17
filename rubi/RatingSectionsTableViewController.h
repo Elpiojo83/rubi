@@ -16,6 +16,9 @@
 @property (nonatomic, strong) Project* project;
 @property (nonatomic, strong) Ratingsection *ratingsection;
 
+@property (nonatomic, strong) NSString *longitude;
+@property (nonatomic, strong) NSString *latidude;
+
 @property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
 
 @end

@@ -23,6 +23,8 @@
 
 @implementation RatingSectionsTableViewController{
     CLLocationManager *locationManager;
+    CLGeocoder *geocoder;
+    CLPlacemark *placemark;
 }
 
 
@@ -30,31 +32,28 @@
 - (IBAction)AddRatingsectionTouchUpInside:(id)sender {
     
     
-    /*
+    NSLog(@"Current Section %@", _street.section);
+    
+    
     AppDelegate* appDelegate = [[UIApplication sharedApplication] delegate];
     NSManagedObjectContext* manageObjectContext = appDelegate.managedObjectContext;
     
     NSManagedObject* ratingsection = [NSEntityDescription insertNewObjectForEntityForName:@"Ratingsection" inManagedObjectContext:manageObjectContext];
     
-    NSString* newRatingsection = [NSString stringWithFormat:@"Abschnitt"];
+    NSString* newRatingsectionStartPosition = [NSString stringWithFormat:@"Abschnitt"];
     
-    [ratingsection setValue:newRatingsection forKey:@"rating"];
+    
+    //NSString *newRatingsectionStartPosition = [NSString stringWithFormat:@"%@,%@", _longitude, _latidude];
+    
+    [ratingsection setValue:newRatingsectionStartPosition forKey:@"startPositionGPS"];
     
     
     [self.section addRatingSectionObject:(Ratingsection*)ratingsection];
     
-    NSLog(@"New Section: %@", ratingsection);
-    */
-   // NSString *startPoint = [location description];
-   // NSLog(@"Start: %@", startPoint);
+   // NSLog(@"New Section: %@", newRatingsectionStartPosition);
     
-    locationManager.delegate = self;
-    locationManager.desiredAccuracy = kCLLocationAccuracyBest;
     
-    [locationManager startUpdatingLocation];
-  
-    
-    NSLog(@"Add Rating Section");
+   // NSLog(@"Add Rating Section");
     
 }
 
@@ -68,15 +67,34 @@
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation
 {
-    NSLog(@"didUpdateToLocation: %@", newLocation);
+    //NSLog(@"didUpdateToLocation: %@", newLocation);
     CLLocation *currentLocation = newLocation;
     
     if (currentLocation != nil) {
-        NSString *longitude = [NSString stringWithFormat:@"%.8f", currentLocation.coordinate.longitude];
-        NSString *latidude = [NSString stringWithFormat:@"%.8f", currentLocation.coordinate.latitude];
+        self.longitude = [NSString stringWithFormat:@"%.8f", currentLocation.coordinate.longitude];
+        self.latidude  = [NSString stringWithFormat:@"%.8f", currentLocation.coordinate.latitude];
         
-        NSLog(@"Position %@ %@", longitude, latidude);
+      //  NSLog(@"Position %@ %@", _longitude, _latidude);
     }
+    
+    [locationManager stopUpdatingLocation];
+    
+    NSLog(@"Resolving the Address");
+    [geocoder reverseGeocodeLocation:currentLocation completionHandler:^(NSArray *placemarks, NSError *error) {
+        NSLog(@"Found placemarks: %@, error: %@", placemarks, error);
+        if (error == nil && [placemarks count] > 0) {
+            placemark = [placemarks lastObject];
+            NSString *adress = [NSString stringWithFormat:@"%@ %@\n%@ %@\n%@\n%@",
+                                 placemark.subThoroughfare, placemark.thoroughfare,
+                                 placemark.postalCode, placemark.locality,
+                                 placemark.administrativeArea,
+                                 placemark.country];
+            NSLog(@"Adress: %@", adress);
+            
+        } else {
+            NSLog(@"%@", error.debugDescription);
+        }
+    } ];
 }
 
 -(void)setManagedObjectContext:(NSManagedObjectContext *)managedObjectContext {
@@ -84,8 +102,12 @@
     _managedObjectContext = managedObjectContext;
     if (managedObjectContext) {
         NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName: @"Ratingsection"];
-        request.sortDescriptors = @[[ NSSortDescriptor  sortDescriptorWithKey: @"startPosition" ascending:YES ]];
+        request.sortDescriptors = @[[ NSSortDescriptor  sortDescriptorWithKey: @"startPositionGPS" ascending:YES ]];
         request.predicate = [NSPredicate predicateWithFormat: @" section == %@" , self.section];
+        
+        
+        NSLog(@"Curr. Section: %@", _section);
+        
         
         self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest: request managedObjectContext:managedObjectContext sectionNameKeyPath: nil cacheName: nil];
     }
@@ -135,6 +157,12 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     locationManager = [[CLLocationManager alloc] init];
+    geocoder = [[CLGeocoder alloc] init];
+    
+    locationManager.delegate = self;
+    locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+    
+    [locationManager startUpdatingLocation];
 }
 
 
@@ -143,7 +171,7 @@
 -(void)viewDidAppear:(BOOL)animated{
     
     
-    NSLog(@"Project: %@", self.project.streets);
+   NSLog(@"Current Section: %@", self.section);
 
 }
 
