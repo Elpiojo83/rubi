@@ -11,6 +11,7 @@
 		25B68A8318FF2AAB00C82C25 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25B68A8118FF2AAB00C82C25 /* AddressBook.framework */; };
 		25B68A8418FF2AAB00C82C25 /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25B68A8218FF2AAB00C82C25 /* AddressBookUI.framework */; };
 		EE586C9018FFB14700BB5F6A /* RatingSectionsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE586C8F18FFB14700BB5F6A /* RatingSectionsTableViewController.m */; };
+		EE586C9218FFC5BF00BB5F6A /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE586C9118FFC5BF00BB5F6A /* CoreLocation.framework */; };
 		EE94D20318E4084700C919DF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE94D20218E4084700C919DF /* Foundation.framework */; };
 		EE94D20518E4084700C919DF /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE94D20418E4084700C919DF /* CoreGraphics.framework */; };
 		EE94D20718E4084700C919DF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE94D20618E4084700C919DF /* UIKit.framework */; };
@@ -61,6 +62,7 @@
 		25B68A8218FF2AAB00C82C25 /* AddressBookUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBookUI.framework; path = System/Library/Frameworks/AddressBookUI.framework; sourceTree = SDKROOT; };
 		EE586C8E18FFB14700BB5F6A /* RatingSectionsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RatingSectionsTableViewController.h; sourceTree = "<group>"; };
 		EE586C8F18FFB14700BB5F6A /* RatingSectionsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RatingSectionsTableViewController.m; sourceTree = "<group>"; };
+		EE586C9118FFC5BF00BB5F6A /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		EE94D1FF18E4084700C919DF /* rubi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = rubi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE94D20218E4084700C919DF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		EE94D20418E4084700C919DF /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -117,6 +119,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EE586C9218FFC5BF00BB5F6A /* CoreLocation.framework in Frameworks */,
 				25B68A8318FF2AAB00C82C25 /* AddressBook.framework in Frameworks */,
 				25B68A8418FF2AAB00C82C25 /* AddressBookUI.framework in Frameworks */,
 				EE94D20518E4084700C919DF /* CoreGraphics.framework in Frameworks */,
@@ -171,6 +174,7 @@
 		EE94D20118E4084700C919DF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				EE586C9118FFC5BF00BB5F6A /* CoreLocation.framework */,
 				25B68A8118FF2AAB00C82C25 /* AddressBook.framework */,
 				25B68A8218FF2AAB00C82C25 /* AddressBookUI.framework */,
 				EE94D20218E4084700C919DF /* Foundation.framework */,

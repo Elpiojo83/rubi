@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <CoreLocation/CoreLocation.h>
 
-@interface RatingSectionsTableViewController : CoreDataTableViewController
+@interface RatingSectionsTableViewController : CoreDataTableViewController <CLLocationManagerDelegate>
 
 @property (nonatomic, strong) Section *section;
 @property (nonatomic, strong) Street* street;

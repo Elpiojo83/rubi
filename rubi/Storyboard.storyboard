@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5037.3" systemVersion="13C64" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="h4U-Cd-43X">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13C64" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="h4U-Cd-43X">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
@@ -62,7 +62,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Jz-Az-nRO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2464" y="-1334"/>
+            <point key="canvasLocation" x="2424" y="-726"/>
         </scene>
         <!--Project View Controller-->
         <scene sceneID="AgL-3f-z8B">
@@ -234,7 +234,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vz7-D8-sa4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3576" y="-705"/>
+            <point key="canvasLocation" x="3688" y="-726"/>
         </scene>
         <!--New Section Form View-->
         <scene sceneID="yJF-Df-Ynw">
@@ -295,7 +295,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CT7-PG-dqK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4694" y="-956"/>
+            <point key="canvasLocation" x="5046" y="-726"/>
         </scene>
         <!--Rating Sections Table View Controller - Bewertungsabschnitte-->
         <scene sceneID="lfN-JV-ldZ">
@@ -307,13 +307,16 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="RatingCell" id="usv-P1-yPz">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="RatingCell" id="usv-P1-yPz">
                                 <rect key="frame" x="0.0" y="86" width="1024" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="usv-P1-yPz" id="GW7-6c-BC0">
-                                    <rect key="frame" x="0.0" y="0.0" width="1024" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="991" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="nZf-HE-PE4" kind="push" id="8PF-oO-vNC"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -322,13 +325,38 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Bewertungsabschnitte" id="YB8-kV-OE8">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="MDk-dp-EZg"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="MDk-dp-EZg">
+                            <connections>
+                                <action selector="AddRatingsectionTouchUpInside:" destination="O19-K8-Elh" id="VcI-s5-Le4"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="84M-lS-7JE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="5017" y="247"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="gtb-YR-Ljv">
+            <objects>
+                <viewController id="nZf-HE-PE4" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="KjB-lV-d3i"/>
+                        <viewControllerLayoutGuide type="bottom" id="0bo-qC-mE3"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="O8n-qX-nAn">
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="ntz-S3-IjO"/>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hzx-cu-GLD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6353" y="241"/>
         </scene>
         <!--Project Streets Table Table View Controller - Abschnitte-->
         <scene sceneID="uMP-nc-MZZ">
