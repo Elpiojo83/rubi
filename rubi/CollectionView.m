@@ -11,6 +11,7 @@
 #import "Project.h"
 #import "NewProjectFormView.h"
 #import "ProjectViewController.h"
+#import "TeamCDTVC.h"
 
 @interface CollectionView ()
 
@@ -195,6 +196,10 @@
         Project *project = [[self fetchedResultsController] objectAtIndexPath:selectedIndexPath];
         ProjectViewController *dvc = [segue destinationViewController];
         dvc.project = project;
+    }
+    if([segue.identifier isEqualToString:@"manageTeam"]){
+        TeamCDTVC *dvc = (TeamCDTVC *)[[segue destinationViewController] topViewController];
+        dvc.managedObjectContext = self.managedObjectContext;
     }
 }
 

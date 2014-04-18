@@ -11,6 +11,8 @@
 		25B2193F18FC5FCE006C00D2 /* CoreDataTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25B2193E18FC5FCE006C00D2 /* CoreDataTableViewController.m */; };
 		25B68A8318FF2AAB00C82C25 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25B68A8118FF2AAB00C82C25 /* AddressBook.framework */; };
 		25B68A8418FF2AAB00C82C25 /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25B68A8218FF2AAB00C82C25 /* AddressBookUI.framework */; };
+		25E49151190118E4003714E2 /* TeamCDTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 25E49150190118E4003714E2 /* TeamCDTVC.m */; };
+		25E491541901192F003714E2 /* TeamTVCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 25E491531901192F003714E2 /* TeamTVCell.m */; };
 		EE586C9018FFB14700BB5F6A /* RatingSectionsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE586C8F18FFB14700BB5F6A /* RatingSectionsTableViewController.m */; };
 		EE586C9218FFC5BF00BB5F6A /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE586C9118FFC5BF00BB5F6A /* CoreLocation.framework */; };
 		EE94D20318E4084700C919DF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE94D20218E4084700C919DF /* Foundation.framework */; };
@@ -63,6 +65,10 @@
 		25B2193E18FC5FCE006C00D2 /* CoreDataTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataTableViewController.m; sourceTree = "<group>"; };
 		25B68A8118FF2AAB00C82C25 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
 		25B68A8218FF2AAB00C82C25 /* AddressBookUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBookUI.framework; path = System/Library/Frameworks/AddressBookUI.framework; sourceTree = SDKROOT; };
+		25E4914F190118E4003714E2 /* TeamCDTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeamCDTVC.h; sourceTree = "<group>"; };
+		25E49150190118E4003714E2 /* TeamCDTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeamCDTVC.m; sourceTree = "<group>"; };
+		25E491521901192F003714E2 /* TeamTVCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeamTVCell.h; sourceTree = "<group>"; };
+		25E491531901192F003714E2 /* TeamTVCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeamTVCell.m; sourceTree = "<group>"; };
 		EE586C8E18FFB14700BB5F6A /* RatingSectionsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RatingSectionsTableViewController.h; sourceTree = "<group>"; };
 		EE586C8F18FFB14700BB5F6A /* RatingSectionsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RatingSectionsTableViewController.m; sourceTree = "<group>"; };
 		EE586C9118FFC5BF00BB5F6A /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -278,6 +284,10 @@
 				EE94D25718E40BF500C919DF /* CollectionViewCell.m */,
 				25AD67AC1900671B0007DF99 /* AnsprechpartnerTVC.h */,
 				25AD67AD1900671B0007DF99 /* AnsprechpartnerTVC.m */,
+				25E4914F190118E4003714E2 /* TeamCDTVC.h */,
+				25E49150190118E4003714E2 /* TeamCDTVC.m */,
+				25E491521901192F003714E2 /* TeamTVCell.h */,
+				25E491531901192F003714E2 /* TeamTVCell.m */,
 			);
 			name = GUI;
 			sourceTree = "<group>";
@@ -385,6 +395,7 @@
 				EE94D24E18E4090200C919DF /* Contact.m in Sources */,
 				25AD67AE1900671B0007DF99 /* AnsprechpartnerTVC.m in Sources */,
 				EE956E2918E44B8100E46F8D /* ProjectStreetsTableTableViewController.m in Sources */,
+				25E491541901192F003714E2 /* TeamTVCell.m in Sources */,
 				EE586C9018FFB14700BB5F6A /* RatingSectionsTableViewController.m in Sources */,
 				EE94D25D18E4199500C919DF /* NewProjectFormView.m in Sources */,
 				EE956E2618E4418D00E46F8D /* ProjectViewController.m in Sources */,
@@ -393,6 +404,7 @@
 				EE94D24918E4090200C919DF /* Project.m in Sources */,
 				EE94D25518E40A3B00C919DF /* CollectionView.m in Sources */,
 				EE956E2C18E4535D00E46F8D /* NewStreetViewController.m in Sources */,
+				25E49151190118E4003714E2 /* TeamCDTVC.m in Sources */,
 				EE94D24F18E4090200C919DF /* Ratingsection.m in Sources */,
 				EE94D24D18E4090200C919DF /* Street.m in Sources */,
 				EE94D24B18E4090200C919DF /* Employees.m in Sources */,
