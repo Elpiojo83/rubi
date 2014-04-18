@@ -14,6 +14,7 @@
 #import "ProjectStreetsTableTableViewController.h"
 #import "NewStreetViewController.h"
 #import "AnsprechpartnerTVC.h"
+#import "TeamToProjectCVC.h"
 
 
 @interface ProjectViewController ()
@@ -202,6 +203,14 @@
         controller.contact = [[self.project.contacts allObjects] firstObject];
         controller.managedObjectContext = self.project.managedObjectContext;
     }
+    
+    if ( [segue.identifier isEqualToString: @"Team"]) {
+        TeamToProjectCVC *controller = (TeamToProjectCVC *)segue.destinationViewController;
+        controller.project = self.project;
+        controller.managedObjectContext = self.project.managedObjectContext;
+
+    }
+    
     
 }
 

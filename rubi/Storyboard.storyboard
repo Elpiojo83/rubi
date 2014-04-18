@@ -157,6 +157,14 @@
                                     <segue destination="9Jr-pj-h6F" kind="embed" identifier="Ansprechpartner" id="NIk-qX-ICj"/>
                                 </connections>
                             </containerView>
+                            <containerView hidden="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Wcs-MB-BUK">
+                                <rect key="frame" x="428" y="116" width="576" height="150"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <connections>
+                                    <segue destination="Uau-eK-2Un" kind="embed" identifier="Team" id="VYb-hu-8St"/>
+                                </connections>
+                            </containerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
@@ -165,6 +173,7 @@
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <connections>
                         <outlet property="AnsprechpartnerView" destination="lXA-D8-EWv" id="Bxx-yv-KbP"/>
+                        <outlet property="TeamView" destination="Wcs-MB-BUK" id="jSa-G7-Kcm"/>
                         <outlet property="projectNoteTextField" destination="poF-lB-PVR" id="1kZ-jb-oK1"/>
                         <outlet property="projectNotesTextView" destination="poF-lB-PVR" id="R8a-Fc-U9P"/>
                         <outlet property="projectNotesView" destination="twv-2a-T5a" id="SkR-ZL-dNn"/>
@@ -305,6 +314,123 @@
             </objects>
             <point key="canvasLocation" x="3554" y="94"/>
         </scene>
+        <!--Team To ProjectCVC-->
+        <scene sceneID="c0e-KM-Exp">
+            <objects>
+                <collectionViewController autoresizesArchivedViewToFullSize="NO" id="Uau-eK-2Un" customClass="TeamToProjectCVC" sceneMemberID="viewController">
+                    <collectionView key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" id="xgh-tz-ezy">
+                        <rect key="frame" x="0.0" y="0.0" width="576" height="150"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
+                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Zvv-Op-qK8">
+                            <size key="itemSize" width="275" height="140"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="MemberToProjectCVCell" id="cLP-Cb-KG5" customClass="TeamToProjectCVCell">
+                                <rect key="frame" x="0.0" y="0.0" width="275" height="140"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="275" height="140"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Vorname" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aol-Hv-jRC">
+                                            <rect key="frame" x="20" y="40" width="235" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Nachname" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kpM-wB-U6S">
+                                            <rect key="frame" x="20" y="79" width="235" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="nachname" destination="kpM-wB-U6S" id="prF-Ak-2Gq"/>
+                                    <outlet property="vorname" destination="aol-Hv-jRC" id="Hec-ZU-qvj"/>
+                                    <segue destination="C4E-qD-8rW" kind="modal" identifier="searchTeam" modalPresentationStyle="formSheet" id="rUE-ux-Z36"/>
+                                </connections>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="Uau-eK-2Un" id="63h-FR-SsV"/>
+                            <outlet property="delegate" destination="Uau-eK-2Un" id="Fgm-RR-9aV"/>
+                        </connections>
+                    </collectionView>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Z4v-Mb-bWa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3554" y="356"/>
+        </scene>
+        <!--Team SelectionCDTVC - Team-->
+        <scene sceneID="PpG-Rg-JhW">
+            <objects>
+                <tableViewController id="h32-73-J1g" customClass="TeamSelectionCDTVC" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" sectionHeaderHeight="22" sectionFooterHeight="22" id="jd7-r9-q45">
+                        <rect key="frame" x="0.0" y="0.0" width="540" height="620"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="TeamSelectionCell" rowHeight="100" id="3pn-cZ-gof" customClass="TeamSelectionTVCell">
+                                <rect key="frame" x="0.0" y="66" width="540" height="100"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="3pn-cZ-gof" id="03b-ug-0mA">
+                                    <rect key="frame" x="0.0" y="0.0" width="540" height="99"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Vorname" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QRk-xJ-K6Y">
+                                            <rect key="frame" x="20" y="20" width="500" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Nachname" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wjL-Tb-7lY">
+                                            <rect key="frame" x="20" y="58" width="500" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="nachname" destination="wjL-Tb-7lY" id="Rcc-d3-m0y"/>
+                                    <outlet property="vorname" destination="QRk-xJ-K6Y" id="WBc-3B-Vz3"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="h32-73-J1g" id="TKW-TZ-AQT"/>
+                            <outlet property="delegate" destination="h32-73-J1g" id="ga3-9h-w9Z"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Team" id="P5V-iL-NRd">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="3qa-o9-nt0">
+                            <connections>
+                                <action selector="cancel:" destination="h32-73-J1g" id="t0I-Ax-iZS"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="1JR-N1-GcS">
+                            <connections>
+                                <action selector="done:" destination="h32-73-J1g" id="c12-FQ-diy"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="V9K-3x-bwD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4976" y="82"/>
+        </scene>
         <!--New Section Form View-->
         <scene sceneID="yJF-Df-Ynw">
             <objects>
@@ -364,7 +490,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CT7-PG-dqK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6020" y="-726"/>
+            <point key="canvasLocation" x="5892" y="334"/>
         </scene>
         <!--Rating Sections Table View Controller - Bewertungsabschnitte-->
         <scene sceneID="lfN-JV-ldZ">
@@ -404,7 +530,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="84M-lS-7JE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5017" y="247"/>
+            <point key="canvasLocation" x="5635" y="1307"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="gtb-YR-Ljv">
@@ -425,7 +551,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hzx-cu-GLD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6353" y="241"/>
+            <point key="canvasLocation" x="6971" y="1301"/>
         </scene>
         <!--Project Streets Table Table View Controller - Abschnitte-->
         <scene sceneID="uMP-nc-MZZ">
@@ -473,14 +599,14 @@
         <scene sceneID="5ct-1H-1Zj">
             <objects>
                 <tableViewController id="tTh-q9-IE4" customClass="TeamCDTVC" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="FKi-XU-aDz">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="FKi-XU-aDz">
                         <rect key="frame" x="0.0" y="0.0" width="540" height="620"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Employee" rowHeight="108" id="Nh6-uz-Ixg" customClass="TeamTVCell">
-                                <rect key="frame" x="0.0" y="66" width="540" height="108"/>
+                                <rect key="frame" x="0.0" y="99" width="540" height="108"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Nh6-uz-Ixg" id="Q7j-ZD-LnY">
                                     <rect key="frame" x="0.0" y="0.0" width="540" height="107"/>
@@ -645,6 +771,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sNg-5R-yuH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1346" y="-1388"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="zmo-4C-BIh">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="C4E-qD-8rW" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="t2w-a9-Kis">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="h32-73-J1g" kind="relationship" relationship="rootViewController" id="DHt-X2-byB"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FG0-wQ-KRV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4230" y="82"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

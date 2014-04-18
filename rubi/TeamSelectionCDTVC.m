@@ -1,19 +1,19 @@
 //
-//  TeamCDTVC.m
+//  TeamSelectionCDTVC.m
 //  rubi
 //
 //  Created by Markus Kroisenbrunner on 18.04.14.
 //  Copyright (c) 2014 koerbler. All rights reserved.
 //
 
-#import "TeamCDTVC.h"
-#import "TeamTVCell.h"
+#import "TeamSelectionCDTVC.h"
+#import "TeamSelectionTVCell.h"
 
-@interface TeamCDTVC ()
+@interface TeamSelectionCDTVC ()
 
 @end
 
-@implementation TeamCDTVC
+@implementation TeamSelectionCDTVC
 
 
 -(void)setManagedObjectContext:(NSManagedObjectContext *)managedObjectContext {
@@ -22,7 +22,7 @@
     if (managedObjectContext) {
         NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName: @"Employees"];
         request.sortDescriptors = @[[ NSSortDescriptor  sortDescriptorWithKey: @"lastname" ascending:YES ]];
-
+        
         
         self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest: request managedObjectContext:managedObjectContext sectionNameKeyPath: nil cacheName: nil];
     }
@@ -35,9 +35,9 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
-    static NSString *CellIdentifier = @"Employee";
+    static NSString *CellIdentifier = @"TeamSelectionCell";
     
-    TeamTVCell *cell = (TeamTVCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    TeamSelectionTVCell *cell = (TeamSelectionTVCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
     // Configure the cell...
     Employees *employee = [self.fetchedResultsController objectAtIndexPath:indexPath];
@@ -46,53 +46,21 @@
     return cell;
 }
 
-- (IBAction)addNewTeamMember:(UIBarButtonItem *)sender {
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    Employees *selEmployee = [[self.fetchedResultsController fetchedObjects] objectAtIndex: indexPath.row];
     
-    NSManagedObject* employee = [NSEntityDescription insertNewObjectForEntityForName:@"Employees" inManagedObjectContext:self.managedObjectContext];
+    [self.delegate selectedEmployee: selEmployee fromSender: self];
     
-    NSError *error = nil;
-    [self.managedObjectContext save: &error];
-}
-
-- (IBAction)done:(UIBarButtonItem *)sender {
-    NSError *error = nil;
-    [self.managedObjectContext save: &error];
-
     [self dismissViewControllerAnimated: YES completion: NULL];
 }
 
-
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
+- (IBAction)done:(UIBarButtonItem *)sender {
+    [self dismissViewControllerAnimated: YES completion: NULL];
 }
 
--(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPathtableView {
-        return 100;
+- (IBAction)cancel:(UIBarButtonItem *)sender {
+    [self dismissViewControllerAnimated: YES completion: NULL];
 }
-
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        
-        // Delete the row from the data source
-        @try {
-            Employees *member = [self.fetchedResultsController objectAtIndexPath: indexPath];
-            
-            //[context deleteObject: route];
-            [self.managedObjectContext deleteObject: member];
-            
-        }
-        @catch (NSException * e) {
-            NSLog(@"Exception: %@", e);
-         
-        }
-    }
-}
-
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
