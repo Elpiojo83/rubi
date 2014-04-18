@@ -30,6 +30,8 @@
     UIColor *streetBg = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"street.png"]];
     self.RatingSectionInterfaceView.backgroundColor = streetBg;
     
+    NSLog(@"RatingSection");
+    
     // Do any additional setup after loading the view.
 }
 

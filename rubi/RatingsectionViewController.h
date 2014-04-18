@@ -11,4 +11,5 @@
 @interface RatingsectionViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UIView *RatingSectionInterfaceView;
 
+
 @end
