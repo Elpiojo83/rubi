@@ -71,6 +71,8 @@
     
     ABPeoplePickerNavigationController *picker = [[ABPeoplePickerNavigationController alloc] init];
 	picker.peoplePickerDelegate = self;
+    picker.modalPresentationStyle = UIModalPresentationFormSheet;
+    
     
     [self presentViewController: picker animated: YES completion: nil];
     
@@ -79,6 +81,18 @@
 
 // Eine Person wurde ausgewählt
 - (BOOL)peoplePickerNavigationController: (ABPeoplePickerNavigationController *)peoplePicker shouldContinueAfterSelectingPerson:(ABRecordRef)person {
+    
+    
+    //  ID der Person wird gespeichert... Wichtig!
+    //  Nach [self dismissViewControllerAnimated:YES completion:nil] wird ViewWillAppear aufgerufen...
+    //  die ID wird dort weiterverarbeitet
+    self.selPersonID = ABRecordGetRecordID( person );
+    
+    // Alle bisherigen Daten zurücksetzen
+    self.name.text = @"";
+    self.strasse.text = @"";
+    self.adresse.text = @"";
+    
     
     // Name der Person wird ausgelesen
     NSString *title = (__bridge NSString *)ABRecordCopyValue(person, kABPersonJobTitleProperty);
@@ -112,9 +126,26 @@
         [self.project addContactsObject: self.contact];
         
     }
+    else {
+//      Zürucksetzen der bisher gespeicherten Daten
+        self.contact.title = @"";
+        self.contact.firstname = @"";
+        self.contact.lastname = @"";
+        self.contact.street = @"";
+        self.contact.zip = nil;
+        self.contact.place = @"";
+        
+        NSError *error = nil;
+        [self.managedObjectContext save: &error];
+    }
+    
     self.contact.title = title;
     self.contact.firstname = firstName;
     self.contact.lastname = lastName;
+    
+    
+    NSError *error = nil;
+    [self.managedObjectContext save: &error];
     
     self.name.text = [NSString stringWithFormat: @"%@%@%@", title, firstName, lastName];
     ABMutableMultiValueRef multi = ABRecordCopyValue(person, kABPersonEmailProperty);
@@ -124,6 +155,7 @@
     
     if (ABMultiValueGetCount(addresses) > 1) {  // many addresses found, set "" and enable Button, ViewDidAppear handels PickerViewer
         self.showAddressPicker = YES;
+        
     }
     else if (ABMultiValueGetCount(addresses) == 1 ){ // only one address, set it up!
         
@@ -154,16 +186,20 @@
     
     
     
-    //  ID der Person wird gespeichert... Wichtig!
-    //  Nach [self dismissViewControllerAnimated:YES completion:nil] wird ViewWillAppear aufgerufen...
-    //  die ID wird dort weiterverarbeitet
-    self.selPersonID = ABRecordGetRecordID( person );
     
-    NSError *error = nil;
+    error = nil;
     [self.managedObjectContext save: &error];
     
     
-    [self dismissViewControllerAnimated:YES completion:nil];
+    [self dismissViewControllerAnimated:YES completion: ^{
+        
+        // Aufruf des Adresspickers, wenn gewünscht
+        if (self.selPersonID && self.showAddressPicker) {
+            [self presentAddresspicker];
+        }
+        
+    }];
+    
     return NO;
 }
 
@@ -177,6 +213,7 @@
         [personController setPersonViewDelegate: self];
         personController.displayedProperties = @[[NSNumber numberWithInt: kABPersonAddressProperty]];
         [personController setAllowsEditing: NO];
+        personController.modalPresentationStyle = UIModalPresentationFormSheet;
         
         [self presentViewController: personController animated: YES completion: nil];
     }
@@ -251,10 +288,6 @@ shouldPerformDefaultActionForPerson: (ABRecordRef)person
     
     [super viewDidAppear:animated];
     
-    // Aufruf des Adresspickers, wenn gewünscht
-    if (self.selPersonID && self.showAddressPicker) {
-        [self presentAddresspicker];
-    }
 }
 
 - (void)didReceiveMemoryWarning
