@@ -283,6 +283,10 @@
 				EE94D25718E40BF500C919DF /* CollectionViewCell.m */,
 				25AD67AC1900671B0007DF99 /* AnsprechpartnerTVC.h */,
 				25AD67AD1900671B0007DF99 /* AnsprechpartnerTVC.m */,
+				25E4914F190118E4003714E2 /* TeamCDTVC.h */,
+				25E49150190118E4003714E2 /* TeamCDTVC.m */,
+				25E491521901192F003714E2 /* TeamTVCell.h */,
+				25E491531901192F003714E2 /* TeamTVCell.m */,
 			);
 			name = GUI;
 			sourceTree = "<group>";
@@ -390,6 +394,7 @@
 				EE94D24E18E4090200C919DF /* Contact.m in Sources */,
 				25AD67AE1900671B0007DF99 /* AnsprechpartnerTVC.m in Sources */,
 				EE956E2918E44B8100E46F8D /* ProjectStreetsTableTableViewController.m in Sources */,
+				25E491541901192F003714E2 /* TeamTVCell.m in Sources */,
 				EE586C9018FFB14700BB5F6A /* RatingSectionsTableViewController.m in Sources */,
 				EE94D25D18E4199500C919DF /* NewProjectFormView.m in Sources */,
 				EE956E2618E4418D00E46F8D /* ProjectViewController.m in Sources */,
@@ -398,6 +403,7 @@
 				EE94D24918E4090200C919DF /* Project.m in Sources */,
 				EE94D25518E40A3B00C919DF /* CollectionView.m in Sources */,
 				EE956E2C18E4535D00E46F8D /* NewStreetViewController.m in Sources */,
+				25E49151190118E4003714E2 /* TeamCDTVC.m in Sources */,
 				EE94D24F18E4090200C919DF /* Ratingsection.m in Sources */,
 				EE94D24D18E4090200C919DF /* Street.m in Sources */,
 				EE94D24B18E4090200C919DF /* Employees.m in Sources */,

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13C64" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="h4U-Cd-43X">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5037.3" systemVersion="13C64" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="h4U-Cd-43X">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
@@ -62,7 +62,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Jz-Az-nRO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2424" y="-726"/>
+            <point key="canvasLocation" x="3398" y="-726"/>
         </scene>
         <!--Project View Controller-->
         <scene sceneID="AgL-3f-z8B">
@@ -234,7 +234,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vz7-D8-sa4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3688" y="-726"/>
+            <point key="canvasLocation" x="4662" y="-726"/>
         </scene>
         <!--AnsprechpartnerTVC-->
         <scene sceneID="tS9-eC-OFk">
@@ -364,7 +364,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CT7-PG-dqK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5046" y="-726"/>
+            <point key="canvasLocation" x="6020" y="-726"/>
         </scene>
         <!--Rating Sections Table View Controller - Bewertungsabschnitte-->
         <scene sceneID="lfN-JV-ldZ">
@@ -523,6 +523,65 @@
             </objects>
             <point key="canvasLocation" x="3872" y="779"/>
         </scene>
+        <!--TeamCDTVC - Team-->
+        <scene sceneID="5ct-1H-1Zj">
+            <objects>
+                <tableViewController id="tTh-q9-IE4" customClass="TeamCDTVC" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="FKi-XU-aDz">
+                        <rect key="frame" x="0.0" y="0.0" width="540" height="620"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Employee" rowHeight="108" id="Nh6-uz-Ixg" customClass="TeamTVCell">
+                                <rect key="frame" x="0.0" y="66" width="540" height="108"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Nh6-uz-Ixg" id="Q7j-ZD-LnY">
+                                    <rect key="frame" x="0.0" y="0.0" width="540" height="107"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Vorname" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hby-Zx-M5I">
+                                            <rect key="frame" x="20" y="20" width="249" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits"/>
+                                        </textField>
+                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Nachname" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JHe-uh-vc5">
+                                            <rect key="frame" x="20" y="58" width="500" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits"/>
+                                        </textField>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="nachname" destination="JHe-uh-vc5" id="5nw-Di-eh3"/>
+                                    <outlet property="vorname" destination="hby-Zx-M5I" id="it1-O3-ap7"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="tTh-q9-IE4" id="dyP-fD-23L"/>
+                            <outlet property="delegate" destination="tTh-q9-IE4" id="5vZ-SF-O54"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Team" id="Sz0-ND-2dA">
+                        <barButtonItem key="leftBarButtonItem" systemItem="add" id="t7Y-19-Pth">
+                            <connections>
+                                <action selector="addNewTeamMember:" destination="tTh-q9-IE4" id="DzA-IK-toI"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="Ftq-ne-wdS">
+                            <connections>
+                                <action selector="done:" destination="tTh-q9-IE4" id="ixk-HV-hTH"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eCF-6v-7Fk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2320" y="-1388"/>
+        </scene>
         <!--Collection View-->
         <scene sceneID="2sO-rK-ozH">
             <objects>
@@ -569,6 +628,11 @@
                         </connections>
                     </collectionView>
                     <navigationItem key="navigationItem" id="CAf-eZ-DkD">
+                        <barButtonItem key="leftBarButtonItem" title="Team" id="QSr-on-a7y">
+                            <connections>
+                                <segue destination="Zfg-56-wR3" kind="modal" identifier="manageTeam" modalPresentationStyle="formSheet" id="ZZr-bR-uEG"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="PM2-3Q-YdD">
                             <connections>
                                 <segue destination="rEM-PT-WaF" kind="modal" identifier="addProject" modalPresentationStyle="formSheet" id="EQL-5u-img"/>
