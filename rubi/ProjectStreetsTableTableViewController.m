@@ -68,14 +68,20 @@
     
     if([segue.identifier isEqualToString:@"toRatingSections"]){
         
-        Section *sec = [self.fetchedResultsController objectAtIndexPath:0];
+        //Section *sec = [self.fetchedResultsController objectAtIndexPath:0];
+        //NSLog(@"the section %@",sec );
+        
+        
+        
+        Section *sec = [[self.fetchedResultsController fetchedObjects] objectAtIndex: self.tableView.indexPathForSelectedRow.row];
         NSLog(@"the section %@",sec );
         
         
         RatingSectionsTableViewController *dvc = [segue destinationViewController];
-        dvc.street.section = self.street.section;
+        dvc.section = sec;
+        dvc.managedObjectContext = _managedObjectContext;
         
-        NSLog(@"DVC Section %@", self.street.section);
+        
     }
 
 }
