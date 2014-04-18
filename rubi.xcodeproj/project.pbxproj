@@ -290,6 +290,8 @@
 				EE956E2B18E4535D00E46F8D /* NewStreetViewController.m */,
 				EE956E2418E4418D00E46F8D /* ProjectViewController.h */,
 				EE956E2518E4418D00E46F8D /* ProjectViewController.m */,
+				EE022ABC19011F5800E243D6 /* RatingsectionViewController.h */,
+				EE022ABD19011F5800E243D6 /* RatingsectionViewController.m */,
 				EE94D25318E40A3B00C919DF /* CollectionView.h */,
 				EE94D25418E40A3B00C919DF /* CollectionView.m */,
 				EE94D25618E40BF500C919DF /* CollectionViewCell.h */,
