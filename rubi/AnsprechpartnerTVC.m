@@ -62,7 +62,11 @@
         
         self.strasse.text = [NSString stringWithFormat: @"%@", self.contact.street];
         
-        self.adresse.text = [NSString stringWithFormat: @"%@ %@", self.contact.zip, self.contact.place];
+        NSString *zipCode = @"";
+        if(self.contact.zip)
+            zipCode = [self.contact.zip stringValue];
+        
+        self.adresse.text = [NSString stringWithFormat: @"%@ %@", zipCode, self.contact.place];
     }
 }
 
