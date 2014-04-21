@@ -7,6 +7,11 @@
 //
 
 #import "RatingsectionViewController.h"
+#import "RatingSectionsTableViewController.h"
+#import "Street.h"
+#import "Project.h"
+#import "Section.h"
+#import "Ratingsection.h"
 
 @interface RatingsectionViewController ()
 
@@ -30,7 +35,9 @@
     UIColor *streetBg = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"street.png"]];
     self.RatingSectionInterfaceView.backgroundColor = streetBg;
     
-    NSLog(@"RatingSection");
+    NSLog(@"RatingSection: %@", self.section);
+    
+    
     
     // Do any additional setup after loading the view.
 }

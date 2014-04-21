@@ -15,6 +15,7 @@
 #import "ProjectViewController.h"
 #import "NewSectionFormView.h"
 #import "Ratingsection.h"
+#import "RatingsectionViewController.h"
 
 
 @interface RatingSectionsTableViewController ()
@@ -127,11 +128,15 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
     
+    NSString *numberOfRatongSections = [NSString stringWithFormat:@" %i", [self.section.ratingSection count]];
+    
     // Configure the cell...
     Ratingsection *ratingsection = [self.fetchedResultsController objectAtIndexPath:indexPath]; // ask NSFRC for the NSMO at the row in question
     cell.textLabel.text = [NSString stringWithFormat:@"%@",  ratingsection.startPositionGPS];
     
-    NSLog(@"RATINGSECTION: %@", ratingsection);
+    
+    
+    NSLog(@"RATINGSECTION: %@", numberOfRatongSections);
     
     return cell;
 }
@@ -139,14 +144,23 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     
     
-/*
-    if([segue.identifier isEqualToString:@"addSection"]){
+    if([segue.identifier isEqualToString:@"RatingSection"]){
         
-        NewSectionFormView *dvc = [segue destinationViewController];
-        dvc.street = self.street;
+        //Section *sec = [self.fetchedResultsController objectAtIndexPath:0];
+        //NSLog(@"the section %@",sec );
+        
+        
+        
+        Section *section = [[self.fetchedResultsController fetchedObjects] objectAtIndex: self.tableView.indexPathForSelectedRow.row];
+        NSLog(@"the section %@",section );
+        
+        
+        RatingSectionsTableViewController *dvc = [segue destinationViewController];
+        dvc.section = section;
+        dvc.managedObjectContext = _managedObjectContext;
+        
         
     }
- */
     
 }
 
