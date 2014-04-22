@@ -15,6 +15,11 @@
 #import "ProjectViewController.h"
 #import "NewSectionFormView.h"
 #import "Ratingsection.h"
+<<<<<<< HEAD
+=======
+#import "RatingImagesViewController.h"
+#import "RatingImage.h"
+>>>>>>> FETCH_HEAD
 #import "RatingsectionViewController.h"
 
 
@@ -144,6 +149,7 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     
     
+<<<<<<< HEAD
     if([segue.identifier isEqualToString:@"RatingSection"]){
         
         //Section *sec = [self.fetchedResultsController objectAtIndexPath:0];
@@ -158,9 +164,27 @@
         RatingSectionsTableViewController *dvc = [segue destinationViewController];
         dvc.section = section;
         dvc.managedObjectContext = _managedObjectContext;
+=======
+
+    if([segue.identifier isEqualToString:@"addSection"]){
+>>>>>>> FETCH_HEAD
         
         
     }
+<<<<<<< HEAD
+=======
+    
+    if([segue.identifier isEqualToString:@"toRatingSections"]){
+
+        RatingsectionViewController *dvc = [segue destinationViewController];
+        dvc.managedObjectContext = self.managedObjectContext;
+        
+        NSLog(@"SegueToSectio %@", dvc.managedObjectContext);
+        
+    }
+
+ 
+>>>>>>> FETCH_HEAD
     
 }
 
