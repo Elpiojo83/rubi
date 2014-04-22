@@ -17,7 +17,7 @@
 
 @implementation RatingImagesViewController
 
-
+/*
 -(void)setManagedObjectContext:(NSManagedObjectContext *)managedObjectContext {
     
     _managedObjectContext = managedObjectContext;
@@ -32,7 +32,7 @@
         self.fetchedResultsController = nil;
     }
 }
-
+*/
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -62,9 +62,7 @@
 - (IBAction)takePictureTouchUpInside:(id)sender {
     
     UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
-    
     imagePicker.sourceType =  UIImagePickerControllerSourceTypeCamera;
-    
     imagePicker.delegate = self;
 
 

@@ -6,8 +6,12 @@
 //  Copyright (c) 2014 koerbler. All rights reserved.
 //
 
+
 #import "CoreDataTableViewController.h"
 #import <AssetsLibrary/AssetsLibrary.h>
+
+
+
 
 @interface RatingImagesViewController : CoreDataTableViewController  <UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 

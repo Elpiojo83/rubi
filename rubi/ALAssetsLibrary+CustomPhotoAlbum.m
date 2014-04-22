@@ -9,6 +9,7 @@
 #import "Section.h"
 #import "Ratingsection.h"
 #import "RatingImage.h"
+#import "RatingImagesViewController.h"
 
 
 @implementation ALAssetsLibrary(CustomPhotoAlbum)
@@ -32,7 +33,9 @@
                                     toAlbum:albumName 
                         withCompletionBlock:completionBlock];
                             
-                            NSLog(@"ImagePath: %@", assetURL);
+                       NSLog(@"ImagePath: %@", assetURL);
+                         
+                       
                             
                       }];
 }

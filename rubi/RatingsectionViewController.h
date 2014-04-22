@@ -16,6 +16,8 @@
 @property (nonatomic, strong) Ratingsection* ratingsection;
 @property (nonatomic, strong) RatingImage* ratingimage;
 
+@property (nonatomic, strong) NSString* constructiontype;
+
 @property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
 
 

@@ -151,9 +151,15 @@
     }
     
     if([segue.identifier isEqualToString:@"toRatingSections"]){
+        
+        Ratingsection *ratingSection = [[self.fetchedResultsController fetchedObjects] objectAtIndex: self.tableView.indexPathForSelectedRow.row];
+        NSLog(@"the section %@",ratingSection );
+                
 
         RatingsectionViewController *dvc = [segue destinationViewController];
         dvc.managedObjectContext = self.managedObjectContext;
+        
+        dvc.ratingsection = ratingSection;
         
         NSLog(@"SegueToSectio %@", dvc.managedObjectContext);
         
