@@ -77,12 +77,14 @@
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingImage:(UIImage *)image editingInfo:(NSDictionary *)editingInfo
 {
    
-    
     [self.Mylibrary saveImage:image toAlbum:@"Rubi" withCompletionBlock:^(NSError *error) {
         if (error!=nil) {
             NSLog(@"Big error: %@", [error description]);
         }
     }];
+    
+    
+    
     
     [picker dismissModalViewControllerAnimated:NO];
 }

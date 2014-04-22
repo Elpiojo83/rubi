@@ -6,8 +6,14 @@
 //
 
 #import "ALAssetsLibrary+CustomPhotoAlbum.h"
+#import "Section.h"
+#import "Ratingsection.h"
+#import "RatingImage.h"
+
 
 @implementation ALAssetsLibrary(CustomPhotoAlbum)
+
+
 
 -(void)saveImage:(UIImage*)image toAlbum:(NSString*)albumName withCompletionBlock:(SaveImageCompletion)completionBlock
 {
@@ -25,7 +31,9 @@
                           [self addAssetURL: assetURL 
                                     toAlbum:albumName 
                         withCompletionBlock:completionBlock];
-                          
+                            
+                            NSLog(@"ImagePath: %@", assetURL);
+                            
                       }];
 }
 
