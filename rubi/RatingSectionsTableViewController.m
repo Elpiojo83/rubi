@@ -15,6 +15,9 @@
 #import "ProjectViewController.h"
 #import "NewSectionFormView.h"
 #import "Ratingsection.h"
+#import "RatingImagesViewController.h"
+#import "RatingImage.h"
+#import "RatingsectionViewController.h"
 
 
 @interface RatingSectionsTableViewController ()
@@ -139,14 +142,24 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     
     
-/*
+
     if([segue.identifier isEqualToString:@"addSection"]){
         
         NewSectionFormView *dvc = [segue destinationViewController];
         dvc.street = self.street;
         
     }
- */
+    
+    if([segue.identifier isEqualToString:@"toRatingSections"]){
+
+        RatingsectionViewController *dvc = [segue destinationViewController];
+        dvc.managedObjectContext = self.managedObjectContext;
+        
+        NSLog(@"SegueToSectio %@", dvc.managedObjectContext);
+        
+    }
+
+ 
     
 }
 

@@ -13,6 +13,7 @@
 @property (nonatomic, strong) Section *section;
 @property (nonatomic, strong) Street* street;
 @property (nonatomic, strong) Project* project;
+@property (nonatomic, strong) Ratingsection* ratingsection;
 
 @property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
 

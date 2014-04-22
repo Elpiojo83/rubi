@@ -50,6 +50,8 @@
     
     NSManagedObject* employee = [NSEntityDescription insertNewObjectForEntityForName:@"Employees" inManagedObjectContext:self.managedObjectContext];
     
+    NSLog(@"Mitarbeiter: %@", employee);
+    
     NSError *error = nil;
     [self.managedObjectContext save: &error];
 }
