@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		255CEA7519085DFE00B9681C /* StartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 255CEA7419085DFE00B9681C /* StartViewController.m */; };
 		25AD67AE1900671B0007DF99 /* AnsprechpartnerTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 25AD67AD1900671B0007DF99 /* AnsprechpartnerTVC.m */; };
 		25B2193F18FC5FCE006C00D2 /* CoreDataTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25B2193E18FC5FCE006C00D2 /* CoreDataTableViewController.m */; };
 		25B65CD01901336D009BE6F1 /* TeamSelectionCDTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 25B65CCF1901336D009BE6F1 /* TeamSelectionCDTVC.m */; };
@@ -68,6 +69,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		255CEA7319085DFE00B9681C /* StartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StartViewController.h; sourceTree = "<group>"; };
+		255CEA7419085DFE00B9681C /* StartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StartViewController.m; sourceTree = "<group>"; };
 		25AD67AC1900671B0007DF99 /* AnsprechpartnerTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnsprechpartnerTVC.h; sourceTree = "<group>"; };
 		25AD67AD1900671B0007DF99 /* AnsprechpartnerTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnsprechpartnerTVC.m; sourceTree = "<group>"; };
 		25B2193D18FC5FCE006C00D2 /* CoreDataTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataTableViewController.h; sourceTree = "<group>"; };
@@ -332,6 +335,8 @@
 				25B65CCF1901336D009BE6F1 /* TeamSelectionCDTVC.m */,
 				25B65CD119013398009BE6F1 /* TeamSelectionTVCell.h */,
 				25B65CD219013398009BE6F1 /* TeamSelectionTVCell.m */,
+				255CEA7319085DFE00B9681C /* StartViewController.h */,
+				255CEA7419085DFE00B9681C /* StartViewController.m */,
 			);
 			name = GUI;
 			sourceTree = "<group>";
@@ -461,6 +466,7 @@
 				EE94D24B18E4090200C919DF /* Employees.m in Sources */,
 				EE94D24A18E4090200C919DF /* RatingImage.m in Sources */,
 				25E4915A19012A70003714E2 /* TeamToProjectCVCell.m in Sources */,
+				255CEA7519085DFE00B9681C /* StartViewController.m in Sources */,
 				EE94D25818E40BF500C919DF /* CollectionViewCell.m in Sources */,
 				EE94D21118E4084700C919DF /* main.m in Sources */,
 			);
