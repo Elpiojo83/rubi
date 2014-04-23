@@ -89,7 +89,9 @@
         
         
         RatingImagesViewController *dvc = [segue destinationViewController];
+        dvc.ratingsection = self.ratingsection;
         dvc.managedObjectContext = self.managedObjectContext;
+        
         
         //dvc.ratingsection.ratingimage = self.ratingsection.ratingimage;
         //NSLog(@"imgs: %@", dvc.ratingsection.ratingimage);

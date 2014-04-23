@@ -25,7 +25,7 @@
     if (managedObjectContext) {
         NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName: @"RatingImage"];
         request.sortDescriptors = @[[ NSSortDescriptor  sortDescriptorWithKey: @"imagePath" ascending:YES ]];
-        //request.predicate = [NSPredicate predicateWithFormat: @" ratingsection == %@" , ratingsection];
+        request.predicate = [NSPredicate predicateWithFormat: @" ratingsection == %@" , self.ratingsection];
         
         
         NSLog(@"Curr. Images: %@", request);
@@ -67,7 +67,8 @@
         //CGImageRef iref = [rep fullScreenImage];
         if (myasset != NULL) {
             UIImage *largeimage = [UIImage imageWithCGImage:[myasset thumbnail]];
-            [cell.imageView setImage:largeimage];
+                cell.imageView.frame = CGRectMake(15, 0, 44, 44);
+                [cell.imageView setImage:largeimage];
             NSLog(@"LARGEIMAGE: %@", largeimage);
         }
     };
