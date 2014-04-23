@@ -17,7 +17,7 @@
 
 
 @property (nonatomic, strong) Section *section;
-@property (nonatomic, strong) RatingImage *ratingImage;
+@property (nonatomic, strong) RatingImage *ratingimage;
 @property (nonatomic, strong) Ratingsection *ratingsection;
 
 @property (strong, atomic) ALAssetsLibrary* Mylibrary;

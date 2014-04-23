@@ -180,7 +180,7 @@
         NewStreetViewController *dvc = [segue destinationViewController];
         dvc.project = dvcProject;
         
-         NSLog(@"dvc Item: %@", dvcProject);
+        // NSLog(@"dvc Item: %@", dvcProject);
     }
     //Project *dvcProject = self.project;
     if([segue.identifier isEqualToString:@"Streets"]){
@@ -193,7 +193,7 @@
         
         dvc.managedObjectContext = street.managedObjectContext;
         
-        NSLog(@"DVC: %@", dvcProject);
+       // NSLog(@"DVC: %@", dvcProject);
     }
     
     

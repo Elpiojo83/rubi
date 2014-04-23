@@ -94,7 +94,11 @@
         //dvc.ratingsection.ratingimage = self.ratingsection.ratingimage;
         //NSLog(@"imgs: %@", dvc.ratingsection.ratingimage);
         
-        NSLog(@"Segue Section: %@", self.managedObjectContext);
+        dvc.ratingsection = self.ratingsection;
+        dvc.ratingimage = self.ratingimage;
+        dvc.ratingsection.ratingimage = self.ratingsection.ratingimage;
+        
+       // NSLog(@"Segue Section: %@", self.managedObjectContext);
         
     }
     
