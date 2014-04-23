@@ -54,33 +54,41 @@
     // Configure the cell...
     RatingImage *image = [[self.ratingsection.ratingimage allObjects] objectAtIndex:indexPath.row];
     
-    NSString* imagetitle = [NSString stringWithFormat:@"%@", image.imagePath];
+    //NSString* imagetitle = [NSString stringWithFormat:@"%@", image.imagePath];
     
     NSURL* imageUrl = [NSURL URLWithString:image.imagePath];
     
-    cell.textLabel.text = imagetitle;
-    //cell.imageView.image = [UIImage imageNamed:image.imagePath];
+    //cell.textLabel.text = imagetitle;
+
     
-    NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:image.imagePath]];
-    NSLog(@"ImageData %@", imageData);
-    cell.imageView.image = [UIImage imageWithData:imageData];
+    ALAssetsLibraryAssetForURLResultBlock resultblock = ^(ALAsset *myasset)
+    {
+        //ALAssetRepresentation *rep = [myasset defaultRepresentation];
+        //CGImageRef iref = [rep fullScreenImage];
+        if (myasset != NULL) {
+            UIImage *largeimage = [UIImage imageWithCGImage:[myasset thumbnail]];
+            [cell.imageView setImage:largeimage];
+            NSLog(@"LARGEIMAGE: %@", largeimage);
+        }
+    };
     
-    [self.Mylibrary assetForURL:(NSURL *)imageUrl resultBlock:^(ALAsset *asset) {
-        NSLog(@"URL %@", imageUrl);
-        
-        //cell.imageView.image = [UIImage imageWithContentsOfFile:image.imagePath];
-        
-    } failureBlock:^(NSError *error) {
-        NSLog(@"Errror");
-    }];
+    ALAssetsLibraryAccessFailureBlock failureblock  = ^(NSError *myerror)
+    {
+        NSLog(@"Can't get image - %@",[myerror localizedDescription]);
+    };
     
-    
-    //cell.imageView.image = [UIImage imageWithContentsOfFile:@"street.png"];
+     
+     ALAssetsLibrary* assetslibrary = [[ALAssetsLibrary alloc] init] ;
+     [assetslibrary assetForURL:imageUrl
+                    resultBlock:resultblock
+                   failureBlock:failureblock];
     
     
     return cell;
     
 }
+
+
 
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
@@ -125,15 +133,6 @@
          
      }];
     
-    /*
-    NSData *pngData = UIImagePNGRepresentation(image);
-    
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *documentsPath = [paths objectAtIndex:0]; //Get the docs directory
-    NSString *filePath = [documentsPath stringByAppendingPathComponent:@"image.png"]; //Add the file name
-    [pngData writeToFile:filePath atomically:YES]; //Write the file
-    */
-    
     
     [picker dismissModalViewControllerAnimated:NO];
 }
@@ -153,6 +152,9 @@
 -(void)viewDidAppear:(BOOL)animated{
     
     self.Mylibrary = [[ALAssetsLibrary alloc] init];
+    
+    
+    
     
 }
 

@@ -13,7 +13,9 @@
 
 
 
-@interface RatingImagesViewController : CoreDataTableViewController  <UINavigationControllerDelegate, UIImagePickerControllerDelegate, UITableViewDelegate>
+@interface RatingImagesViewController : CoreDataTableViewController  <UINavigationControllerDelegate, UIImagePickerControllerDelegate, UITableViewDelegate>{
+    NSMutableArray *assets;
+}
 
 typedef void (^ALAssetsLibraryAssetForURLResultBlock)(ALAsset *asset);
 typedef void (^ALAssetsLibraryAccessFailureBlock)(NSError *error);
