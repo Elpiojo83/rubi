@@ -13,8 +13,10 @@
 
 
 
-@interface RatingImagesViewController : CoreDataTableViewController  <UINavigationControllerDelegate, UIImagePickerControllerDelegate>
+@interface RatingImagesViewController : CoreDataTableViewController  <UINavigationControllerDelegate, UIImagePickerControllerDelegate, UITableViewDelegate>
 
+typedef void (^ALAssetsLibraryAssetForURLResultBlock)(ALAsset *asset);
+typedef void (^ALAssetsLibraryAccessFailureBlock)(NSError *error);
 
 @property (nonatomic, strong) Section *section;
 @property (nonatomic, strong) RatingImage *ratingimage;
