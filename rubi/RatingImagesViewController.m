@@ -159,14 +159,17 @@
    // NSString *myAlbum = [NSString stringWithFormat:@"%@", self.section.sectionname];
    // NSLog(@"CurrentAlbum: %@", myAlbum);
     
+    self.ratingimage = [NSEntityDescription insertNewObjectForEntityForName:@"RatingImage" inManagedObjectContext: self.managedObjectContext];
+    
+    
     NSLog(@"Image %@", self.ratingsection.ratingimage);
     NSLog(@"RatingSection %@", self.ratingsection);
-    
+    NSLog(@"RatingImage %@", self.ratingimage);
 
 
     
     self.ratingimage.imagePath = @"somPath";
-    [self.ratingsection addRatingimageObject:(RatingImage *)self.ratingsection.ratingimage];
+    [self.ratingsection addRatingimageObject: self.ratingimage];
     
   
     
