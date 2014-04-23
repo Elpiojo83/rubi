@@ -25,7 +25,7 @@
         NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName: @"Employees"];
         request.sortDescriptors = @[[ NSSortDescriptor  sortDescriptorWithKey: @"lastname" ascending:YES ]];
         
-        //request.predicate = [NSPredicate predicateWithFormat: @" project == %@" , self.project];
+        request.predicate = [NSPredicate predicateWithFormat:@"ANY project = [cd] %@", self.project];
         
         self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest: request
                                                                             managedObjectContext: managedObjectContext
@@ -47,6 +47,9 @@
     [employee addProjectObject: self.project];
     NSError *error = nil;
     [self.managedObjectContext save: &error];
+    
+    [self.fetchedResultsController performFetch: &error];
+    [self.collectionView reloadData];
 
 }
 

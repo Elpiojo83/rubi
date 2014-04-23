@@ -8,6 +8,10 @@
 
 #import "StartViewController.h"
 #import "CollectionViewCell.h"
+#import "Project.h"
+#import "NewProjectFormView.h"
+#import "ProjectViewController.h"
+#import "TeamCDTVC.h"
 
 @interface StartViewController () <UICollectionViewDataSource, UICollectionViewDelegate>
 
@@ -176,13 +180,13 @@
 
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
-    /*
+    
     if([segue.identifier isEqualToString:@"addProject"]){
         NewProjectFormView* controller = segue.destinationViewController;
         controller.parentManagedObjectContext = self.managedObjectContext;
     }
     if([segue.identifier isEqualToString:@"projectSegue"]){
-        NSIndexPath *selectedIndexPath = [[self.collectionView indexPathsForSelectedItems] objectAtIndex:0];
+        NSIndexPath *selectedIndexPath = [[self.projectCV indexPathsForSelectedItems] objectAtIndex:0];
         Project *project = [[self fetchedResultsController] objectAtIndexPath:selectedIndexPath];
         ProjectViewController *dvc = [segue destinationViewController];
         dvc.project = project;
@@ -191,7 +195,6 @@
         TeamCDTVC *dvc = (TeamCDTVC *)[[segue destinationViewController] topViewController];
         dvc.managedObjectContext = self.managedObjectContext;
     }
-     */
 }
 
 
