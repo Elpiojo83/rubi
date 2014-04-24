@@ -12,9 +12,13 @@
 #import "Ratingsection.h"
 #import "PickerViewController.h"
 
-@interface RatingsectionViewController () <PickerViewControllerDelegate>
+@interface RatingsectionViewController () <PickerViewControllerDelegate, UIPopoverControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UIButton *btnA;
+@property (weak, nonatomic) IBOutlet UIButton *btnA2;
+
+
+@property (nonatomic, strong) UIPopoverController *popController;
 
 @end
 
@@ -135,7 +139,24 @@
 }
 - (IBAction)leftBikePathPicker:(id)sender {
     
-    [self performSegueWithIdentifier: @"showPickerView" sender: self];
+    [self presentPopOvercontroller: sender];
+}
+
+-(void)presentPopOvercontroller:(id)sender {
+    PickerViewController* controller = [[self storyboard] instantiateViewControllerWithIdentifier:@"PickerViewController"];
+    
+    controller.delegate = self;
+    controller.sourceControl = (UIButton *)sender;
+    
+    self.popController = [[UIPopoverController alloc]
+                          initWithContentViewController: controller];
+    self.popController.delegate = self;
+    //Get the cell from your table that presents the popover
+    
+    [self.popController presentPopoverFromRect: ((UIButton *)sender).bounds
+                                        inView: ((UIButton *)sender)
+                      permittedArrowDirections: UIPopoverArrowDirectionLeft animated:YES];
     
 }
+
 @end

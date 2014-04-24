@@ -675,13 +675,6 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="A" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="38a-5B-jfv">
-                                        <rect key="frame" x="464" y="54" width="97" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="textColor" red="0.33333333329999998" green="0.40784313729999999" blue="0.56470588239999997" alpha="1" colorSpace="calibratedRGB"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vcj-wc-mXk">
                                         <rect key="frame" x="464" y="92" width="97" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -829,6 +822,13 @@
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <textField opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lFy-fL-VfB">
+                                        <rect key="frame" x="464" y="48" width="97" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="textColor" red="0.33333333329999998" green="0.40784313729999999" blue="0.56470588239999997" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yRF-at-BB4">
                                         <rect key="frame" x="464" y="10" width="97" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -841,14 +841,14 @@
                                             </segue>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xbh-dU-PFm">
-                                        <rect key="frame" x="464" y="53" width="97" height="30"/>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bgu-g5-mI5">
+                                        <rect key="frame" x="464" y="48" width="97" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" title="A">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <action selector="leftBikePathPicker:" destination="nZf-HE-PE4" eventType="touchUpInside" id="hcn-T9-0yX"/>
+                                            <action selector="leftBikePathPicker:" destination="nZf-HE-PE4" eventType="touchUpInside" id="viQ-UB-7d0"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -922,6 +922,7 @@
                     <connections>
                         <outlet property="RatingSectionInterfaceView" destination="bVx-1q-H3Q" id="ODx-hC-FoQ"/>
                         <outlet property="btnA" destination="yRF-at-BB4" id="Dva-tb-p19"/>
+                        <outlet property="btnA2" destination="bgu-g5-mI5" id="qcj-sw-PAO"/>
                         <outlet property="leftBikePathWidthStepper" destination="W7t-cL-9Ng" id="AoG-hO-xLF"/>
                         <outlet property="leftBikePathWidthTextField" destination="BEo-lp-h5o" id="tED-hn-NZb"/>
                         <outlet property="leftSideWalkWidthStepper" destination="jaE-eu-FNP" id="wpu-Ux-Mh5"/>
@@ -1048,7 +1049,7 @@ ST		Naturstein</string>
         <!--Picker View Controller-->
         <scene sceneID="aQC-9h-Hri">
             <objects>
-                <viewController id="cbI-US-lFP" customClass="PickerViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PickerViewController" id="cbI-US-lFP" customClass="PickerViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="E7W-Mg-Dea"/>
                         <viewControllerLayoutGuide type="bottom" id="kJy-5a-IkV"/>
