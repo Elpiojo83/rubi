@@ -6,6 +6,7 @@
 //  Copyright (c) 2014 koerbler. All rights reserved.
 //
 
+#import <UIKit/UIKit.h>
 #import "CoreDataTableViewController.h"
 
 @interface StreetsTableViewController : CoreDataTableViewController

@@ -21,12 +21,13 @@
 @interface ProjectViewController ()
 @property (weak, nonatomic) IBOutlet UIView *projectNotesView;
 @property (weak, nonatomic) IBOutlet UITextView *projectNotesTextView;
-//@property (nonatomic, strong) NSFetchedResultsController* fetchedResultsController;
+@property (nonatomic, strong) NSFetchedResultsController* fetchedResultsController;
 //@property (nonatomic, strong) NSManagedObjectContext* managedObjectContext;
 
 @property (weak, nonatomic) IBOutlet UIView *AnsprechpartnerView;
 @property (weak, nonatomic) IBOutlet UIView *TeamView;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *segmentedControl;
+@property (weak, nonatomic) IBOutlet UIView *StrreetsTableView;
 
 @end
 
@@ -140,10 +141,12 @@
     }
     
     if ( [segue.identifier isEqualToString: @"Streets"]) {
+        
         StreetsTableViewController *controller = (StreetsTableViewController *)segue.destinationViewController;
         controller.project = self.project;
         controller.street = self.street;
         controller.managedObjectContext = self.project.managedObjectContext;
+        NSLog(@"StreetsTableSegue: %@", controller.street);
         
     }
     

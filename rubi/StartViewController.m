@@ -12,6 +12,7 @@
 #import "NewProjectFormView.h"
 #import "ProjectViewController.h"
 #import "TeamCDTVC.h"
+#import "Street.h"
 
 @interface StartViewController () <UICollectionViewDataSource, UICollectionViewDelegate>
 
@@ -56,7 +57,6 @@
 
 -(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
     return self.fetchedResultsController.sections.count;
-    
 }
 
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
@@ -190,6 +190,16 @@
         Project *project = [[self fetchedResultsController] objectAtIndexPath:selectedIndexPath];
         ProjectViewController *dvc = [segue destinationViewController];
         dvc.project = project;
+        dvc.project.streets = project.streets;
+        //dvc.street = self.street;
+        
+        Street *street = [[self fetchedResultsController] objectAtIndexPath:selectedIndexPath];
+        dvc.street = street;
+        
+        dvc.managedObjectContext = self.managedObjectContext;
+        
+        NSLog(@"StreetFormsegue %@", street);
+        
     }
     if([segue.identifier isEqualToString:@"manageTeam"]){
         TeamCDTVC *dvc = (TeamCDTVC *)[[segue destinationViewController] topViewController];

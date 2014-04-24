@@ -148,7 +148,6 @@
 
 -(void) refresh{
 
-//    [self.collectionView reloadSections:0];
     
     NSFetchRequest* fetch = [NSFetchRequest fetchRequestWithEntityName:NSStringFromClass([Project class])];
     NSSortDescriptor* sortPoject = [NSSortDescriptor sortDescriptorWithKey:@"projectTimestamp" ascending:NO];
@@ -169,7 +168,6 @@
 
     [self.collectionView reloadData];
     
-    //NSLog(@"Data reloaded");
 }
 
 
@@ -185,12 +183,14 @@
     mySelectedCell.ProjectTitleLabel.textColor = [UIColor blackColor];
 }
 
+#pragma mark - Navigation
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     if([segue.identifier isEqualToString:@"addProject"]){
         NewProjectFormView* controller = segue.destinationViewController;
         controller.parentManagedObjectContext = self.managedObjectContext;
     }
+    
     if([segue.identifier isEqualToString:@"projectSegue"]){
         NSIndexPath *selectedIndexPath = [[self.collectionView indexPathsForSelectedItems] objectAtIndex:0];
         Project *project = [[self fetchedResultsController] objectAtIndexPath:selectedIndexPath];
@@ -198,21 +198,12 @@
         dvc.project = project;
         dvc.managedObjectContext = self.managedObjectContext;
     }
+     
     if([segue.identifier isEqualToString:@"manageTeam"]){
         TeamCDTVC *dvc = (TeamCDTVC *)[[segue destinationViewController] topViewController];
         dvc.managedObjectContext = self.managedObjectContext;
     }
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

@@ -10,4 +10,6 @@
 
 @interface StartViewController : UITableViewController
 
+@property (nonatomic, strong) Street *street;
+
 @end
