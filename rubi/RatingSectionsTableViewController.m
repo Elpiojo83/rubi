@@ -170,7 +170,7 @@
         NSLog(@"the section %@",ratingSection );
                 
 
-        RatingsectionViewController *dvc = [segue destinationViewController];
+        RatingsectionViewController *dvc = (RatingsectionViewController *)[[segue destinationViewController] topViewController];
         dvc.managedObjectContext = self.managedObjectContext;
         
         dvc.ratingsection = ratingSection;
