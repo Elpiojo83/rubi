@@ -111,7 +111,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <connections>
-                                    <segue destination="Wfd-ZI-nYh" kind="embed" identifier="Streets" id="qTS-z1-M0z"/>
+                                    <segue destination="oGD-cc-pd4" kind="embed" identifier="Streets" id="qTS-z1-M0z"/>
                                 </connections>
                             </containerView>
                             <containerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lXA-D8-EWv">
@@ -209,7 +209,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vz7-D8-sa4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2936" y="2060"/>
+            <point key="canvasLocation" x="3718" y="2060"/>
         </scene>
         <!--Streets Table View Controller - Straßen-->
         <scene sceneID="6Lh-0G-DoW">
@@ -253,7 +253,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xa4-KM-REp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1994" y="2179"/>
+            <point key="canvasLocation" x="2684" y="2303"/>
         </scene>
         <!--AnsprechpartnerTVC-->
         <scene sceneID="tS9-eC-OFk">
@@ -893,6 +893,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="ntz-S3-IjO"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    <size key="freeformSize" width="1024" height="768"/>
                     <connections>
                         <outlet property="RatingSectionInterfaceView" destination="bVx-1q-H3Q" id="ODx-hC-FoQ"/>
                         <outlet property="leftBikePathWidthStepper" destination="W7t-cL-9Ng" id="AoG-hO-xLF"/>
@@ -909,7 +910,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hzx-cu-GLD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5821" y="1327"/>
+            <point key="canvasLocation" x="5499" y="1353"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="kci-to-ZmV">
@@ -1358,6 +1359,24 @@ ST		Naturstein</string>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6HG-Cc-WUJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-2381" y="85"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="vU2-3s-s6P">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="oGD-cc-pd4" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="rTE-Qp-mcw">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Wfd-ZI-nYh" kind="relationship" relationship="rootViewController" id="Bhq-to-ws1"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jPD-Ku-r04" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1902" y="2309"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

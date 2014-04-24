@@ -141,12 +141,19 @@
     }
     
     if ( [segue.identifier isEqualToString: @"Streets"]) {
-        
+       /*
         StreetsTableViewController *controller = (StreetsTableViewController *)segue.destinationViewController;
         controller.project = self.project;
         controller.street = self.street;
         controller.managedObjectContext = self.project.managedObjectContext;
-        NSLog(@"StreetsTableSegue: %@", controller.street);
+        
+        */
+        
+        StreetsTableViewController *dvc = (StreetsTableViewController *) [[segue destinationViewController] topViewController];
+        dvc.project = self.project;
+        dvc.street = self.street;
+        dvc.managedObjectContext = self.managedObjectContext;
+        NSLog(@"StreetsTableSegue: %@", dvc.street);
         
     }
     

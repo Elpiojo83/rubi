@@ -44,9 +44,9 @@
     }
     
     // Configure the cell...
-    //Street *street = [self.fetchedResultsController objectAtIndexPath:indexPath]; // ask NSFRC for the NSMO at the row in question
+    Street *street = [self.fetchedResultsController objectAtIndexPath:indexPath]; // ask NSFRC for the NSMO at the row in question
     
-    Street *street = [[self.project.streets allObjects] objectAtIndex:indexPath.row];
+    //Street *street = [[self.project.streets allObjects] objectAtIndex:indexPath.row];
     
     NSLog(@"streets in table %@", street);
     cell.textLabel.text = [NSString stringWithFormat:@"%@",  street.streetname];
@@ -59,8 +59,7 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
-   // NSLog(@"Streets: %@", self.project.streets);
+    NSLog(@"Streets inTableView: %@", self.street);
     
 }
 
