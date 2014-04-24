@@ -133,4 +133,9 @@
     [self dismissViewControllerAnimated:YES completion:nil];
     
 }
+- (IBAction)leftBikePathPicker:(id)sender {
+    
+    [self performSegueWithIdentifier: @"showPickerView" sender: self];
+    
+}
 @end

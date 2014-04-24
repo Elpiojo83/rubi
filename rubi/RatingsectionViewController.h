@@ -20,6 +20,7 @@
 
 @property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
 
+- (IBAction)leftBikePathPicker:(id)sender;
 
 @property (weak, nonatomic) IBOutlet UIView *RatingSectionInterfaceView;
 
