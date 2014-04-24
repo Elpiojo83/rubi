@@ -142,7 +142,7 @@
     [self presentPopOvercontroller: sender];
 }
 
--(void)presentPopOvercontroller:(id)sender {
+-(IBAction)presentPopOvercontroller:(id)sender {
     PickerViewController* controller = [[self storyboard] instantiateViewControllerWithIdentifier:@"PickerViewController"];
     
     controller.delegate = self;
