@@ -11,12 +11,21 @@
 #import "CoreDataTableViewController.h"
 #import "Ratingsection.h"
 #import "PickerViewController.h"
+#import <CoreLocation/CoreLocation.h>
 
-@interface RatingsectionViewController () <PickerViewControllerDelegate, UIPopoverControllerDelegate>
+@interface RatingsectionViewController () <PickerViewControllerDelegate,
+                                            UIPopoverControllerDelegate,
+                                            CLLocationManagerDelegate>
 
 @property (weak, nonatomic) IBOutlet UIButton *btnA;
 @property (weak, nonatomic) IBOutlet UIButton *btnA2;
 
+
+@property (strong, nonatomic) CLLocationManager *locationManager;
+@property (strong, nonatomic) CLGeocoder *geocoder;
+
+@property (nonatomic, strong) NSString *longitude;
+@property (nonatomic, strong) NSString *latidude;
 
 @property (nonatomic, strong) UIPopoverController *popController;
 
@@ -51,6 +60,13 @@
     NSLog(@"TYPE: %@", self.ratingsection);
 
     // Do any additional setup after loading the view.
+    self.locationManager = [[CLLocationManager alloc] init];
+    self.geocoder = [[CLGeocoder alloc] init];
+    
+    self.locationManager.delegate = self;
+    self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+    
+    [self.locationManager startUpdatingLocation];
 }
 
 - (void)didReceiveMemoryWarning
@@ -129,7 +145,33 @@
     
 }
 
-
+- (IBAction)newRatingSection:(UIBarButtonItem *)sender {
+    
+    
+    Ratingsection* ratingsection = [NSEntityDescription insertNewObjectForEntityForName:@"Ratingsection" inManagedObjectContext:_managedObjectContext];
+    
+    // NSString* newRatingsectionStartPosition = [NSString stringWithFormat:@"Abschnitt"];
+    
+    
+    NSString *newRatingsectionStartPosition = [NSString stringWithFormat:@"%@,%@", _longitude, _latidude];
+    
+    [ratingsection setValue:newRatingsectionStartPosition forKey:@"startPositionGPS"];
+    
+    
+    [self.ratingsection.section addRatingSectionObject:(Ratingsection*)ratingsection];
+    
+    
+    RatingsectionViewController* controller = [[self storyboard] instantiateViewControllerWithIdentifier:@"RatingsectionViewController"];
+    controller.project = self.project;
+    controller.ratingsection = ratingsection;
+    controller.managedObjectContext = self.managedObjectContext;
+    
+    UINavigationController *navigationController = self.navigationController;
+    // Pop to root view controller (not animated) before pushing
+    [navigationController popToRootViewControllerAnimated:NO];
+    [navigationController pushViewController: controller animated:YES];
+}
+    
 
 
 - (IBAction)dismissViewTouchUpInside:(id)sender {
@@ -158,5 +200,48 @@
                       permittedArrowDirections: UIPopoverArrowDirectionLeft animated:YES];
     
 }
+
+#pragma LocationManager Methoden
+
+- (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
+{
+    NSLog(@"didFailWithError: %@", error);
+    UIAlertView *errorAlert = [[UIAlertView alloc]
+                               initWithTitle:@"Error" message:@"Failed to Get Your Location" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    [errorAlert show];
+}
+
+- (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation
+{
+    //NSLog(@"didUpdateToLocation: %@", newLocation);
+    CLLocation *currentLocation = newLocation;
+    
+    if (currentLocation != nil) {
+        self.longitude = [NSString stringWithFormat:@"%.8f", currentLocation.coordinate.longitude];
+        self.latidude  = [NSString stringWithFormat:@"%.8f", currentLocation.coordinate.latitude];
+        
+        //  NSLog(@"Position %@ %@", _longitude, _latidude);
+    }
+    
+    [self.locationManager stopUpdatingLocation];
+    
+    NSLog(@"Resolving the Address");
+    [self.geocoder reverseGeocodeLocation:currentLocation completionHandler:^(NSArray *placemarks, NSError *error) {
+        NSLog(@"Found placemarks: %@, error: %@", placemarks, error);
+        if (error == nil && [placemarks count] > 0) {
+            CLPlacemark *placemark = [placemarks lastObject];
+            NSString *adress = [NSString stringWithFormat:@"%@ %@\n%@ %@\n%@\n%@",
+                                placemark.subThoroughfare, placemark.thoroughfare,
+                                placemark.postalCode, placemark.locality,
+                                placemark.administrativeArea,
+                                placemark.country];
+            NSLog(@"Adress: %@", adress);
+            
+        } else {
+            NSLog(@"%@", error.debugDescription);
+        }
+    } ];
+}
+
 
 @end

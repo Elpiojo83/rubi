@@ -14,7 +14,10 @@
 #import "TeamCDTVC.h"
 #import "Street.h"
 
-@interface StartViewController () <UICollectionViewDataSource, UICollectionViewDelegate>
+@interface StartViewController () <UICollectionViewDataSource,
+                                    UICollectionViewDelegate,
+                                    UIGestureRecognizerDelegate,
+                                    UIAlertViewDelegate>
 
 @property (nonatomic, strong) NSURLConnection *urlConnection;
 @property (nonatomic, strong) NSMutableData *receivedData;
@@ -26,6 +29,7 @@
 @property (nonatomic, strong) NSFetchedResultsController* fetchedResultsController;
 @property (nonatomic, strong) NSManagedObjectContext* managedObjectContext;
 
+@property (nonatomic, strong) NSIndexPath* indexPathToDelete;
 
 @end
 
@@ -115,6 +119,51 @@
     NSArray *allProjects = [managedObject executeFetchRequest:fetch error:&error];
     
     self.projectArray = allProjects;
+    
+    UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self
+                                                                                            action:@selector(longPressHandler:)];
+    longPress.delegate = self;
+    [self.projectCV addGestureRecognizer:longPress];
+    
+}
+
+-(void) longPressHandler:(UILongPressGestureRecognizer*)gesture{
+    
+    CGPoint tapLocation = [gesture locationInView: self.projectCV];
+    
+    NSIndexPath *indexPath = [self.projectCV indexPathForItemAtPoint: tapLocation];
+    if (indexPath && gesture.state == UIGestureRecognizerStateRecognized) {
+
+        self.indexPathToDelete = indexPath;
+        UIAlertView *deleteAlert = [[UIAlertView alloc]
+                                    initWithTitle:@"Löschen?"
+                                    message:@"Wollen Sie wirklich dieses Projekt löschen?"
+                                    delegate:self cancelButtonTitle:@"Abbrechen" otherButtonTitles:@"OK", nil];
+        deleteAlert.delegate = self;
+        [deleteAlert show];
+        
+    }
+}
+
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    NSLog(@"selected button index = %ld", (long)buttonIndex);
+    if (buttonIndex == 1) {
+        // Do what you need to do to delete the cell
+        
+        [self.projectCV performBatchUpdates:^{
+            
+            
+            Project *projectToDelete = [self.fetchedResultsController.fetchedObjects objectAtIndex: self.indexPathToDelete.row];
+            
+            [self.managedObjectContext deleteObject: projectToDelete];
+            ;
+            
+        } completion:nil];
+        
+        [self.projectCV reloadData];
+    }
+    
+    self.indexPathToDelete = nil;
     
 }
 
