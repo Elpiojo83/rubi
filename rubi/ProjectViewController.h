@@ -8,11 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ProjectViewController : UIViewController <UITextFieldDelegate, UITableViewDataSource, UITableViewDelegate>
+@interface ProjectViewController : UIViewController <UITextFieldDelegate>
 
 @property (strong, nonatomic) IBOutlet UITextView *projectNoteTextField;
 
 @property (nonatomic, strong) Project* project;
 @property (nonatomic, strong) Street* street;
+
+@property (nonatomic, strong) NSManagedObjectContext* managedObjectContext;
 
 @end

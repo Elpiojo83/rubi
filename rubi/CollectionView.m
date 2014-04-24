@@ -196,6 +196,7 @@
         Project *project = [[self fetchedResultsController] objectAtIndexPath:selectedIndexPath];
         ProjectViewController *dvc = [segue destinationViewController];
         dvc.project = project;
+        dvc.managedObjectContext = self.managedObjectContext;
     }
     if([segue.identifier isEqualToString:@"manageTeam"]){
         TeamCDTVC *dvc = (TeamCDTVC *)[[segue destinationViewController] topViewController];

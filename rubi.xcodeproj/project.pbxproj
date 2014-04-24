@@ -18,6 +18,7 @@
 		25E491541901192F003714E2 /* TeamTVCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 25E491531901192F003714E2 /* TeamTVCell.m */; };
 		25E4915719012607003714E2 /* TeamToProjectCVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 25E4915619012607003714E2 /* TeamToProjectCVC.m */; };
 		25E4915A19012A70003714E2 /* TeamToProjectCVCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 25E4915919012A70003714E2 /* TeamToProjectCVCell.m */; };
+		DB36592D1908DAA600E0ED31 /* StreetsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB36592C1908DAA600E0ED31 /* StreetsTableViewController.m */; };
 		DB6A4DAF19063C1E00863D54 /* RatingsectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB6A4DAE19063C1E00863D54 /* RatingsectionViewController.m */; };
 		DB6A4DB1190667C100863D54 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB6A4DB0190667C100863D54 /* AssetsLibrary.framework */; };
 		DB6A4DB419066E4700863D54 /* RatingImagesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB6A4DB319066E4700863D54 /* RatingImagesViewController.m */; };
@@ -89,6 +90,8 @@
 		25E4915619012607003714E2 /* TeamToProjectCVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeamToProjectCVC.m; sourceTree = "<group>"; };
 		25E4915819012A70003714E2 /* TeamToProjectCVCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeamToProjectCVCell.h; sourceTree = "<group>"; };
 		25E4915919012A70003714E2 /* TeamToProjectCVCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeamToProjectCVCell.m; sourceTree = "<group>"; };
+		DB36592B1908DAA600E0ED31 /* StreetsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StreetsTableViewController.h; sourceTree = "<group>"; };
+		DB36592C1908DAA600E0ED31 /* StreetsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StreetsTableViewController.m; sourceTree = "<group>"; };
 		DB6A4DAD19063C1E00863D54 /* RatingsectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RatingsectionViewController.h; sourceTree = "<group>"; };
 		DB6A4DAE19063C1E00863D54 /* RatingsectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RatingsectionViewController.m; sourceTree = "<group>"; };
 		DB6A4DB0190667C100863D54 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
@@ -317,6 +320,8 @@
 				EE956E2B18E4535D00E46F8D /* NewStreetViewController.m */,
 				EE956E2418E4418D00E46F8D /* ProjectViewController.h */,
 				EE956E2518E4418D00E46F8D /* ProjectViewController.m */,
+				DB36592B1908DAA600E0ED31 /* StreetsTableViewController.h */,
+				DB36592C1908DAA600E0ED31 /* StreetsTableViewController.m */,
 				EE94D25318E40A3B00C919DF /* CollectionView.h */,
 				EE94D25418E40A3B00C919DF /* CollectionView.m */,
 				EE94D25618E40BF500C919DF /* CollectionViewCell.h */,
@@ -455,6 +460,7 @@
 				EE94D24818E4090200C919DF /* RatingsectionSafetyHazard.m in Sources */,
 				EE94D24918E4090200C919DF /* Project.m in Sources */,
 				EE94D25518E40A3B00C919DF /* CollectionView.m in Sources */,
+				DB36592D1908DAA600E0ED31 /* StreetsTableViewController.m in Sources */,
 				EE956E2C18E4535D00E46F8D /* NewStreetViewController.m in Sources */,
 				25E49151190118E4003714E2 /* TeamCDTVC.m in Sources */,
 				EE94D24F18E4090200C919DF /* Ratingsection.m in Sources */,

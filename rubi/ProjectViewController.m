@@ -15,15 +15,15 @@
 #import "NewStreetViewController.h"
 #import "AnsprechpartnerTVC.h"
 #import "TeamToProjectCVC.h"
+#import "StreetsTableViewController.h"
 
 
 @interface ProjectViewController ()
 @property (weak, nonatomic) IBOutlet UIView *projectNotesView;
 @property (weak, nonatomic) IBOutlet UITextView *projectNotesTextView;
-@property (nonatomic, strong) NSFetchedResultsController* fetchedResultsController;
-@property (nonatomic, strong) NSManagedObjectContext* managedObjectContext;
+//@property (nonatomic, strong) NSFetchedResultsController* fetchedResultsController;
+//@property (nonatomic, strong) NSManagedObjectContext* managedObjectContext;
 
-@property (nonatomic, strong) UITableView* tableView;
 @property (weak, nonatomic) IBOutlet UIView *AnsprechpartnerView;
 @property (weak, nonatomic) IBOutlet UIView *TeamView;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *segmentedControl;
@@ -72,7 +72,6 @@
         self.projectNoteTextField.text = [NSString stringWithFormat:@" %@", self.project.projectNote];
     }
     
-    [self.tableView reloadData];
     
 }
 
@@ -119,82 +118,11 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
+
 #pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-    
-    // Return the number of sections.
-    return 1;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    
-    // Return the number of rows in the section.
-  
-  /*
-    NSLog(@"Rows: %i", [[[self.fetchedResultsController sections] objectAtIndex:section] numberOfObjects]);
-    
-   return [[[self.fetchedResultsController sections] objectAtIndex:section] numberOfObjects];
-   */
-    return [self.project.streets count];
-    
-}
-
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"streetsCell" forIndexPath:indexPath];
-    
-    // Configure the cell...
-    Street *street = [[self.project.streets allObjects] objectAtIndex:indexPath.row];
-    
-    NSString* streetTitle = [NSString stringWithFormat:@"%@", street.streetname];
-    
-   // NSArray *names = [self.project.streets valueForKeyPath:@"streetname"];
-   // NSLog(@"Streetnames: %@", names);
-    
-    //cell.textLabel.text = [names objectAtIndex:indexPath.row];
-    cell.textLabel.text = streetTitle;
-    
-    return cell;
-    
-}
 
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
-    
-    if([segue.identifier isEqualToString:@"addStreet"]){
-        
-        Project *dvcProject = self.project;
-        NewStreetViewController *dvc = [segue destinationViewController];
-        dvc.project = dvcProject;
-        
-        // NSLog(@"dvc Item: %@", dvcProject);
-    }
-    //Project *dvcProject = self.project;
-    if([segue.identifier isEqualToString:@"Streets"]){
-        
-        Project *dvcProject = self.project;
-        ProjectStreetsTableTableViewController *dvc = [segue destinationViewController];
-        dvc.project = dvcProject;
-        Street *street = [[self.project.streets allObjects] objectAtIndex: self.tableView.indexPathForSelectedRow.row];
-        dvc.street = street;
-        
-        dvc.managedObjectContext = street.managedObjectContext;
-        
-       // NSLog(@"DVC: %@", dvcProject);
-    }
     
     
     if ( [segue.identifier isEqualToString: @"Ansprechpartner"]) {
@@ -209,6 +137,14 @@
         controller.project = self.project;
         controller.managedObjectContext = self.project.managedObjectContext;
 
+    }
+    
+    if ( [segue.identifier isEqualToString: @"Streets"]) {
+        StreetsTableViewController *controller = (StreetsTableViewController *)segue.destinationViewController;
+        controller.project = self.project;
+        controller.street = self.street;
+        controller.managedObjectContext = self.project.managedObjectContext;
+        
     }
     
     
