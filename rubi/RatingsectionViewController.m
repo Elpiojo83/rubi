@@ -10,13 +10,23 @@
 #import "RatingImagesViewController.h"
 #import "CoreDataTableViewController.h"
 #import "Ratingsection.h"
+#import "PickerViewController.h"
 
-@interface RatingsectionViewController ()
+@interface RatingsectionViewController () <PickerViewControllerDelegate>
+
+@property (weak, nonatomic) IBOutlet UIButton *btnA;
 
 @end
 
 @implementation RatingsectionViewController
 
+-(void)selectedString:(NSString *)value
+           forControl:(id)sourceControl
+           fromSender:(PickerViewController *)sender{
+    if ([sourceControl isKindOfClass: [UIButton class]]) {
+        [sourceControl setTitle: value forState: UIControlStateNormal];
+    }
+}
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -107,7 +117,11 @@
        // NSLog(@"Segue Section: %@", self.managedObjectContext);
         
     }
-    
+    else if( [segue.identifier isEqualToString:@"showPickerView"] ) {
+        PickerViewController *controller = (PickerViewController *)segue.destinationViewController;
+        controller.delegate = self;
+        controller.sourceControl = sender;
+    }
     
 }
 

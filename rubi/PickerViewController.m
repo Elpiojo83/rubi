@@ -41,6 +41,9 @@
 -(void)pickerView:(UIPickerView *)typeOfConstructionPickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component{
     NSLog(@"select %@", [_constructionTypes objectAtIndex:row]);
     self.typeOfConstruct = [_constructionTypes objectAtIndex:row];
+    
+    [self.delegate selectedString: self.typeOfConstruct forControl: self.sourceControl fromSender: self];
+    
 }
 
 #pragma mark -
