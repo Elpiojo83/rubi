@@ -1268,6 +1268,9 @@ ST		Naturstein</string>
                                                     <state key="normal" title="Gemeinde exportieren">
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
+                                                    <connections>
+                                                        <action selector="exportProjectToServer:" destination="I61-wN-YtR" eventType="touchUpInside" id="yZm-0g-Oxo"/>
+                                                    </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OVY-l2-3N0">
                                                     <rect key="frame" x="20" y="47" width="37" height="30"/>

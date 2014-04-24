@@ -11,5 +11,6 @@
 @interface StartViewController : UITableViewController
 
 @property (nonatomic, strong) Street *street;
+- (IBAction)exportProjectToServer:(id)sender;
 
 @end

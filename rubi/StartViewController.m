@@ -16,6 +16,10 @@
 
 @interface StartViewController () <UICollectionViewDataSource, UICollectionViewDelegate>
 
+@property (nonatomic, strong) NSURLConnection *urlConnection;
+@property (nonatomic, strong) NSMutableData *receivedData;
+
+
 @property (nonatomic, strong) IBOutlet UICollectionView *projectCV;
 
 @property (nonatomic, strong) NSArray *projectArray;
@@ -207,5 +211,77 @@
     }
 }
 
+#pragma mark Upload sqlite
 
+- (void)sendFile:(NSString *)filePath toServer:(NSString *)serverURL
+{
+    NSData *fileData = [NSData dataWithContentsOfFile:filePath];
+    if (!fileData) {
+        NSLog(@"Error: file error");
+        return;
+    }
+    
+    if (self.urlConnection) {
+        [self.urlConnection cancel];
+        self.urlConnection = nil;
+    }
+    
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc]
+                                    initWithURL:[NSURL URLWithString:serverURL]];
+    [request setTimeoutInterval:30.0];
+    [request setHTTPMethod:@"POST"];
+    NSString *boundary = @"780808070779786865757";
+    
+    /* Header */
+    NSString *contentType = [NSString stringWithFormat:@"multipart/form-data; boundary=%@", boundary];
+    [request addValue:contentType forHTTPHeaderField:@"Content-Type"];
+    
+    /* Body */
+    NSMutableData *postData = [NSMutableData data];
+    [postData appendData:[[NSString stringWithFormat:@"--%@\r\n", boundary] dataUsingEncoding:NSUTF8StringEncoding]];
+    [postData appendData:[[NSString stringWithFormat:@"Content-Disposition:form-data; name=\"file\"; filename=\"rubi.sqlite\"\r\n"] dataUsingEncoding:NSUTF8StringEncoding]];
+    [postData appendData:[@"Content-Type: application/octet-stream\r\n\r\n" dataUsingEncoding:NSUTF8StringEncoding]];
+    [postData appendData:fileData];
+    [postData appendData:[[NSString stringWithFormat:@"\r\n--%@--\r\n", boundary] dataUsingEncoding:NSUTF8StringEncoding]];
+    [request setHTTPBody:postData];
+    
+    self.urlConnection = [NSURLConnection connectionWithRequest:request delegate:self];
+}
+
+- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
+{
+    if (self.receivedData) {
+        self.receivedData = nil;
+    }
+    self.receivedData = [[NSMutableData alloc] init];
+}
+
+- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
+{
+    [self.receivedData appendData:data];
+}
+
+- (void)connectionDidFinishLoading:(NSURLConnection *)connection
+{
+    NSLog(@"finish requesting: %@", [[NSString alloc] initWithData:self.receivedData encoding:NSUTF8StringEncoding]);
+    self.urlConnection = nil;
+}
+
+- (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
+{
+    NSLog(@"requesting error: %@", [error localizedDescription]);
+    self.urlConnection = nil;
+}
+
+
+- (IBAction)exportProjectToServer:(id)sender {
+    
+    NSString *localFile = [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)
+                            objectAtIndex:0] stringByAppendingPathComponent:@"rubi.sqlite"];
+    NSString *api = @"http://app.rubi.st.automatix.koerbler.com/app/upload/upload.php";
+    [self sendFile:localFile toServer:api];
+    
+    NSLog(@"touch");
+    
+}
 @end
