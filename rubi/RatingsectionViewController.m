@@ -87,8 +87,9 @@
 
     if([segue.identifier isEqualToString:@"RatingImages"]){
         
+        RatingImagesViewController *dvc = (RatingImagesViewController *)[[segue destinationViewController] topViewController];
+        //RatingImagesViewController *dvc = [segue destinationViewController];
         
-        RatingImagesViewController *dvc = [segue destinationViewController];
         dvc.ratingsection = self.ratingsection;
         dvc.managedObjectContext = self.managedObjectContext;
         
@@ -100,6 +101,9 @@
         dvc.ratingimage = self.ratingimage;
         dvc.ratingsection.ratingimage = self.ratingsection.ratingimage;
         
+        
+        
+        
        // NSLog(@"Segue Section: %@", self.managedObjectContext);
         
     }
@@ -110,4 +114,9 @@
 
 
 
+- (IBAction)dismissViewTouchUpInside:(id)sender {
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
+    
+}
 @end

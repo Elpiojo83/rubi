@@ -23,6 +23,7 @@
 
 @property (weak, nonatomic) IBOutlet UIView *RatingSectionInterfaceView;
 
+- (IBAction)dismissViewTouchUpInside:(id)sender;
 
 
 @property (strong, nonatomic) IBOutlet UITextField *leftSideWalkWidthTextField;
