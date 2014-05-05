@@ -123,7 +123,17 @@
     UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self
                                                                                             action:@selector(longPressHandler:)];
     longPress.delegate = self;
+    
+    
+    UISwipeGestureRecognizer *swipeGesture = [[UISwipeGestureRecognizer alloc] initWithTarget:self
+                                                                                       action:@selector(swipeUpHandler:)];
+    
+    [swipeGesture setDirection:(UISwipeGestureRecognizerDirectionUp)];
+    
+    [self.projectCV addGestureRecognizer:swipeGesture];
+    
     [self.projectCV addGestureRecognizer:longPress];
+   // [self.projectCV addGestureRecognizer:swipeUp];
     
 }
 
@@ -140,10 +150,85 @@
                                     message:@"Wollen Sie wirklich dieses Projekt löschen?"
                                     delegate:self cancelButtonTitle:@"Abbrechen" otherButtonTitles:@"OK", nil];
         deleteAlert.delegate = self;
+       
+        
+        /*
+        [UICollectionViewCell beginAnimations:nil context:nil];
+        [UICollectionViewCell setAnimationDuration:0.14];
+        [UICollectionViewCell setAnimationRepeatAutoreverses:YES];
+        [UICollectionViewCell setAnimationRepeatCount:10000000];
+        
+        self.projectCV.transform = CGAffineTransformMakeRotation(69);
+        self.projectCV.transform = CGAffineTransformMakeRotation(-69);
+        
+        [UICollectionView commitAnimations];
+        */
+        
+        
         [deleteAlert show];
         
     }
 }
+
+
+-(void) swipeUpHandler:(UISwipeGestureRecognizer*)gr{
+    
+    NSLog(@"Swipe received.");
+    
+    //UISwipeGestureRecognizerDirection temp = gr.direction;
+    
+    if (gr.direction == UISwipeGestureRecognizerDirectionUp)
+    {
+        
+        CGPoint tapLocation = [gr locationInView: self.projectCV];
+        
+        NSIndexPath *indexPath = [self.projectCV indexPathForItemAtPoint: tapLocation];
+        if (indexPath && gr.state == UIGestureRecognizerStateRecognized) {
+            
+            self.indexPathToDelete = indexPath;
+            UIAlertView *deleteAlert = [[UIAlertView alloc]
+                                        initWithTitle:@"Löschen?"
+                                        message:@"Wollen Sie wirklich dieses Projekt löschen?"
+                                        delegate:self cancelButtonTitle:@"Abbrechen" otherButtonTitles:@"OK", nil];
+            deleteAlert.delegate = self;
+            
+            NSIndexPath *indexPath = [self.projectCV indexPathForItemAtPoint: tapLocation];
+            UICollectionViewCell *cell = [self.projectCV cellForItemAtIndexPath:indexPath];
+            
+            CGPoint position = cell.center;
+            
+            UIBezierPath *path = [UIBezierPath bezierPath];
+            [path moveToPoint:CGPointMake(position.x, position.y)];
+            [path addLineToPoint:CGPointMake(position.x, position.y-2000)];
+
+            //cell.hidden = YES;
+            
+        
+            //[cell:CGPointMake(position.x, position.y-600)];
+            
+            //[path addLineToPoint:CGPointMake(position.x, position.y+20)];
+            //[path addLineToPoint:CGPointMake(position.x, position.y-20)];
+            //[path addLineToPoint:CGPointMake(position.x, position.y+20)];
+            //[path addLineToPoint:CGPointMake(position.x, position.y)];
+            
+            CAKeyframeAnimation *positionAnimation = [CAKeyframeAnimation animationWithKeyPath:@"position"];
+            positionAnimation.path = path.CGPath;
+            positionAnimation.duration = 1.5f;
+            positionAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionLinear];
+            
+            [CATransaction begin];
+            [cell.layer addAnimation:positionAnimation forKey:nil];
+            [CATransaction commit];
+            
+            [deleteAlert show];
+            
+        }
+       
+    }
+    
+    
+}
+
 
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
     NSLog(@"selected button index = %ld", (long)buttonIndex);
@@ -156,6 +241,7 @@
             Project *projectToDelete = [self.fetchedResultsController.fetchedObjects objectAtIndex: self.indexPathToDelete.row];
             
             [self.managedObjectContext deleteObject: projectToDelete];
+            
             ;
             
         } completion:nil];
