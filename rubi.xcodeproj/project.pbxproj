@@ -23,6 +23,7 @@
 		DB6A4DB1190667C100863D54 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB6A4DB0190667C100863D54 /* AssetsLibrary.framework */; };
 		DB6A4DB419066E4700863D54 /* RatingImagesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB6A4DB319066E4700863D54 /* RatingImagesViewController.m */; };
 		DB6A4DBC1906926700863D54 /* ALAssetsLibrary+CustomPhotoAlbum.m in Sources */ = {isa = PBXBuildFile; fileRef = DB6A4DBB1906926700863D54 /* ALAssetsLibrary+CustomPhotoAlbum.m */; };
+		DBC54542191A19B8003073A2 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBC54541191A19B8003073A2 /* QuartzCore.framework */; };
 		EE586C9018FFB14700BB5F6A /* RatingSectionsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE586C8F18FFB14700BB5F6A /* RatingSectionsTableViewController.m */; };
 		EE586C9218FFC5BF00BB5F6A /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE586C9118FFC5BF00BB5F6A /* CoreLocation.framework */; };
 		EE94D20318E4084700C919DF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE94D20218E4084700C919DF /* Foundation.framework */; };
@@ -99,6 +100,7 @@
 		DB6A4DB319066E4700863D54 /* RatingImagesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RatingImagesViewController.m; sourceTree = "<group>"; };
 		DB6A4DBA1906926600863D54 /* ALAssetsLibrary+CustomPhotoAlbum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ALAssetsLibrary+CustomPhotoAlbum.h"; sourceTree = "<group>"; };
 		DB6A4DBB1906926700863D54 /* ALAssetsLibrary+CustomPhotoAlbum.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ALAssetsLibrary+CustomPhotoAlbum.m"; sourceTree = "<group>"; };
+		DBC54541191A19B8003073A2 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		EE586C8E18FFB14700BB5F6A /* RatingSectionsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RatingSectionsTableViewController.h; sourceTree = "<group>"; };
 		EE586C8F18FFB14700BB5F6A /* RatingSectionsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RatingSectionsTableViewController.m; sourceTree = "<group>"; };
 		EE586C9118FFC5BF00BB5F6A /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -160,6 +162,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DBC54542191A19B8003073A2 /* QuartzCore.framework in Frameworks */,
 				DB6A4DB1190667C100863D54 /* AssetsLibrary.framework in Frameworks */,
 				EE586C9218FFC5BF00BB5F6A /* CoreLocation.framework in Frameworks */,
 				25B68A8318FF2AAB00C82C25 /* AddressBook.framework in Frameworks */,
@@ -218,6 +221,7 @@
 		EE94D20118E4084700C919DF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				DBC54541191A19B8003073A2 /* QuartzCore.framework */,
 				DB6A4DB0190667C100863D54 /* AssetsLibrary.framework */,
 				EE586C9118FFC5BF00BB5F6A /* CoreLocation.framework */,
 				25B68A8118FF2AAB00C82C25 /* AddressBook.framework */,
