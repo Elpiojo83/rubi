@@ -49,11 +49,11 @@
  //   NSLog(@"Title: %@", self.project.projectTitle);
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(onKeyboardHide:) name:UIKeyboardWillHideNotification object:nil];
     
-    self.projectNotesView.layer.borderColor = [UIColor grayColor].CGColor;
-    self.projectNotesView.layer.borderWidth = 1.0f;
-    self.projectNotesView.layer.cornerRadius = 5.0f;
+    //self.projectNotesView.layer.borderColor = [UIColor grayColor].CGColor;
+    //self.projectNotesView.layer.borderWidth = 1.0f;
+    //self.projectNotesView.layer.cornerRadius = 5.0f;
     
-    self.projectNotesTextView.layer.backgroundColor = [UIColor clearColor].CGColor;
+    //self.projectNotesTextView.layer.backgroundColor = [UIColor clearColor].CGColor;
     
 //    NSLog(@"ProjectStreets: %@", self.project.streets);
     

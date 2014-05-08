@@ -32,8 +32,39 @@
 {
     [super viewDidLoad];
     
+    locationManager = [[CLLocationManager alloc] init];
+    geocoder = [[CLGeocoder alloc] init];
     
-    // Do any additional setup after loading the view.
+    locationManager.delegate = self;
+    locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+    
+    [locationManager startUpdatingLocation];
+}
+
+- (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation
+{
+    //NSLog(@"didUpdateToLocation: %@", newLocation);
+    CLLocation *currentLocation = newLocation;
+    
+    if (currentLocation != nil) {
+        self.longitude = [NSString stringWithFormat:@"%.8f", currentLocation.coordinate.longitude];
+        self.latidude  = [NSString stringWithFormat:@"%.8f", currentLocation.coordinate.latitude];
+        
+        
+        MKCoordinateRegion region;
+        region.center=currentLocation.coordinate;   // location
+        MKCoordinateSpan span;
+        span.latitudeDelta=0.5;               //  0.001 to 120
+        span.longitudeDelta=0.5;
+        region.span=span;
+        
+        [self.mapView setRegion:region animated:YES];
+        
+        NSLog(@"update");
+        
+    }
+    
+    
 }
 
 - (void)didReceiveMemoryWarning

@@ -8,9 +8,14 @@
 
 #import <UIKit/UIKit.h>
 #import <CoreLocation/CoreLocation.h>
+#import <MapKit/MapKit.h>
 
 @interface ProjectLocationViewController : UIViewController <CLLocationManagerDelegate>
 
 @property (strong, nonatomic) IBOutlet MKMapView *mapView;
+
+
+@property (nonatomic, strong) NSString *longitude;
+@property (nonatomic, strong) NSString *latidude;
 
 @end

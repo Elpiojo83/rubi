@@ -24,6 +24,8 @@
 		DB6A4DB419066E4700863D54 /* RatingImagesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB6A4DB319066E4700863D54 /* RatingImagesViewController.m */; };
 		DB6A4DBC1906926700863D54 /* ALAssetsLibrary+CustomPhotoAlbum.m in Sources */ = {isa = PBXBuildFile; fileRef = DB6A4DBB1906926700863D54 /* ALAssetsLibrary+CustomPhotoAlbum.m */; };
 		DBC54542191A19B8003073A2 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBC54541191A19B8003073A2 /* QuartzCore.framework */; };
+		DBD8CBDA191BB34E0015EB3F /* ProjectLocationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DBD8CBD9191BB34E0015EB3F /* ProjectLocationViewController.m */; };
+		DBD8CBDC191BB5130015EB3F /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBD8CBDB191BB5130015EB3F /* MapKit.framework */; };
 		EE586C9018FFB14700BB5F6A /* RatingSectionsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE586C8F18FFB14700BB5F6A /* RatingSectionsTableViewController.m */; };
 		EE586C9218FFC5BF00BB5F6A /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE586C9118FFC5BF00BB5F6A /* CoreLocation.framework */; };
 		EE94D20318E4084700C919DF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE94D20218E4084700C919DF /* Foundation.framework */; };
@@ -101,6 +103,9 @@
 		DB6A4DBA1906926600863D54 /* ALAssetsLibrary+CustomPhotoAlbum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ALAssetsLibrary+CustomPhotoAlbum.h"; sourceTree = "<group>"; };
 		DB6A4DBB1906926700863D54 /* ALAssetsLibrary+CustomPhotoAlbum.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ALAssetsLibrary+CustomPhotoAlbum.m"; sourceTree = "<group>"; };
 		DBC54541191A19B8003073A2 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		DBD8CBD8191BB34E0015EB3F /* ProjectLocationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProjectLocationViewController.h; path = ../ProjectLocationViewController.h; sourceTree = "<group>"; };
+		DBD8CBD9191BB34E0015EB3F /* ProjectLocationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProjectLocationViewController.m; path = ../ProjectLocationViewController.m; sourceTree = "<group>"; };
+		DBD8CBDB191BB5130015EB3F /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		EE586C8E18FFB14700BB5F6A /* RatingSectionsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RatingSectionsTableViewController.h; sourceTree = "<group>"; };
 		EE586C8F18FFB14700BB5F6A /* RatingSectionsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RatingSectionsTableViewController.m; sourceTree = "<group>"; };
 		EE586C9118FFC5BF00BB5F6A /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -162,6 +167,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DBD8CBDC191BB5130015EB3F /* MapKit.framework in Frameworks */,
 				DBC54542191A19B8003073A2 /* QuartzCore.framework in Frameworks */,
 				DB6A4DB1190667C100863D54 /* AssetsLibrary.framework in Frameworks */,
 				EE586C9218FFC5BF00BB5F6A /* CoreLocation.framework in Frameworks */,
@@ -221,6 +227,7 @@
 		EE94D20118E4084700C919DF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				DBD8CBDB191BB5130015EB3F /* MapKit.framework */,
 				DBC54541191A19B8003073A2 /* QuartzCore.framework */,
 				DB6A4DB0190667C100863D54 /* AssetsLibrary.framework */,
 				EE586C9118FFC5BF00BB5F6A /* CoreLocation.framework */,
@@ -305,6 +312,8 @@
 		EE94D25018E4096E00C919DF /* GUI */ = {
 			isa = PBXGroup;
 			children = (
+				DBD8CBD8191BB34E0015EB3F /* ProjectLocationViewController.h */,
+				DBD8CBD9191BB34E0015EB3F /* ProjectLocationViewController.m */,
 				DB6A4DAD19063C1E00863D54 /* RatingsectionViewController.h */,
 				DB6A4DAE19063C1E00863D54 /* RatingsectionViewController.m */,
 				EE94D25118E4098D00C919DF /* Storyboard.storyboard */,
@@ -447,6 +456,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EEE5449318FEA33A00E6570B /* NewSectionFormView.m in Sources */,
+				DBD8CBDA191BB34E0015EB3F /* ProjectLocationViewController.m in Sources */,
 				EE94D21518E4084700C919DF /* AppDelegate.m in Sources */,
 				EE94D24C18E4090200C919DF /* Section.m in Sources */,
 				25B2193F18FC5FCE006C00D2 /* CoreDataTableViewController.m in Sources */,
