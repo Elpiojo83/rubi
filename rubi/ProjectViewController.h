@@ -10,7 +10,7 @@
 
 @interface ProjectViewController : UIViewController <UITextFieldDelegate>
 
-@property (strong, nonatomic) IBOutlet UITextView *projectNoteTextField;
+
 
 @property (nonatomic, strong) Project* project;
 @property (nonatomic, strong) Street* street;

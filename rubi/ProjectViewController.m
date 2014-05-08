@@ -16,11 +16,12 @@
 #import "AnsprechpartnerTVC.h"
 #import "TeamToProjectCVC.h"
 #import "StreetsTableViewController.h"
+#import "ProjectNoteContainerViewController.h"
 
 
 @interface ProjectViewController ()
-@property (weak, nonatomic) IBOutlet UIView *projectNotesView;
-@property (weak, nonatomic) IBOutlet UITextView *projectNotesTextView;
+
+
 @property (nonatomic, strong) NSFetchedResultsController* fetchedResultsController;
 //@property (nonatomic, strong) NSManagedObjectContext* managedObjectContext;
 
@@ -45,17 +46,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
- //   NSLog(@"Title: %@", self.project.projectTitle);
-    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(onKeyboardHide:) name:UIKeyboardWillHideNotification object:nil];
-    
-    //self.projectNotesView.layer.borderColor = [UIColor grayColor].CGColor;
-    //self.projectNotesView.layer.borderWidth = 1.0f;
-    //self.projectNotesView.layer.cornerRadius = 5.0f;
-    
-    //self.projectNotesTextView.layer.backgroundColor = [UIColor clearColor].CGColor;
-    
-//    NSLog(@"ProjectStreets: %@", self.project.streets);
     
 }
 
@@ -63,16 +53,7 @@
    
     [super viewDidAppear:animated];
     
-    
     self.navigationItem.title = [NSString stringWithFormat:@" %@", self.project.projectTitle];
-  //  NSLog(@"Title: %@", self.project.projectTitle);
-    
-    if(!self.project.projectNote){
-        self.projectNoteTextField.text = [NSString stringWithFormat:@""];
-    }else{
-        self.projectNoteTextField.text = [NSString stringWithFormat:@" %@", self.project.projectNote];
-    }
-    
     
 }
 
@@ -102,17 +83,6 @@
 }
 
 
--(void)onKeyboardHide:(NSNotification *)notification
-{
-    //keyboard will hide
-    
-    self.project.projectNote = self.projectNoteTextField.text;
-    AppDelegate* delegate = [[UIApplication sharedApplication] delegate];
-    [delegate saveContext];
-    
-   // NSLog(@"Save Notes");
-}
-
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -141,19 +111,20 @@
     }
     
     if ( [segue.identifier isEqualToString: @"Streets"]) {
-       /*
-        StreetsTableViewController *controller = (StreetsTableViewController *)segue.destinationViewController;
-        controller.project = self.project;
-        controller.street = self.street;
-        controller.managedObjectContext = self.project.managedObjectContext;
-        
-        */
         
         StreetsTableViewController *dvc = (StreetsTableViewController *) [[segue destinationViewController] topViewController];
         dvc.project = self.project;
         dvc.street = self.street;
         dvc.managedObjectContext = self.managedObjectContext;
         NSLog(@"StreetsTableSegue: %@", dvc.street);
+        
+    }
+    
+    if ( [segue.identifier isEqualToString: @"ProjectNotes"]) {
+        
+        ProjectNoteContainerViewController *dvc = [segue destinationViewController];
+        dvc.project = self.project;
+        dvc.managedObjectContext = self.managedObjectContext;
         
     }
     

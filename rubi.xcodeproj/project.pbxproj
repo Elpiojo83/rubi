@@ -58,6 +58,8 @@
 		EE956E2618E4418D00E46F8D /* ProjectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE956E2518E4418D00E46F8D /* ProjectViewController.m */; };
 		EE956E2918E44B8100E46F8D /* ProjectStreetsTableTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE956E2818E44B8100E46F8D /* ProjectStreetsTableTableViewController.m */; };
 		EE956E2C18E4535D00E46F8D /* NewStreetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE956E2B18E4535D00E46F8D /* NewStreetViewController.m */; };
+		EE9A4A96191BFF77006DBA5D /* ProjectNoteContainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE9A4A95191BFF77006DBA5D /* ProjectNoteContainerViewController.m */; };
+		EE9A4A99191C1631006DBA5D /* WidthPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE9A4A98191C1631006DBA5D /* WidthPickerViewController.m */; };
 		EEC5103B1906EF3300F3CD72 /* PickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EEC5103A1906EF3300F3CD72 /* PickerViewController.m */; };
 		EEE5449318FEA33A00E6570B /* NewSectionFormView.m in Sources */ = {isa = PBXBuildFile; fileRef = EEE5449218FEA33A00E6570B /* NewSectionFormView.m */; };
 /* End PBXBuildFile section */
@@ -156,6 +158,10 @@
 		EE956E2818E44B8100E46F8D /* ProjectStreetsTableTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProjectStreetsTableTableViewController.m; sourceTree = "<group>"; };
 		EE956E2A18E4535D00E46F8D /* NewStreetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewStreetViewController.h; sourceTree = "<group>"; };
 		EE956E2B18E4535D00E46F8D /* NewStreetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewStreetViewController.m; sourceTree = "<group>"; };
+		EE9A4A94191BFF77006DBA5D /* ProjectNoteContainerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectNoteContainerViewController.h; sourceTree = "<group>"; };
+		EE9A4A95191BFF77006DBA5D /* ProjectNoteContainerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProjectNoteContainerViewController.m; sourceTree = "<group>"; };
+		EE9A4A97191C1631006DBA5D /* WidthPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WidthPickerViewController.h; sourceTree = "<group>"; };
+		EE9A4A98191C1631006DBA5D /* WidthPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WidthPickerViewController.m; sourceTree = "<group>"; };
 		EEC510391906EF3300F3CD72 /* PickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PickerViewController.h; sourceTree = "<group>"; };
 		EEC5103A1906EF3300F3CD72 /* PickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PickerViewController.m; sourceTree = "<group>"; };
 		EEE5449118FEA33A00E6570B /* NewSectionFormView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewSectionFormView.h; sourceTree = "<group>"; };
@@ -319,6 +325,8 @@
 				EE94D25118E4098D00C919DF /* Storyboard.storyboard */,
 				EEC510391906EF3300F3CD72 /* PickerViewController.h */,
 				EEC5103A1906EF3300F3CD72 /* PickerViewController.m */,
+				EE9A4A97191C1631006DBA5D /* WidthPickerViewController.h */,
+				EE9A4A98191C1631006DBA5D /* WidthPickerViewController.m */,
 				EE956E2718E44B8100E46F8D /* ProjectStreetsTableTableViewController.h */,
 				EE956E2818E44B8100E46F8D /* ProjectStreetsTableTableViewController.m */,
 				EE586C8E18FFB14700BB5F6A /* RatingSectionsTableViewController.h */,
@@ -331,6 +339,8 @@
 				EEE5449218FEA33A00E6570B /* NewSectionFormView.m */,
 				EE956E2A18E4535D00E46F8D /* NewStreetViewController.h */,
 				EE956E2B18E4535D00E46F8D /* NewStreetViewController.m */,
+				EE9A4A94191BFF77006DBA5D /* ProjectNoteContainerViewController.h */,
+				EE9A4A95191BFF77006DBA5D /* ProjectNoteContainerViewController.m */,
 				EE956E2418E4418D00E46F8D /* ProjectViewController.h */,
 				EE956E2518E4418D00E46F8D /* ProjectViewController.m */,
 				DB36592B1908DAA600E0ED31 /* StreetsTableViewController.h */,
@@ -466,6 +476,7 @@
 				EE956E2918E44B8100E46F8D /* ProjectStreetsTableTableViewController.m in Sources */,
 				25E491541901192F003714E2 /* TeamTVCell.m in Sources */,
 				EE586C9018FFB14700BB5F6A /* RatingSectionsTableViewController.m in Sources */,
+				EE9A4A99191C1631006DBA5D /* WidthPickerViewController.m in Sources */,
 				DB6A4DB419066E4700863D54 /* RatingImagesViewController.m in Sources */,
 				DB6A4DAF19063C1E00863D54 /* RatingsectionViewController.m in Sources */,
 				EE94D25D18E4199500C919DF /* NewProjectFormView.m in Sources */,
@@ -475,6 +486,7 @@
 				EE94D24918E4090200C919DF /* Project.m in Sources */,
 				EE94D25518E40A3B00C919DF /* CollectionView.m in Sources */,
 				DB36592D1908DAA600E0ED31 /* StreetsTableViewController.m in Sources */,
+				EE9A4A96191BFF77006DBA5D /* ProjectNoteContainerViewController.m in Sources */,
 				EE956E2C18E4535D00E46F8D /* NewStreetViewController.m in Sources */,
 				25E49151190118E4003714E2 /* TeamCDTVC.m in Sources */,
 				EE94D24F18E4090200C919DF /* Ratingsection.m in Sources */,

@@ -11,11 +11,12 @@
 #import "CoreDataTableViewController.h"
 #import "Ratingsection.h"
 #import "PickerViewController.h"
+#import "WidthPickerViewController.h"
 #import <CoreLocation/CoreLocation.h>
 
 @interface RatingsectionViewController () <PickerViewControllerDelegate,
                                             UIPopoverControllerDelegate,
-                                            CLLocationManagerDelegate>
+                                            CLLocationManagerDelegate, WidthPickerViewControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UIButton *btnA;
 @property (weak, nonatomic) IBOutlet UIButton *btnA2;
@@ -142,6 +143,11 @@
         controller.delegate = self;
         controller.sourceControl = sender;
     }
+    else if( [segue.identifier isEqualToString:@"showWidthPickerView"] ) {
+        WidthPickerViewController *controller = (WidthPickerViewController *)segue.destinationViewController;
+        controller.delegate = self;
+        controller.sourceControl = sender;
+    }
     
 }
 
@@ -186,6 +192,24 @@
 
 -(IBAction)presentPopOvercontroller:(id)sender {
     PickerViewController* controller = [[self storyboard] instantiateViewControllerWithIdentifier:@"PickerViewController"];
+    
+    controller.delegate = self;
+    controller.sourceControl = (UIButton *)sender;
+    
+    self.popController = [[UIPopoverController alloc]
+                          initWithContentViewController: controller];
+    self.popController.delegate = self;
+    //Get the cell from your table that presents the popover
+    
+    [self.popController presentPopoverFromRect: ((UIButton *)sender).bounds
+                                        inView: ((UIButton *)sender)
+                      permittedArrowDirections: UIPopoverArrowDirectionLeft animated:YES];
+    
+}
+
+
+-(IBAction)presentWidthPopOvercontroller:(id)sender {
+    WidthPickerViewController* controller = [[self storyboard] instantiateViewControllerWithIdentifier:@"WidthPicker"];
     
     controller.delegate = self;
     controller.sourceControl = (UIButton *)sender;
