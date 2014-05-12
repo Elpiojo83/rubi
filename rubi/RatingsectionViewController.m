@@ -39,6 +39,8 @@
            fromSender:(PickerViewController *)sender{
     if ([sourceControl isKindOfClass: [UIButton class]]) {
         [sourceControl setTitle: value forState: UIControlStateNormal];
+        
+        
     }
 }
 
@@ -68,6 +70,37 @@
     self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
     
     [self.locationManager startUpdatingLocation];
+    
+    
+    //Fill in the Stepper Textfields
+    
+    _rightSideWalkConditionTextField.text = self.ratingsection.rightSidewalkCondition;
+    _rightBikePathConditionTextField.text = self.ratingsection.rightBikepathCondition;
+    _rightEdgeConditionTextField.text = self.ratingsection.rightEdgeCondition;
+    _rightDrainageConditionTextField.text = self.ratingsection.rightDrainageCondition;
+    
+    _streetFlatnessConditionTextField.text = self.ratingsection.streetFlatness;
+    _streetSurfaceConditionTextField.text = self.ratingsection.streetSurfaceDamage;
+    _streetCkracksConditionTextField.text = self.ratingsection.streetCracks;
+    
+    _leftDrainageConditionTextField.text = self.ratingsection.leftDrainageCondition;
+    _leftEdgeConditionTextField.text = self.ratingsection.rightDrainageCondition;
+    _leftBikePathConditionTextField.text = self.ratingsection.leftBikepathCondition;
+    _leftSideWalkConditionTextField.text = self.ratingsection.leftSidewalkCondition;
+    
+    //Fill Buttons with Width
+    [self.streetWidth setTitle:self.ratingsection.streetWidth forState:normal];
+    
+    [self.rightSideWalkWidth setTitle:self.ratingsection.rightSidewalkWidth forState:normal];
+    [self.rightBikePathWidth setTitle:self.ratingsection.righBikepathWidth forState:normal];
+    
+    [self.leftSideWalkWidth setTitle:self.ratingsection.leftSidewalkWidth forState:normal];
+    [self.leftBikePathWidth setTitle:self.ratingsection.leftBikepathWidth forState:normal];
+    
+    
+
+    
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -78,38 +111,38 @@
 
 
 - (IBAction)leftSideWalkIncrementStepper:(id)sender {
-    NSString *leftSideWalkStepperValue = [NSString localizedStringWithFormat:@"%.2F", _leftSideWalkWidthStepper.value];
+    NSString *leftSideWalkStepperValue = [NSString localizedStringWithFormat:@"%.F", _leftSideWalkWidthStepper.value];
     
     
-    _leftSideWalkWidthTextField.text = leftSideWalkStepperValue;
+    _leftSideWalkConditionTextField.text = leftSideWalkStepperValue;
+    
+    self.ratingsection.leftSidewalkCondition = leftSideWalkStepperValue;
     
 }
 - (IBAction)leftBikePathIncrementStepper:(id)sender {
-    NSString *rightSideWalkStepperValue = [NSString localizedStringWithFormat:@"%.2F", _leftBikePathWidthStepper.value];
+    NSString *leftBikeCondition = [NSString localizedStringWithFormat:@"%.F", _leftBikePathWidthStepper.value];
     
     
-    _leftBikePathWidthTextField.text = rightSideWalkStepperValue;
+    _leftBikePathConditionTextField.text = leftBikeCondition;
+    
+    self.ratingsection.leftBikepathCondition = leftBikeCondition;
 }
 
-- (IBAction)leftStreetWidthIncrementStepper:(id)sender{
-    NSString *streetStepperValue = [NSString localizedStringWithFormat:@"%.2F", _streetWidthStepper.value];
-    
-    
-    _streetWidthTextField.text = streetStepperValue;
-}
+
 
 - (IBAction)rightBikePathIncrementStepper:(id)sender{
-    NSString *rightBikePathStepperValue = [NSString localizedStringWithFormat:@"%.2F", _rightBikePathWidthStepper.value];
-    
-    
-    _rightBikePathWidthTextField.text = rightBikePathStepperValue;
-}
+    NSString *rightBikePathStepperValue = [NSString localizedStringWithFormat:@"%.F", _rightBikePathWidthStepper.value];
+
+   _rightBikePathConditionTextField.text = rightBikePathStepperValue;
+    self.ratingsection.rightBikepathCondition = rightBikePathStepperValue;
+    }
 
 - (IBAction)rightSideWalkIncrementStepper:(id)sender{
-    NSString *rightSideWalkStepperValue = [NSString localizedStringWithFormat:@"%.2F", _rightSideWalkWidthStepper.value];
+    NSString *rightSideWalkStepperValue = [NSString localizedStringWithFormat:@"%.F", _rightSideWalkWidthStepper.value];
     
     
-    _rightSideWalkWidthTextField.text = rightSideWalkStepperValue;
+    _rightSideWalkConditionTextField.text = rightSideWalkStepperValue;
+    self.ratingsection.rightSidewalkCondition = rightSideWalkStepperValue;
 }
 
 
@@ -176,11 +209,35 @@
     // Pop to root view controller (not animated) before pushing
     [navigationController popToRootViewControllerAnimated:NO];
     [navigationController pushViewController: controller animated:YES];
+    
+    
+    
+    self.ratingsection.leftSidewalkWidth = [self.leftSideWalkWidth currentTitle];
+    self.ratingsection.leftBikepathWidth = [self.leftBikePathWidth currentTitle];
+    
+    self.ratingsection.streetWidth = [self.streetWidth currentTitle];
+    
+    self.ratingsection.rightSidewalkWidth = [self.rightSideWalkWidth currentTitle];
+    self.ratingsection.righBikepathWidth = [self.rightBikePathWidth currentTitle];
+    
 }
     
 
 
 - (IBAction)dismissViewTouchUpInside:(id)sender {
+    
+    
+    self.ratingsection.leftSidewalkWidth = [self.leftSideWalkWidth currentTitle];
+    self.ratingsection.leftBikepathWidth = [self.leftBikePathWidth currentTitle];
+    
+    self.ratingsection.streetWidth = [self.streetWidth currentTitle];
+    
+    self.ratingsection.rightSidewalkWidth = [self.rightSideWalkWidth currentTitle];
+    self.ratingsection.righBikepathWidth = [self.rightBikePathWidth currentTitle];
+    
+    
+    //ConstructionTypes
+    
     
     [self dismissViewControllerAnimated:YES completion:nil];
     
@@ -222,6 +279,8 @@
     [self.popController presentPopoverFromRect: ((UIButton *)sender).bounds
                                         inView: ((UIButton *)sender)
                       permittedArrowDirections: UIPopoverArrowDirectionLeft animated:YES];
+    //NSLog(@"Button pressed: %@", [sender cur]);
+    
     
 }
 
@@ -268,4 +327,51 @@
 }
 
 
+- (IBAction)rightEdgeSteper:(id)sender {
+    NSString *rightEdgeStepperValue = [NSString localizedStringWithFormat:@"%.F", _UIrightEdgeStepper.value];
+    _rightEdgeConditionTextField.text = rightEdgeStepperValue;
+    
+    self.ratingsection.rightEdgeCondition = rightEdgeStepperValue;
+    
+}
+- (IBAction)rightDrainageStepper:(id)sender {
+    NSString *rightDrainage = [NSString localizedStringWithFormat:@"%.F", _UIrightDrainageStepper.value];
+    _rightDrainageConditionTextField.text = rightDrainage;
+    
+    self.ratingsection.rightDrainageCondition = rightDrainage;
+}
+- (IBAction)streetSurfaceStepper:(id)sender {
+    NSString *streetSurface = [NSString localizedStringWithFormat:@"%.F", _UIstreetSurface.value];
+    _streetSurfaceConditionTextField.text = streetSurface;
+    
+    self.ratingsection.streetSurfaceDamage = streetSurface;
+    
+}
+- (IBAction)streetFlatnessStepper:(id)sender {
+    NSString *streetFlatness = [NSString localizedStringWithFormat:@"%.F", _UIstreetFlatness.value];
+    _streetFlatnessConditionTextField.text = streetFlatness;
+    
+    self.ratingsection.streetFlatness = streetFlatness;
+    
+}
+- (IBAction)streetCracksStepper:(id)sender {
+    NSString *streetCracks = [NSString localizedStringWithFormat:@"%.F", _UIstreetCracks.value];
+    _streetCkracksConditionTextField.text = streetCracks;
+    
+    self.ratingsection.streetCracks = streetCracks;
+}
+- (IBAction)leftDrainageStepper:(id)sender {
+    NSString *leftDrainage = [NSString localizedStringWithFormat:@"%.F", _UILeftDrainage.value];
+    _leftDrainageConditionTextField.text = leftDrainage;
+
+    self.ratingsection.leftDrainageCondition = leftDrainage;
+}
+
+- (IBAction)leftEdgeStepper:(id)sender {
+    NSString *leftEdge = [NSString localizedStringWithFormat:@"%.F", _UIleftEdge.value];
+    _leftEdgeConditionTextField.text = leftEdge;
+    
+    self.ratingsection.leftEdgeCondition = leftEdge;
+    
+}
 @end

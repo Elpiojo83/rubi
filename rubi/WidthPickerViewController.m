@@ -27,28 +27,66 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
-    //self.constructionTypes = [[NSMutableArray alloc] initWithObjects: @"Aspahltbauweise", @"Betonbauweise", @"Spritzdecke", @"Sonstige Bauweise", @"Naturstein", nil];
+
     
-   self.meter = [[NSMutableArray alloc] initWithObjects: @"1", @"2", @"3", @"4", @"5", @"6", @"7", @"8", @"9", @"0", nil];
-   self.decimeter = [[NSMutableArray alloc] initWithObjects: @"1", @"2", @"3", @"4", @"5", @"6", @"7", @"8", @"9", @"0", nil];
-   self.centimeter = [[NSMutableArray alloc] initWithObjects: @"0", @"5", nil];
-}
-/*
--(void)pickerView:(UIPickerView *)typeOfConstructionPickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component{
-    NSLog(@"select %@", [_constructionTypes objectAtIndex:row]);
-    self.typeOfConstruct = [_constructionTypes objectAtIndex:row];
+    self.meter = [[NSMutableArray alloc] initWithObjects: @"0",@"1", @"2", @"3", @"4", @"5", @"6", @"7", @"8", @"9", nil];
+    self.dekmeter = [[NSMutableArray alloc] initWithObjects: @"0",@"1", @"2", @"3", @"4", @"5", @"6", @"7", @"8", @"9", nil];
+    self.decimeter = [[NSMutableArray alloc] initWithObjects:@"0",@"1", @"2", @"3", @"4", @"5", @"6", @"7", @"8", @"9", nil];
+    self.centimeter = [[NSMutableArray alloc] initWithObjects: @"0", @"5", nil];
     
-    [self.delegate selectedString: self.typeOfConstruct forControl: self.sourceControl fromSender: self];
+    
     
 }
 
-*/
+
+
 -(void)pickerView:(UIPickerView *)WidthPickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component{
-    NSLog(@"select %@", [_meter objectAtIndex:row]);
-    self.meterOne = [_meter objectAtIndex:row];
     
-   // [self.delegate selectedString: self.meter forControl: self.sourceControl fromSender: self];
+
+
+
+    
+    if(component == 0){
+        self.dekmeterValueFromPicker= [NSString stringWithFormat:@"%@", [_dekmeter objectAtIndex:row]];
+        NSLog(@"Meter %@", _dekmeterValueFromPicker);
+    }
+    if(component == 1){
+
+        self.meterValueFromPicker= [NSString stringWithFormat:@"%@", [_meter objectAtIndex:row]];
+        NSLog(@"Meter %@",_meterValueFromPicker);
+        
+    }
+    if(component == 3){
+        
+        self.decimeterValueFromPicker= [NSString stringWithFormat:@"%@", [_decimeter objectAtIndex:row]];
+        NSLog(@"Meter dec %@", _decimeterValueFromPicker);
+        
+    }
+    
+    if(component == 4){
+        
+        self.centimeterValueFromPicker= [NSString stringWithFormat:@"%@", [_centimeter objectAtIndex:row]];
+        NSLog(@"Meter dec %@", _centimeterValueFromPicker);
+        
+    }
+    
+    if(_decimeterValueFromPicker == nil){
+        self.decimeterValueFromPicker = @"0";
+    }
+    if(_meterValueFromPicker == nil){
+        self.meterValueFromPicker = @"0";
+    }
+    if(_centimeterValueFromPicker == nil || [_centimeterValueFromPicker isEqualToString:@"0"]){
+        self.centimeterValueFromPicker = @"0";
+    }
+    if(_dekmeterValueFromPicker == nil || [_dekmeterValueFromPicker isEqualToString:@"0"]){
+        self.dekmeterValueFromPicker = @"";
+    }
+    
+    [self.delegate selectedString: [NSString stringWithFormat: @"%@%@,%@%@", _dekmeterValueFromPicker, _meterValueFromPicker, _decimeterValueFromPicker, _centimeterValueFromPicker]
+                       forControl: self.sourceControl fromSender: self];
+    NSLog(@"delegate meter %@%@,%@%@",_dekmeterValueFromPicker, _meterValueFromPicker, _decimeterValueFromPicker, _centimeterValueFromPicker);
+    
     
 }
 
@@ -59,35 +97,7 @@
 }
 
 
-#pragma mark -
-#pragma mark PickerView DataSource
-/*
-- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)typeOfConstructionPickerView
-{
-    return 1;
-}
 
-- (NSInteger)pickerView:(UIPickerView *)widthPickerView numberOfRowsInComponent:(NSInteger)component
-{
-    //return [_constructionTypes count];
-    return 3;
-}
-
-- (NSString *)pickerView:(UIPickerView *)widthPickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
-{
-
-    if(component == 0 ){
-        return [_centimeter objectAtIndex:row];
-    }
-    if(component == 1 ){
-        return [_decimeter objectAtIndex:row];
-    }
-    if(component == 2 ){
-        return [_meter objectAtIndex:row];
-    }
-    return nil;
-}
-*/
 #pragma mark -
 #pragma mark PickerView DataSource
 
@@ -108,7 +118,7 @@
         return 1;
     }
     if( component == 3){
-        return [_meter count];
+        return [_dekmeter count];
     }
     return [_centimeter count];
     
@@ -128,21 +138,13 @@
         return @",";
     }
     if (component == 3) {
-        return [_meter objectAtIndex:row];
+        return [_dekmeter objectAtIndex:row];
     }
     return [_centimeter objectAtIndex:row];
+    
+
 }
 
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

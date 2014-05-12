@@ -8,21 +8,24 @@
 
 #import <UIKit/UIKit.h>
 
-@protocol PickerViewControllerDelegate;
+@protocol WidthPickerViewControllerDelegate;
 @interface WidthPickerViewController : UIViewController <UIPickerViewDelegate, UIPickerViewDataSource>
 
 
 @property (nonatomic, strong) NSMutableArray* meter;
+@property (nonatomic, strong) NSMutableArray* dekmeter;
 @property (nonatomic, strong) NSMutableArray* decimeter;
 @property (nonatomic, strong) NSMutableArray* centimeter;
 
-@property (nonatomic, strong) NSString *meterOne;
-@property (nonatomic, strong) NSString *meterTwo;
+@property (nonatomic, strong) NSString *meterValueFromPicker;
+@property (nonatomic, strong) NSString *decimeterValueFromPicker;
+@property (nonatomic, strong) NSString *centimeterValueFromPicker;
+@property (nonatomic, strong) NSString *dekmeterValueFromPicker;
 
 @property (weak, nonatomic) IBOutlet UIPickerView *widthPickerView;
 
 
-@property (assign) id <PickerViewControllerDelegate> delegate;
+@property (assign) id <WidthPickerViewControllerDelegate> delegate;
 @property (assign) id sourceControl;
 @end
 

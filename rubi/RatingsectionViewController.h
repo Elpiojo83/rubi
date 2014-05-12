@@ -39,8 +39,7 @@
 
 
 @property (strong, nonatomic) IBOutlet UITextField *streetWidthTextField;
-@property (strong, nonatomic) IBOutlet UIStepper *streetWidthStepper;
-- (IBAction)leftStreetWidthIncrementStepper:(id)sender;
+
 
 
 @property (strong, nonatomic) IBOutlet UITextField *rightBikePathWidthTextField;
@@ -51,5 +50,63 @@
 @property (strong, nonatomic) IBOutlet UITextField *rightSideWalkWidthTextField;
 @property (strong, nonatomic) IBOutlet UIStepper *rightSideWalkWidthStepper;
 - (IBAction)rightSideWalkIncrementStepper:(id)sender;
+
+
+//Condition TextFields
+
+@property (strong, nonatomic) IBOutlet UITextField *rightSideWalkConditionTextField;
+
+@property (strong, nonatomic) IBOutlet UITextField *rightBikePathConditionTextField;
+
+
+
+@property (strong, nonatomic) IBOutlet UITextField *rightEdgeConditionTextField;
+- (IBAction)rightEdgeSteper:(id)sender;
+@property (strong, nonatomic) IBOutlet UIStepper *UIrightEdgeStepper;
+
+@property (strong, nonatomic) IBOutlet UITextField *rightDrainageConditionTextField;
+- (IBAction)rightDrainageStepper:(id)sender;
+@property (strong, nonatomic) IBOutlet UIStepper *UIrightDrainageStepper;
+
+@property (strong, nonatomic) IBOutlet UITextField *streetFlatnessConditionTextField;
+- (IBAction)streetFlatnessStepper:(id)sender;
+@property (strong, nonatomic) IBOutlet UIStepper *UIstreetFlatness;
+
+
+@property (strong, nonatomic) IBOutlet UITextField *streetSurfaceConditionTextField;
+- (IBAction)streetSurfaceStepper:(id)sender;
+@property (strong, nonatomic) IBOutlet UIStepper *UIstreetSurface;
+
+
+@property (strong, nonatomic) IBOutlet UITextField *streetCkracksConditionTextField;
+- (IBAction)streetCracksStepper:(id)sender;
+@property (strong, nonatomic) IBOutlet UIStepper *UIstreetCracks;
+
+
+@property (strong, nonatomic) IBOutlet UITextField *leftSideWalkConditionTextField;
+
+
+
+@property (strong, nonatomic) IBOutlet UITextField *leftDrainageConditionTextField;
+- (IBAction)leftDrainageStepper:(id)sender;
+@property (strong, nonatomic) IBOutlet UIStepper *UILeftDrainage;
+
+@property (strong, nonatomic) IBOutlet UITextField *leftBikePathConditionTextField;
+
+
+@property (strong, nonatomic) IBOutlet UITextField *leftEdgeConditionTextField;
+- (IBAction)leftEdgeStepper:(id)sender;
+@property (strong, nonatomic) IBOutlet UIStepper *UIleftEdge;
+
+// Buttons for Width
+
+@property (strong, nonatomic) IBOutlet UIButton *streetWidth;
+@property (strong, nonatomic) IBOutlet UIButton *leftSideWalkWidth;
+@property (strong, nonatomic) IBOutlet UIButton *leftBikePathWidth;
+@property (strong, nonatomic) IBOutlet UIButton *rightBikePathWidth;
+@property (strong, nonatomic) IBOutlet UIButton *rightSideWalkWidth;
+
+
+
 
 @end
