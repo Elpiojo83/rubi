@@ -20,7 +20,7 @@
 
 @implementation SiGeViewController
 
-
+/*
 -(void)setManagedObjectContext:(NSManagedObjectContext *)managedObjectContext {
     
     _managedObjectContext = managedObjectContext;
@@ -42,7 +42,7 @@
         self.fetchedResultsController = nil;
     }
 }
-
+*/
 
 - (void)viewDidLoad
 {
