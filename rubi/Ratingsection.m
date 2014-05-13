@@ -2,8 +2,8 @@
 //  Ratingsection.m
 //  rubi
 //
-//  Created by David Krachler on 24.03.14.
-//  Copyright (c) 2014 Koerbler. All rights reserved.
+//  Created by David Krachler on 13.05.14.
+//  Copyright (c) 2014 koerbler. All rights reserved.
 //
 
 #import "Ratingsection.h"
@@ -14,39 +14,39 @@
 
 @implementation Ratingsection
 
-@dynamic ratingSectionTitle;
-@dynamic startPosition;
-@dynamic startPositionGPS;
 @dynamic endPosition;
 @dynamic endPositionGPS;
-@dynamic leftSidewalkWidth;
-@dynamic leftSidewalkMethodOfConstruction;
-@dynamic leftSidewalkCondition;
-@dynamic leftEdgeMethodOfConstruction;
-@dynamic leftEdgeCondition;
-@dynamic leftDrainageMethodOfCondition;
+@dynamic leftBikepathCondition;
+@dynamic leftBikepathMethodOfConstruction;
+@dynamic leftBikepathWidth;
 @dynamic leftDrainageCondition;
-@dynamic streetWidth;
-@dynamic streetMethodOfConstruction;
-@dynamic streetFlatness;
-@dynamic streetSurfaceDamage;
-@dynamic streetCracks;
+@dynamic leftDrainageMethodOfCondition;
+@dynamic leftEdgeCondition;
+@dynamic leftEdgeMethodOfConstruction;
+@dynamic leftSidewalkCondition;
+@dynamic leftSidewalkMethodOfConstruction;
+@dynamic leftSidewalkWidth;
+@dynamic ratingSectionNotes;
+@dynamic ratingSectionTitle;
+@dynamic righBikepathWidth;
+@dynamic rightBikepathCondition;
+@dynamic rightBikepathMethodOfConstruction;
 @dynamic rightDrainageCondition;
 @dynamic rightDrainageMethodOfConstruction;
 @dynamic rightEdgeCondition;
 @dynamic rightEdgeMethodOfConstruction;
-@dynamic rightBikepathCondition;
-@dynamic rightBikepathMethodOfConstruction;
-@dynamic righBikepathWidth;
-@dynamic leftBikepathCondition;
-@dynamic leftBikepathMethodOfConstruction;
-@dynamic leftBikepathWidth;
-@dynamic rightSidewalkMethodOfConstruction;
 @dynamic rightSidewalkCondition;
+@dynamic rightSidewalkMethodOfConstruction;
 @dynamic rightSidewalkWidth;
-@dynamic ratingSectionNotes;
-@dynamic section;
+@dynamic startPosition;
+@dynamic startPositionGPS;
+@dynamic streetCracks;
+@dynamic streetFlatness;
+@dynamic streetMethodOfConstruction;
+@dynamic streetSurfaceDamage;
+@dynamic streetWidth;
 @dynamic hazards;
 @dynamic ratingimage;
+@dynamic section;
 
 @end
