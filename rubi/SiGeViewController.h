@@ -19,7 +19,7 @@
 typedef void (^ALAssetsLibraryAssetForURLResultBlock)(ALAsset *asset);
 typedef void (^ALAssetsLibraryAccessFailureBlock)(NSError *error);
 
-@property (nonatomic, strong) RatingsectionSafetyHazard *ratingSectionSafetyHazard;
+@property (nonatomic, strong) RatingsectionSafetyHazard *ratingsectionsafetyhazard;
 @property (nonatomic, strong) Project *project;
 @property (nonatomic, strong) Ratingsection *ratingsection;
 

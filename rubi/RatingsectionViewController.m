@@ -133,9 +133,9 @@
         dvc.managedObjectContext = self.managedObjectContext;
         
         
-        dvc.ratingsection = self.ratingsection;
-        dvc.ratingimage = self.ratingimage;
-        dvc.ratingsection.ratingimage = self.ratingsection.ratingimage;
+       // dvc.ratingsection = self.ratingsection;
+       // dvc.ratingimage = self.ratingimage;
+       // dvc.ratingsection.ratingimage = self.ratingsection.ratingimage;
         
         
     }
@@ -159,12 +159,19 @@
     }
     else if ( [segue.identifier isEqualToString: @"SiGe"]) {
         
-        SiGeViewController *dvc = [segue destinationViewController];
-        dvc.project = self.project;
+        //SiGeViewController *dvc = [segue destinationViewController];
+        
+        SiGeViewController *dvc = (SiGeViewController *)segue.destinationViewController;
+        
+       // dvc.project = self.project;
         dvc.ratingsection = self.ratingsection;
-        dvc.ratingSectionSafetyHazard = self.ratingSectionSafetyHazard;
+       // dvc.ratingsection.hazards = self.ratingsection.hazards;
         
         dvc.managedObjectContext = self.managedObjectContext;
+        
+        //dvc.ratingsectionsafetyhazard = self.ratingsectionsafetyhazard;
+        
+        NSLog(@"DVC: %@", self.ratingsectionsafetyhazard);
         
     }
     

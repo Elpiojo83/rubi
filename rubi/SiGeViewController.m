@@ -20,19 +20,19 @@
 
 @implementation SiGeViewController
 
-
+/*
 -(void)setManagedObjectContext:(NSManagedObjectContext *)managedObjectContext {
     
     _managedObjectContext = managedObjectContext;
     if (managedObjectContext) {
         NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName: @"RatingsectionSafetyHazard"];
         request.sortDescriptors = @[[ NSSortDescriptor  sortDescriptorWithKey: @"safetyHazardImagePath" ascending:YES ]];
-        request.predicate = [NSPredicate predicateWithFormat: @" ratingsection == %@" , self.ratingsection];
+        request.predicate = [NSPredicate predicateWithFormat: @" ratingsection == %@" , self.ratingsection.hazards];
         
         
         NSLog(@"Curr. Images: %@", request);
         
-        NSLog(@"imaes: %@", self.ratingSectionSafetyHazard.safetyHazardImagePath);
+        NSLog(@"imaes: %@", self.ratingsectionsafetyhazard.safetyHazardImagePath);
         
         self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest: request managedObjectContext:managedObjectContext sectionNameKeyPath: nil cacheName: nil];
         
@@ -42,7 +42,7 @@
         self.fetchedResultsController = nil;
     }
 }
-
+*/
 
 - (void)viewDidLoad
 {
@@ -52,10 +52,10 @@
    // HazardNote
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(onKeyboardHide:) name:UIKeyboardWillHideNotification object:nil];
     
-    if(!self.ratingSectionSafetyHazard.safetyHazardNote){
+    if(!self.ratingsectionsafetyhazard.safetyHazardNote){
         self.HazardNote.text = [NSString stringWithFormat:@""];
     }else{
-        self.HazardNote.text = [NSString stringWithFormat:@" %@", self.ratingSectionSafetyHazard.safetyHazardNote];
+        self.HazardNote.text = [NSString stringWithFormat:@" %@", self.ratingsectionsafetyhazard.safetyHazardNote];
     }
     
     
@@ -69,6 +69,9 @@
     
     [[self SigeImagView]setImage:[UIImage imageWithData:data]];
     
+    
+    NSLog(@"RatingsectionLOG: %@ SafetyHazardLOG:%@", self.ratingsection, self.ratingsection.hazards);
+    
 }
 
 
@@ -76,12 +79,12 @@
 {
     //keyboard will hide
     
-    self.ratingSectionSafetyHazard.safetyHazardNote = self.HazardNote.text;
+    self.ratingsectionsafetyhazard.safetyHazardNote = self.HazardNote.text;
     
     AppDelegate* delegate = [[UIApplication sharedApplication] delegate];
     [delegate saveContext];
     
-    NSLog(@"Nnote %@", self.ratingSectionSafetyHazard.safetyHazardNote);
+    NSLog(@"Nnote %@", self.ratingsectionsafetyhazard.safetyHazardNote);
     
     NSLog(@"Save Notes");
 }
@@ -121,8 +124,8 @@
     NSString *fullPathToFile = [documentDirectory stringByAppendingPathComponent:myGrabbedImage];
     [data writeToFile:fullPathToFile atomically:YES];
     
-    self.ratingSectionSafetyHazard.safetyHazardImagePath = [NSString stringWithFormat:@"%@", fullPathToFile];
-    //[self.ratingsection addHazardsObject:self.ratingSectionSafetyHazard];
+    self.ratingsectionsafetyhazard.safetyHazardImagePath = [NSString stringWithFormat:@"%@", fullPathToFile];
+    [self.ratingsection addHazardsObject:self.ratingsectionsafetyhazard];
     
     NSLog(@"Path: %@", fullPathToFile);
     
