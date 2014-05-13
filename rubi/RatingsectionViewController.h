@@ -15,6 +15,7 @@
 @property (nonatomic, strong) Project* project;
 @property (nonatomic, strong) Ratingsection* ratingsection;
 @property (nonatomic, strong) RatingImage* ratingimage;
+@property (nonatomic, strong) RatingsectionSafetyHazard* ratingSectionSafetyHazard;
 
 @property (nonatomic, strong) NSString* constructiontype;
 

@@ -18,6 +18,8 @@
 		25E491541901192F003714E2 /* TeamTVCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 25E491531901192F003714E2 /* TeamTVCell.m */; };
 		25E4915719012607003714E2 /* TeamToProjectCVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 25E4915619012607003714E2 /* TeamToProjectCVC.m */; };
 		25E4915A19012A70003714E2 /* TeamToProjectCVCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 25E4915919012A70003714E2 /* TeamToProjectCVCell.m */; };
+		DB32B92419221A2400D32841 /* RatingSectionNotesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB32B92319221A2400D32841 /* RatingSectionNotesViewController.m */; };
+		DB32B92719221EF400D32841 /* SiGeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB32B92619221EF400D32841 /* SiGeViewController.m */; };
 		DB36592D1908DAA600E0ED31 /* StreetsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB36592C1908DAA600E0ED31 /* StreetsTableViewController.m */; };
 		DB6A4DAF19063C1E00863D54 /* RatingsectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB6A4DAE19063C1E00863D54 /* RatingsectionViewController.m */; };
 		DB6A4DB1190667C100863D54 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB6A4DB0190667C100863D54 /* AssetsLibrary.framework */; };
@@ -97,6 +99,10 @@
 		25E4915619012607003714E2 /* TeamToProjectCVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeamToProjectCVC.m; sourceTree = "<group>"; };
 		25E4915819012A70003714E2 /* TeamToProjectCVCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeamToProjectCVCell.h; sourceTree = "<group>"; };
 		25E4915919012A70003714E2 /* TeamToProjectCVCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeamToProjectCVCell.m; sourceTree = "<group>"; };
+		DB32B92219221A2400D32841 /* RatingSectionNotesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RatingSectionNotesViewController.h; sourceTree = "<group>"; };
+		DB32B92319221A2400D32841 /* RatingSectionNotesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RatingSectionNotesViewController.m; sourceTree = "<group>"; };
+		DB32B92519221EF400D32841 /* SiGeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SiGeViewController.h; sourceTree = "<group>"; };
+		DB32B92619221EF400D32841 /* SiGeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SiGeViewController.m; sourceTree = "<group>"; };
 		DB36592B1908DAA600E0ED31 /* StreetsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StreetsTableViewController.h; sourceTree = "<group>"; };
 		DB36592C1908DAA600E0ED31 /* StreetsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StreetsTableViewController.m; sourceTree = "<group>"; };
 		DB6A4DAD19063C1E00863D54 /* RatingsectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RatingsectionViewController.h; sourceTree = "<group>"; };
@@ -331,6 +337,10 @@
 				DBD8CBD9191BB34E0015EB3F /* ProjectLocationViewController.m */,
 				DB6A4DAD19063C1E00863D54 /* RatingsectionViewController.h */,
 				DB6A4DAE19063C1E00863D54 /* RatingsectionViewController.m */,
+				DB32B92219221A2400D32841 /* RatingSectionNotesViewController.h */,
+				DB32B92319221A2400D32841 /* RatingSectionNotesViewController.m */,
+				DB32B92519221EF400D32841 /* SiGeViewController.h */,
+				DB32B92619221EF400D32841 /* SiGeViewController.m */,
 				EE94D25118E4098D00C919DF /* Storyboard.storyboard */,
 				EEC510391906EF3300F3CD72 /* PickerViewController.h */,
 				EEC5103A1906EF3300F3CD72 /* PickerViewController.m */,
@@ -491,6 +501,7 @@
 				EE94D25D18E4199500C919DF /* NewProjectFormView.m in Sources */,
 				EE956E2618E4418D00E46F8D /* ProjectViewController.m in Sources */,
 				EE94D21818E4084700C919DF /* rubi.xcdatamodeld in Sources */,
+				DB32B92419221A2400D32841 /* RatingSectionNotesViewController.m in Sources */,
 				EE94D24818E4090200C919DF /* RatingsectionSafetyHazard.m in Sources */,
 				EE94D24918E4090200C919DF /* Project.m in Sources */,
 				EE94D25518E40A3B00C919DF /* CollectionView.m in Sources */,
@@ -499,6 +510,7 @@
 				EE956E2C18E4535D00E46F8D /* NewStreetViewController.m in Sources */,
 				25E49151190118E4003714E2 /* TeamCDTVC.m in Sources */,
 				EE94D24F18E4090200C919DF /* Ratingsection.m in Sources */,
+				DB32B92719221EF400D32841 /* SiGeViewController.m in Sources */,
 				25B65CD01901336D009BE6F1 /* TeamSelectionCDTVC.m in Sources */,
 				25E4915719012607003714E2 /* TeamToProjectCVC.m in Sources */,
 				25B65CD319013398009BE6F1 /* TeamSelectionTVCell.m in Sources */,

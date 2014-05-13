@@ -13,6 +13,9 @@
 #import "PickerViewController.h"
 #import "WidthPickerViewController.h"
 #import <CoreLocation/CoreLocation.h>
+#import "RatingSectionNotesViewController.h"
+#import "SiGeViewController.h"
+#import "RatingsectionSafetyHazard.h"
 
 @interface RatingsectionViewController () <PickerViewControllerDelegate,
                                             UIPopoverControllerDelegate,
@@ -145,6 +148,24 @@
         WidthPickerViewController *controller = (WidthPickerViewController *)segue.destinationViewController;
         controller.delegate = self;
         controller.sourceControl = sender;
+    }
+    else if ( [segue.identifier isEqualToString: @"RatingNotes"]) {
+        
+        RatingSectionNotesViewController *dvc = [segue destinationViewController];
+        dvc.project = self.project;
+        dvc.ratingsection = self.ratingsection;
+        dvc.managedObjectContext = self.managedObjectContext;
+        
+    }
+    else if ( [segue.identifier isEqualToString: @"SiGe"]) {
+        
+        SiGeViewController *dvc = [segue destinationViewController];
+        dvc.project = self.project;
+        dvc.ratingsection = self.ratingsection;
+        dvc.ratingSectionSafetyHazard = self.ratingSectionSafetyHazard;
+        
+        dvc.managedObjectContext = self.managedObjectContext;
+        
     }
     
 }
