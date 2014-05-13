@@ -159,19 +159,12 @@
     }
     else if ( [segue.identifier isEqualToString: @"SiGe"]) {
         
-        //SiGeViewController *dvc = [segue destinationViewController];
         
         SiGeViewController *dvc = (SiGeViewController *)segue.destinationViewController;
-        
-       // dvc.project = self.project;
         dvc.ratingsection = self.ratingsection;
-       // dvc.ratingsection.hazards = self.ratingsection.hazards;
-        
         dvc.managedObjectContext = self.managedObjectContext;
-        
-        //dvc.ratingsectionsafetyhazard = self.ratingsectionsafetyhazard;
-        
-        NSLog(@"DVC: %@", self.ratingsectionsafetyhazard);
+
+        NSLog(@"DVC: %@", self.ratingsection);
         
     }
     

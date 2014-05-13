@@ -79,6 +79,10 @@
 {
     //keyboard will hide
     
+    if(!self.ratingsectionsafetyhazard){
+        self.ratingsectionsafetyhazard = [NSEntityDescription insertNewObjectForEntityForName:@"RatingsectionSafetyHazard" inManagedObjectContext: self.managedObjectContext];
+    }
+    
     self.ratingsectionsafetyhazard.safetyHazardNote = self.HazardNote.text;
     
     AppDelegate* delegate = [[UIApplication sharedApplication] delegate];
@@ -124,10 +128,20 @@
     NSString *fullPathToFile = [documentDirectory stringByAppendingPathComponent:myGrabbedImage];
     [data writeToFile:fullPathToFile atomically:YES];
     
-    self.ratingsectionsafetyhazard.safetyHazardImagePath = [NSString stringWithFormat:@"%@", fullPathToFile];
-    [self.ratingsection addHazardsObject:self.ratingsectionsafetyhazard];
     
-    NSLog(@"Path: %@", fullPathToFile);
+    if(!self.ratingsectionsafetyhazard){
+        self.ratingsectionsafetyhazard = [NSEntityDescription insertNewObjectForEntityForName:@"RatingsectionSafetyHazard" inManagedObjectContext: self.managedObjectContext];
+        
+        [self.ratingsection addHazardsObject:self.ratingsectionsafetyhazard];
+        
+    }
+    
+    
+    self.ratingsectionsafetyhazard.safetyHazardImagePath = [NSString stringWithFormat:@"%@", fullPathToFile];
+    
+    
+    
+    NSLog(@"Path: %@", self.ratingsectionsafetyhazard);
     
 }
 
