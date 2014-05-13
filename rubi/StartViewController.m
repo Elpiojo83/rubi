@@ -128,27 +128,6 @@
 
     [self.projectCV addGestureRecognizer:longPress];
 
-    /*
-    BOOL success;
-    NSString *dbName = @"rubi.sqlite";
-    
-    NSArray *documentPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *documentsDir = [documentPaths objectAtIndex:0];
-    NSString *dbPath = [documentsDir   stringByAppendingPathComponent:dbName];
-    
-    NSFileManager *fileManager = [NSFileManager defaultManager];
-    
-    success = [fileManager fileExistsAtPath:dbPath];
-    
-    if(success) {
-        NSLog(@"Success");
-        return;
-    }
-    
-    NSString *databasePathFromApp = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:dbName];
-    
-    [fileManager copyItemAtPath:databasePathFromApp toPath:dbPath error:nil];
-    */
 }
 
 
@@ -165,11 +144,6 @@
         
         
         self.indexPathToDelete = indexPath;
-       // NSString *title = [self.projectArray objectAtIndex:indexPath.row];
-        
-        //[self.projectArray objectAtIndex:indexPath.row];
-        
-        
         
         UIAlertView *deleteAlert = [[UIAlertView alloc]
                                     initWithTitle:@"Löschen?"
@@ -181,7 +155,7 @@
         NSIndexPath *indexPath = [self.projectCV indexPathForItemAtPoint: tapLocation];
         UICollectionViewCell *cell = [self.projectCV cellForItemAtIndexPath:indexPath];
         
-        
+        NSLog(@"Index %@", indexPath);
         
         CGPoint position = cell.center;
         
@@ -237,21 +211,14 @@
         
         [self.projectCV reloadData];
     }
-
-        NSLog(@"Nothin to do");
-        self.indexPathToDelete = nil;
+    
+    self.indexPathToDelete = nil;
     
 }
 
 -(void)viewDidAppear:(BOOL)animated{
     [[self fetchedResultsController] delegate];
     
-    
-    //CrudOp *dbCrud = [[CrudOp alloc] init];
-    //[dbCrud CopyDbToDocumentsFolder];
-    
-    
-    // NSLog(@"Test GITHub");
 }
 
 
@@ -275,8 +242,6 @@
 
 -(void) refresh{
     
-    //    [self.collectionView reloadSections:0];
-    
     NSFetchRequest* fetch = [NSFetchRequest fetchRequestWithEntityName:NSStringFromClass([Project class])];
     NSSortDescriptor* sortPoject = [NSSortDescriptor sortDescriptorWithKey:@"projectTimestamp" ascending:NO];
     
@@ -295,8 +260,7 @@
     
     
     [self.projectCV reloadData];
-    
-    //NSLog(@"Data reloaded");
+
 }
 
 
@@ -412,15 +376,9 @@
 
 - (IBAction)exportProjectToServer:(id)sender {
     
-   // [self CreateDatabaseFile];
-    
     
     NSString *localFile = [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0] stringByAppendingPathComponent:@"rubi.sqlite"];
 
-    
-    //[[NSFileManager defaultManager] copyItemAtPath: [self filepath] toPath:[[self newFilepath] stringByAppendingPathComponent: @"rubi_backup.sqlite"] error:nil];
-    
-    //NSString *localFile = [self newFilepath];
     
     NSString *api = @"http://app.rubi.st.automatix.koerbler.com/app/upload/upload.php";
     [self sendFile:localFile toServer:api];
@@ -430,58 +388,9 @@
     
 }
 
--(void)CreateDatabaseFile{
-    
-    NSString *databaseName;
-    NSString *databasePath;
-    
-    databaseName = @"rubi.sqlite";
-    
-    
-    
-    // Get the path to the documents directory and append the databaseName
-    NSArray *documentPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *documentsDir = [documentPaths objectAtIndex:0];
-    databasePath = [documentsDir stringByAppendingPathComponent:databaseName];
-    
-    
-    BOOL success;
-    
-    // Create a FileManager object, we will use this to check the status
-    // of the database and to copy it over if required
-    NSFileManager *fileManager = [NSFileManager defaultManager];
-    
-    // Check if the database has already been created in the users filesystem
-    success = [fileManager fileExistsAtPath:databasePath];
-    
-    // If the database already exists then return without doing anything
-    if(success) return;
-    
-    // If not then proceed to copy the database from the application to the users filesystem
-    
-    // Get the path to the database in the application package
-    NSString *databasePathFromApp = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:databaseName];
-    NSLog(@"DB in APP %@", databasePathFromApp);
-    // Copy the database from the package to the users filesystem
-    [fileManager copyItemAtPath:databasePathFromApp toPath:databasePath error:nil];
-    
-    
-    
-}
 
--(NSString*)filepath{
-    NSArray *path=NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *documentsDir=[path objectAtIndex:0];
-    NSLog(@"Path: %@", documentsDir);
-    return [documentsDir stringByAppendingPathComponent:@"rubi.sqlite"];
-}
 
--(NSString*)newFilepath{
-    NSArray *path=NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *documentsDir=[path objectAtIndex:0];
-    NSLog(@"Path: %@", documentsDir);
-    return [documentsDir stringByAppendingPathComponent:@"rubi.sqlite"];
-}
+
 
 
 

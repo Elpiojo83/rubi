@@ -52,14 +52,14 @@
    // HazardNote
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(onKeyboardHide:) name:UIKeyboardWillHideNotification object:nil];
     
-    if(!self.ratingsectionsafetyhazard.safetyHazardNote){
+    if(!self.ratingsection.sectionSafetyHazardNote){
         self.HazardNote.text = [NSString stringWithFormat:@"Platz für Notizen..."];
     }else{
-        self.HazardNote.text = [NSString stringWithFormat:@" %@", self.ratingsectionsafetyhazard.safetyHazardNote];
+        self.HazardNote.text = [NSString stringWithFormat:@" %@", self.ratingsection.sectionSafetyHazardNote];
     }
     
     
-    self.Mylibrary = [[ALAssetsLibrary alloc] init];
+    //self.Mylibrary = [[ALAssetsLibrary alloc] init];
     
     NSString *myGrabbedImage = [NSString stringWithFormat:@"%@.png" , self.ratingsection.startPositionGPS];//@"SiGe.png";
     NSArray *path = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,          NSUserDomainMask, YES);
@@ -83,7 +83,7 @@
         self.ratingsectionsafetyhazard = [NSEntityDescription insertNewObjectForEntityForName:@"RatingsectionSafetyHazard" inManagedObjectContext: self.managedObjectContext];
     }
     
-    self.ratingsectionsafetyhazard.safetyHazardNote = self.HazardNote.text;
+    self.ratingsection.sectionSafetyHazardNote = self.HazardNote.text;
    // self.ratingsectionsafetyhazard.safetyHazardImagePath = self.ratingsectionsafetyhazard.safetyHazardImagePath;
     
     AppDelegate* delegate = [[UIApplication sharedApplication] delegate];
@@ -138,7 +138,7 @@
     }
     
     
-    self.ratingsectionsafetyhazard.safetyHazardImagePath = [NSString stringWithFormat:@"%@", fullPathToFile];
+    self.ratingsection.sectionSafetyHazardImagePath = [NSString stringWithFormat:@"%@", fullPathToFile];
     //self.ratingsectionsafetyhazard.safetyHazardNote = [NSString stringWithFormat:@"%@", self.HazardNote.text];
     
     

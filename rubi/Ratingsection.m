@@ -48,5 +48,7 @@
 @dynamic hazards;
 @dynamic ratingimage;
 @dynamic section;
+@dynamic sectionSafetyHazardImagePath;
+@dynamic sectionSafetyHazardNote;
 
 @end
