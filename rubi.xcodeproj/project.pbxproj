@@ -30,6 +30,7 @@
 		DBC54542191A19B8003073A2 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBC54541191A19B8003073A2 /* QuartzCore.framework */; };
 		DBD8CBDA191BB34E0015EB3F /* ProjectLocationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DBD8CBD9191BB34E0015EB3F /* ProjectLocationViewController.m */; };
 		DBD8CBDC191BB5130015EB3F /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBD8CBDB191BB5130015EB3F /* MapKit.framework */; };
+		DBF949051922988600357FE7 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = DBF949041922988600357FE7 /* MBProgressHUD.m */; };
 		EE586C9018FFB14700BB5F6A /* RatingSectionsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE586C8F18FFB14700BB5F6A /* RatingSectionsTableViewController.m */; };
 		EE586C9218FFC5BF00BB5F6A /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE586C9118FFC5BF00BB5F6A /* CoreLocation.framework */; };
 		EE94D20318E4084700C919DF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE94D20218E4084700C919DF /* Foundation.framework */; };
@@ -119,6 +120,8 @@
 		DBD8CBD8191BB34E0015EB3F /* ProjectLocationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProjectLocationViewController.h; path = ../ProjectLocationViewController.h; sourceTree = "<group>"; };
 		DBD8CBD9191BB34E0015EB3F /* ProjectLocationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProjectLocationViewController.m; path = ../ProjectLocationViewController.m; sourceTree = "<group>"; };
 		DBD8CBDB191BB5130015EB3F /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		DBF949031922988600357FE7 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		DBF949041922988600357FE7 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		EE586C8E18FFB14700BB5F6A /* RatingSectionsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RatingSectionsTableViewController.h; sourceTree = "<group>"; };
 		EE586C8F18FFB14700BB5F6A /* RatingSectionsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RatingSectionsTableViewController.m; sourceTree = "<group>"; };
 		EE586C9118FFC5BF00BB5F6A /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -215,6 +218,8 @@
 		25B2193C18FC5FC7006C00D2 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
+				DBF949031922988600357FE7 /* MBProgressHUD.h */,
+				DBF949041922988600357FE7 /* MBProgressHUD.m */,
 				25B2193D18FC5FCE006C00D2 /* CoreDataTableViewController.h */,
 				25B2193E18FC5FCE006C00D2 /* CoreDataTableViewController.m */,
 				DB6A4DBA1906926600863D54 /* ALAssetsLibrary+CustomPhotoAlbum.h */,
@@ -491,6 +496,7 @@
 				25B2193F18FC5FCE006C00D2 /* CoreDataTableViewController.m in Sources */,
 				EE94D24E18E4090200C919DF /* Contact.m in Sources */,
 				DB6A4DBC1906926700863D54 /* ALAssetsLibrary+CustomPhotoAlbum.m in Sources */,
+				DBF949051922988600357FE7 /* MBProgressHUD.m in Sources */,
 				25AD67AE1900671B0007DF99 /* AnsprechpartnerTVC.m in Sources */,
 				EE956E2918E44B8100E46F8D /* ProjectStreetsTableTableViewController.m in Sources */,
 				25E491541901192F003714E2 /* TeamTVCell.m in Sources */,

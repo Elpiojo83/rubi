@@ -13,7 +13,7 @@
 #import "ProjectViewController.h"
 #import "TeamCDTVC.h"
 #import "Street.h"
-#import "CrudOp.h"
+#import "MBProgressHUD.h"
 
 @interface StartViewController () <UICollectionViewDataSource,
                                     UICollectionViewDelegate,
@@ -207,13 +207,16 @@
             
             ;
             
-        } completion:nil];
+        } completion: ^(BOOL finished) {
+            
+            [self.projectCV reloadData];
+        }];
         
-        [self.projectCV reloadData];
+        
     }
     
     self.indexPathToDelete = nil;
-    
+
 }
 
 -(void)viewDidAppear:(BOOL)animated{
@@ -310,6 +313,8 @@
 
 - (void)sendFile:(NSString *)filePath toServer:(NSString *)serverURL
 {
+
+    
     NSData *fileData = [NSData dataWithContentsOfFile:filePath];
     if (!fileData) {
         NSLog(@"Error: file error");
@@ -344,6 +349,46 @@
     
 }
 
+- (void)sendImage:(NSString *)filePath toServer:(NSString *)serverURL
+{
+    
+    
+    NSData *fileData = [NSData dataWithContentsOfFile:filePath];
+    if (!fileData) {
+        NSLog(@"Error: file error");
+        return;
+    }
+    
+    if (self.urlConnection) {
+        [self.urlConnection cancel];
+        self.urlConnection = nil;
+    }
+    
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc]
+                                    initWithURL:[NSURL URLWithString:serverURL]];
+    [request setTimeoutInterval:30.0];
+    [request setHTTPMethod:@"POST"];
+    NSString *boundary = @"780808070779786865757";
+    
+    /* Header */
+    NSString *contentType = [NSString stringWithFormat:@"multipart/form-data; boundary=%@", boundary];
+    [request addValue:contentType forHTTPHeaderField:@"Content-Type"];
+    
+    int r = rand();
+    
+    /* Body */
+    NSMutableData *postData = [NSMutableData data];
+    [postData appendData:[[NSString stringWithFormat:@"--%@\r\n", boundary] dataUsingEncoding:NSUTF8StringEncoding]];
+    [postData appendData:[[NSString stringWithFormat:@"Content-Disposition:form-data; name=\"file\"; filename=\"@%d.png\"\r\n", r] dataUsingEncoding:NSUTF8StringEncoding]];
+    [postData appendData:[@"Content-Type: application/octet-stream\r\n\r\n" dataUsingEncoding:NSUTF8StringEncoding]];
+    [postData appendData:fileData];
+    [postData appendData:[[NSString stringWithFormat:@"\r\n--%@--\r\n", boundary] dataUsingEncoding:NSUTF8StringEncoding]];
+    [request setHTTPBody:postData];
+    
+    self.urlConnection = [NSURLConnection connectionWithRequest:request delegate:self];
+    
+}
+
 
 
 
@@ -354,10 +399,16 @@
         self.receivedData = nil;
     }
     self.receivedData = [[NSMutableData alloc] init];
+    expectedLength = MAX([response expectedContentLength], 1);
+	currentLength = 0;
+	HUD.mode = MBProgressHUDModeDeterminate;
 }
 
 - (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
 {
+    currentLength += [data length];
+	HUD.progress = currentLength / (float)expectedLength;
+    
     [self.receivedData appendData:data];
 }
 
@@ -365,32 +416,54 @@
 {
     NSLog(@"finish requesting: %@", [[NSString alloc] initWithData:self.receivedData encoding:NSUTF8StringEncoding]);
     self.urlConnection = nil;
+    HUD.mode = MBProgressHUDModeCustomView;
+	[HUD hide:YES afterDelay:2];
 }
 
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
 {
     NSLog(@"requesting error: %@", [error localizedDescription]);
     self.urlConnection = nil;
+    [HUD hide:YES];
 }
 
 
 - (IBAction)exportProjectToServer:(id)sender {
     
+    HUD = [[MBProgressHUD alloc] initWithView:self.navigationController.view];
+	[self.navigationController.view addSubview:HUD];
+	
+	// Set determinate bar mode
+	// Set determinate mode
+	HUD.mode = MBProgressHUDModeDeterminate;
+	
+	HUD.delegate = self;
+	HUD.labelText = @"Loading";
+	
+	// myProgressTask uses the HUD instance to update progress
+	[HUD showWhileExecuting:@selector(sendFile:toServer:) onTarget:self withObject:nil animated:YES];
     
     NSString *localFile = [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0] stringByAppendingPathComponent:@"rubi.sqlite"];
 
     
-    NSString *api = @"http://app.rubi.st.automatix.koerbler.com/app/upload/upload.php";
-    [self sendFile:localFile toServer:api];
-
+    //NSString *myGrabbedImage = [NSString stringWithFormat:@"%@.png" , @"15.43078893,47.06967842"];//@"SiGe.png";
     
+    //NSArray *path = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,          NSUserDomainMask, YES);
+    //NSString *documentDirectory = [path objectAtIndex:0];
+    //NSString *fullPath = [documentDirectory stringByAppendingPathComponent:myGrabbedImage];
+    //NSData *data = [NSData dataWithContentsOfFile:fullPath];
+    
+    
+    NSString *api = @"http://app.rubi.st.automatix.koerbler.com/app/upload/upload.php";
+    
+    
+    //[self sendImage:fullPath toServer:api];
+    [self sendFile:localFile toServer:api];
+    
+
     NSLog(@"touch: %@", localFile);
     
 }
-
-
-
-
 
 
 

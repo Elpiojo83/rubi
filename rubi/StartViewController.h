@@ -8,8 +8,15 @@
 
 #import <UIKit/UIKit.h>
 #import <sqlite3.h>
+#import "MBProgressHUD.h"
 
-@interface StartViewController : UITableViewController
+@interface StartViewController : UITableViewController <MBProgressHUDDelegate> {
+	MBProgressHUD *HUD;
+    
+	long long expectedLength;
+	long long currentLength;
+}
+
 
 @property (nonatomic, strong) Street *street;
 - (IBAction)exportProjectToServer:(id)sender;
