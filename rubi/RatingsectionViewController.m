@@ -71,34 +71,7 @@
     
     [self.locationManager startUpdatingLocation];
     
-    
-    //Fill in the Stepper Textfields
-    
-    _rightSideWalkConditionTextField.text = self.ratingsection.rightSidewalkCondition;
-    _rightBikePathConditionTextField.text = self.ratingsection.rightBikepathCondition;
-    _rightEdgeConditionTextField.text = self.ratingsection.rightEdgeCondition;
-    _rightDrainageConditionTextField.text = self.ratingsection.rightDrainageCondition;
-    
-    _streetFlatnessConditionTextField.text = self.ratingsection.streetFlatness;
-    _streetSurfaceConditionTextField.text = self.ratingsection.streetSurfaceDamage;
-    _streetCkracksConditionTextField.text = self.ratingsection.streetCracks;
-    
-    _leftDrainageConditionTextField.text = self.ratingsection.leftDrainageCondition;
-    _leftEdgeConditionTextField.text = self.ratingsection.rightDrainageCondition;
-    _leftBikePathConditionTextField.text = self.ratingsection.leftBikepathCondition;
-    _leftSideWalkConditionTextField.text = self.ratingsection.leftSidewalkCondition;
-    
-    //Fill Buttons with Width
-    [self.streetWidth setTitle:self.ratingsection.streetWidth forState:normal];
-    
-    [self.rightSideWalkWidth setTitle:self.ratingsection.rightSidewalkWidth forState:normal];
-    [self.rightBikePathWidth setTitle:self.ratingsection.righBikepathWidth forState:normal];
-    
-    [self.leftSideWalkWidth setTitle:self.ratingsection.leftSidewalkWidth forState:normal];
-    [self.leftBikePathWidth setTitle:self.ratingsection.leftBikepathWidth forState:normal];
-    
-    
-
+    [self showAllButtonTitles];
     
     
 }
@@ -152,23 +125,15 @@
     if([segue.identifier isEqualToString:@"RatingImages"]){
         
         RatingImagesViewController *dvc = (RatingImagesViewController *)[[segue destinationViewController] topViewController];
-        //RatingImagesViewController *dvc = [segue destinationViewController];
         
         dvc.ratingsection = self.ratingsection;
         dvc.managedObjectContext = self.managedObjectContext;
         
         
-        //dvc.ratingsection.ratingimage = self.ratingsection.ratingimage;
-        //NSLog(@"imgs: %@", dvc.ratingsection.ratingimage);
-        
         dvc.ratingsection = self.ratingsection;
         dvc.ratingimage = self.ratingimage;
         dvc.ratingsection.ratingimage = self.ratingsection.ratingimage;
         
-        
-        
-        
-       // NSLog(@"Segue Section: %@", self.managedObjectContext);
         
     }
     else if( [segue.identifier isEqualToString:@"showPickerView"] ) {
@@ -211,14 +176,7 @@
     [navigationController pushViewController: controller animated:YES];
     
     
-    
-    self.ratingsection.leftSidewalkWidth = [self.leftSideWalkWidth currentTitle];
-    self.ratingsection.leftBikepathWidth = [self.leftBikePathWidth currentTitle];
-    
-    self.ratingsection.streetWidth = [self.streetWidth currentTitle];
-    
-    self.ratingsection.rightSidewalkWidth = [self.rightSideWalkWidth currentTitle];
-    self.ratingsection.righBikepathWidth = [self.rightBikePathWidth currentTitle];
+    [self saveAllButtonTitleValues];
     
 }
     
@@ -227,17 +185,11 @@
 - (IBAction)dismissViewTouchUpInside:(id)sender {
     
     
-    self.ratingsection.leftSidewalkWidth = [self.leftSideWalkWidth currentTitle];
-    self.ratingsection.leftBikepathWidth = [self.leftBikePathWidth currentTitle];
-    
-    self.ratingsection.streetWidth = [self.streetWidth currentTitle];
-    
-    self.ratingsection.rightSidewalkWidth = [self.rightSideWalkWidth currentTitle];
-    self.ratingsection.righBikepathWidth = [self.rightBikePathWidth currentTitle];
-    
+
     
     //ConstructionTypes
     
+    [self saveAllButtonTitleValues];
     
     [self dismissViewControllerAnimated:YES completion:nil];
     
@@ -276,11 +228,38 @@
     self.popController.delegate = self;
     //Get the cell from your table that presents the popover
     
-    [self.popController presentPopoverFromRect: ((UIButton *)sender).bounds
-                                        inView: ((UIButton *)sender)
-                      permittedArrowDirections: UIPopoverArrowDirectionLeft animated:YES];
-    //NSLog(@"Button pressed: %@", [sender cur]);
+    NSString *endButton = [NSString stringWithFormat:@"%ld", (long)[sender tag]];
     
+    if([endButton isEqualToString:@"1902"]){
+        [self.popController presentPopoverFromRect: ((UIButton *)sender).bounds
+                                            inView: ((UIButton *)sender)
+                          permittedArrowDirections: UIPopoverArrowDirectionRight animated:YES];
+          NSLog(@"Button pressed: %ld", [sender tag]);
+    }else{
+        [self.popController presentPopoverFromRect: ((UIButton *)sender).bounds
+                                            inView: ((UIButton *)sender)
+                          permittedArrowDirections: UIPopoverArrowDirectionLeft animated:YES];
+    }
+
+}
+
+-(IBAction)presentEndWidthPopOvercontroller:(id)sender {
+    WidthPickerViewController* controller = [[self storyboard] instantiateViewControllerWithIdentifier:@"WidthPicker"];
+    
+    controller.delegate = self;
+    controller.sourceControl = (UIButton *)sender;
+    
+    self.popController = [[UIPopoverController alloc]
+                          initWithContentViewController: controller];
+    self.popController.delegate = self;
+    //Get the cell from your table that presents the popover
+    
+    
+        [self.popController presentPopoverFromRect: ((UIButton *)sender).bounds
+                                            inView: ((UIButton *)sender)
+                          permittedArrowDirections: UIPopoverArrowDirectionRight animated:YES];
+        NSLog(@"Button pressed: %ld", [sender tag]);
+
     
 }
 
@@ -374,4 +353,84 @@
     self.ratingsection.leftEdgeCondition = leftEdge;
     
 }
+
+-(void)saveAllButtonTitleValues{
+    
+    //Method
+    
+    self.ratingsection.leftSidewalkMethodOfConstruction = [self.leftSideWalkConstructionType currentTitle];
+    self.ratingsection.leftBikepathMethodOfConstruction = [self.leftBikePathConstructionType currentTitle];
+    self.ratingsection.leftEdgeMethodOfConstruction = [self.leftEdgeConstructionType currentTitle];
+    self.ratingsection.leftDrainageMethodOfCondition = [self.leftDrainageConstructionType currentTitle];
+    
+    self.ratingsection.streetMethodOfConstruction = [self.streetConstructionType currentTitle];
+    
+    self.ratingsection.rightSidewalkMethodOfConstruction = [self.rightSideWalkConstructionType currentTitle];
+    self.ratingsection.rightBikepathMethodOfConstruction = [self.rightBikePathConstructionType currentTitle];
+    self.ratingsection.rightEdgeMethodOfConstruction = [self.rightEdgeConstructionType currentTitle];
+    self.ratingsection.rightDrainageMethodOfConstruction = [self.rightDrainageConstructionType currentTitle];
+    
+    
+    //Width
+    
+    self.ratingsection.leftSidewalkWidth = [self.leftSideWalkWidth currentTitle];
+    self.ratingsection.leftBikepathWidth = [self.leftBikePathWidth currentTitle];
+    
+    self.ratingsection.streetWidth = [self.streetWidth currentTitle];
+    
+    self.ratingsection.rightSidewalkWidth = [self.rightSideWalkWidth currentTitle];
+    self.ratingsection.righBikepathWidth = [self.rightBikePathWidth currentTitle];
+    
+    //Position
+    
+    self.ratingsection.startPosition = [self.startPosition currentTitle];
+    self.ratingsection.endPosition = [self.endPosition currentTitle];
+    
+}
+
+
+-(void)showAllButtonTitles{
+    [self.leftSideWalkConstructionType setTitle:self.ratingsection.leftSidewalkMethodOfConstruction forState:normal];
+    [self.leftBikePathConstructionType setTitle:self.ratingsection.leftBikepathMethodOfConstruction forState:normal];
+    [self.leftEdgeConstructionType setTitle:self.ratingsection.leftEdgeMethodOfConstruction forState:normal];
+    [self.leftDrainageConstructionType setTitle:self.ratingsection.leftDrainageMethodOfCondition forState:normal];
+    
+    [self.streetConstructionType setTitle:self.ratingsection.streetMethodOfConstruction forState:normal];
+    
+    [self.rightSideWalkConstructionType setTitle:self.ratingsection.rightSidewalkMethodOfConstruction forState:normal];
+    [self.rightBikePathConstructionType setTitle:self.ratingsection.rightBikepathMethodOfConstruction forState:normal];
+    [self.rightEdgeConstructionType setTitle:self.ratingsection.rightEdgeMethodOfConstruction forState:normal];
+    [self.rightDrainageConstructionType setTitle:self.ratingsection.rightDrainageMethodOfConstruction forState:normal];
+    
+    //Fill in the Stepper Textfields
+    
+    _rightSideWalkConditionTextField.text = self.ratingsection.rightSidewalkCondition;
+    _rightBikePathConditionTextField.text = self.ratingsection.rightBikepathCondition;
+    _rightEdgeConditionTextField.text = self.ratingsection.rightEdgeCondition;
+    _rightDrainageConditionTextField.text = self.ratingsection.rightDrainageCondition;
+    
+    _streetFlatnessConditionTextField.text = self.ratingsection.streetFlatness;
+    _streetSurfaceConditionTextField.text = self.ratingsection.streetSurfaceDamage;
+    _streetCkracksConditionTextField.text = self.ratingsection.streetCracks;
+    
+    _leftDrainageConditionTextField.text = self.ratingsection.leftDrainageCondition;
+    _leftEdgeConditionTextField.text = self.ratingsection.rightDrainageCondition;
+    _leftBikePathConditionTextField.text = self.ratingsection.leftBikepathCondition;
+    _leftSideWalkConditionTextField.text = self.ratingsection.leftSidewalkCondition;
+    
+    //Fill Buttons with Width
+    [self.streetWidth setTitle:self.ratingsection.streetWidth forState:normal];
+    
+    [self.rightSideWalkWidth setTitle:self.ratingsection.rightSidewalkWidth forState:normal];
+    [self.rightBikePathWidth setTitle:self.ratingsection.righBikepathWidth forState:normal];
+    
+    [self.leftSideWalkWidth setTitle:self.ratingsection.leftSidewalkWidth forState:normal];
+    [self.leftBikePathWidth setTitle:self.ratingsection.leftBikepathWidth forState:normal];
+    
+    [self.startPosition setTitle:self.ratingsection.startPosition forState:normal];
+    [self.endPosition setTitle:self.ratingsection.endPosition forState:normal];
+    
+    
+}
+
 @end

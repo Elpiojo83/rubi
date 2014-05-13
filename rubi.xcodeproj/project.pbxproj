@@ -23,6 +23,8 @@
 		DB6A4DB1190667C100863D54 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB6A4DB0190667C100863D54 /* AssetsLibrary.framework */; };
 		DB6A4DB419066E4700863D54 /* RatingImagesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB6A4DB319066E4700863D54 /* RatingImagesViewController.m */; };
 		DB6A4DBC1906926700863D54 /* ALAssetsLibrary+CustomPhotoAlbum.m in Sources */ = {isa = PBXBuildFile; fileRef = DB6A4DBB1906926700863D54 /* ALAssetsLibrary+CustomPhotoAlbum.m */; };
+		DBB9B50E1921532A00B85182 /* CrudOp.m in Sources */ = {isa = PBXBuildFile; fileRef = DBB9B50D1921532A00B85182 /* CrudOp.m */; };
+		DBB9B510192154A700B85182 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = DBB9B50F192154A700B85182 /* libsqlite3.dylib */; };
 		DBC54542191A19B8003073A2 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBC54541191A19B8003073A2 /* QuartzCore.framework */; };
 		DBD8CBDA191BB34E0015EB3F /* ProjectLocationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DBD8CBD9191BB34E0015EB3F /* ProjectLocationViewController.m */; };
 		DBD8CBDC191BB5130015EB3F /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBD8CBDB191BB5130015EB3F /* MapKit.framework */; };
@@ -104,6 +106,9 @@
 		DB6A4DB319066E4700863D54 /* RatingImagesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RatingImagesViewController.m; sourceTree = "<group>"; };
 		DB6A4DBA1906926600863D54 /* ALAssetsLibrary+CustomPhotoAlbum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ALAssetsLibrary+CustomPhotoAlbum.h"; sourceTree = "<group>"; };
 		DB6A4DBB1906926700863D54 /* ALAssetsLibrary+CustomPhotoAlbum.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ALAssetsLibrary+CustomPhotoAlbum.m"; sourceTree = "<group>"; };
+		DBB9B50C1921532A00B85182 /* CrudOp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CrudOp.h; sourceTree = "<group>"; };
+		DBB9B50D1921532A00B85182 /* CrudOp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CrudOp.m; sourceTree = "<group>"; };
+		DBB9B50F192154A700B85182 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		DBC54541191A19B8003073A2 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		DBD8CBD8191BB34E0015EB3F /* ProjectLocationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProjectLocationViewController.h; path = ../ProjectLocationViewController.h; sourceTree = "<group>"; };
 		DBD8CBD9191BB34E0015EB3F /* ProjectLocationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProjectLocationViewController.m; path = ../ProjectLocationViewController.m; sourceTree = "<group>"; };
@@ -173,6 +178,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DBB9B510192154A700B85182 /* libsqlite3.dylib in Frameworks */,
 				DBD8CBDC191BB5130015EB3F /* MapKit.framework in Frameworks */,
 				DBC54542191A19B8003073A2 /* QuartzCore.framework in Frameworks */,
 				DB6A4DB1190667C100863D54 /* AssetsLibrary.framework in Frameworks */,
@@ -207,6 +213,8 @@
 				25B2193E18FC5FCE006C00D2 /* CoreDataTableViewController.m */,
 				DB6A4DBA1906926600863D54 /* ALAssetsLibrary+CustomPhotoAlbum.h */,
 				DB6A4DBB1906926700863D54 /* ALAssetsLibrary+CustomPhotoAlbum.m */,
+				DBB9B50C1921532A00B85182 /* CrudOp.h */,
+				DBB9B50D1921532A00B85182 /* CrudOp.m */,
 			);
 			name = Helper;
 			sourceTree = "<group>";
@@ -233,6 +241,7 @@
 		EE94D20118E4084700C919DF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				DBB9B50F192154A700B85182 /* libsqlite3.dylib */,
 				DBD8CBDB191BB5130015EB3F /* MapKit.framework */,
 				DBC54541191A19B8003073A2 /* QuartzCore.framework */,
 				DB6A4DB0190667C100863D54 /* AssetsLibrary.framework */,
@@ -494,6 +503,7 @@
 				25E4915719012607003714E2 /* TeamToProjectCVC.m in Sources */,
 				25B65CD319013398009BE6F1 /* TeamSelectionTVCell.m in Sources */,
 				EEC5103B1906EF3300F3CD72 /* PickerViewController.m in Sources */,
+				DBB9B50E1921532A00B85182 /* CrudOp.m in Sources */,
 				EE94D24D18E4090200C919DF /* Street.m in Sources */,
 				EE94D24B18E4090200C919DF /* Employees.m in Sources */,
 				EE94D24A18E4090200C919DF /* RatingImage.m in Sources */,
