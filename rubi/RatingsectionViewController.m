@@ -60,6 +60,9 @@
 {
     [super viewDidLoad];
     
+    
+    
+    
     UIColor *streetBg = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"street.png"]];
     self.RatingSectionInterfaceView.backgroundColor = streetBg;
     
@@ -158,13 +161,27 @@
         
     }
     else if ( [segue.identifier isEqualToString: @"SiGe"]) {
+        /*
+        if(self.ratingsectionsafetyhazard == nil){
+                    self.ratingsectionsafetyhazard = [NSEntityDescription insertNewObjectForEntityForName:@"RatingsectionSafetyHazard" inManagedObjectContext: self.managedObjectContext];
+            [self.ratingsection addHazardsObject:self.ratingsectionsafetyhazard];
+        }
+         */
         
+        //RatingsectionSafetyHazard *safety = self.ratingsectionsafetyhazard;
         
         SiGeViewController *dvc = (SiGeViewController *)segue.destinationViewController;
         dvc.ratingsection = self.ratingsection;
+        
+       // NSIndexPath *selectedIndexPath = [[self.ratingsection] objectAtIndexPath:indexPath.row];
+       // RatingsectionSafetyHazard *safety = [[self fetchedResultsController] objectAtIndexPath:selectedIndexPath];
+        
+        //RatingsectionSafetyHazard *safety = [[self.ratingsection allObjects] objectAtIndex:indexPath.row];
+        
+        dvc.ratingsectionsafetyhazard = self.ratingsectionsafetyhazard;
         dvc.managedObjectContext = self.managedObjectContext;
 
-        NSLog(@"DVC: %@", self.ratingsection);
+        NSLog(@"DVC RATINGHAZARD: %@", dvc.ratingsectionsafetyhazard);
         
     }
     

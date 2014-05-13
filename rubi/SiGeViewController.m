@@ -20,14 +20,14 @@
 
 @implementation SiGeViewController
 
-/*
+
 -(void)setManagedObjectContext:(NSManagedObjectContext *)managedObjectContext {
     
     _managedObjectContext = managedObjectContext;
     if (managedObjectContext) {
         NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName: @"RatingsectionSafetyHazard"];
         request.sortDescriptors = @[[ NSSortDescriptor  sortDescriptorWithKey: @"safetyHazardImagePath" ascending:YES ]];
-        request.predicate = [NSPredicate predicateWithFormat: @" ratingsection == %@" , self.ratingsection.hazards];
+        request.predicate = [NSPredicate predicateWithFormat: @" ratingsection == %@" , self.ratingsection];
         
         
         NSLog(@"Curr. Images: %@", request);
@@ -42,7 +42,7 @@
         self.fetchedResultsController = nil;
     }
 }
-*/
+
 
 - (void)viewDidLoad
 {
@@ -53,7 +53,7 @@
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(onKeyboardHide:) name:UIKeyboardWillHideNotification object:nil];
     
     if(!self.ratingsectionsafetyhazard.safetyHazardNote){
-        self.HazardNote.text = [NSString stringWithFormat:@""];
+        self.HazardNote.text = [NSString stringWithFormat:@"Platz für Notizen..."];
     }else{
         self.HazardNote.text = [NSString stringWithFormat:@" %@", self.ratingsectionsafetyhazard.safetyHazardNote];
     }
@@ -70,7 +70,7 @@
     [[self SigeImagView]setImage:[UIImage imageWithData:data]];
     
     
-    NSLog(@"RatingsectionLOG: %@ SafetyHazardLOG:%@", self.ratingsection, self.ratingsection.hazards);
+    NSLog(@"RatingsectionLOG: %@ SafetyHazardLOG:%@", self.ratingsectionsafetyhazard.safetyHazardNote, self.ratingsectionsafetyhazard.safetyHazardImagePath);
     
 }
 
@@ -84,6 +84,7 @@
     }
     
     self.ratingsectionsafetyhazard.safetyHazardNote = self.HazardNote.text;
+   // self.ratingsectionsafetyhazard.safetyHazardImagePath = self.ratingsectionsafetyhazard.safetyHazardImagePath;
     
     AppDelegate* delegate = [[UIApplication sharedApplication] delegate];
     [delegate saveContext];
@@ -130,14 +131,15 @@
     
     
     if(!self.ratingsectionsafetyhazard){
-        self.ratingsectionsafetyhazard = [NSEntityDescription insertNewObjectForEntityForName:@"RatingsectionSafetyHazard" inManagedObjectContext: self.managedObjectContext];
+      //  self.ratingsectionsafetyhazard = [NSEntityDescription insertNewObjectForEntityForName:@"RatingsectionSafetyHazard" inManagedObjectContext: self.managedObjectContext];
         
-        [self.ratingsection addHazardsObject:self.ratingsectionsafetyhazard];
+       // [self.ratingsection addHazardsObject:self.ratingsectionsafetyhazard];
         
     }
     
     
     self.ratingsectionsafetyhazard.safetyHazardImagePath = [NSString stringWithFormat:@"%@", fullPathToFile];
+    //self.ratingsectionsafetyhazard.safetyHazardNote = [NSString stringWithFormat:@"%@", self.HazardNote.text];
     
     
     

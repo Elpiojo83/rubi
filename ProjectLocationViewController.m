@@ -38,6 +38,8 @@
     locationManager.delegate = self;
     locationManager.desiredAccuracy = kCLLocationAccuracyBest;
     
+
+    
     [locationManager startUpdatingLocation];
 }
 
