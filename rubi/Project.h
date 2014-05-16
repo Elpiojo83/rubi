@@ -17,6 +17,7 @@
 
 @property (nonatomic, retain) NSString * projectTitle;
 @property (nonatomic, retain) NSDate * projectTimestamp;
+@property (nonatomic, retain) NSString * unixTimestamp;
 @property (nonatomic, retain) NSString * projectNote;
 @property (nonatomic, retain) NSSet *employees;
 @property (nonatomic, retain) NSSet *contacts;

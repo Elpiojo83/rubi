@@ -29,6 +29,22 @@
     self.project.projectTitle = self.NewProjectTitleTextField.text;
     self.project.projectTimestamp = [NSDate date];
     
+    
+    //- (NSTimeInterval)timeIntervalSince1970
+    
+    
+    NSDate * newDate = [NSDate date]; //self.project.projectTimestamp;
+    
+    
+  
+    
+    time_t unixTime = (time_t) [newDate timeIntervalSince1970];
+    NSString *unixTS = [NSString stringWithFormat:@" %ld", unixTime];
+    
+    NSLog(@"The Timestamp: %@", unixTS);
+    
+    self.project.unixTimestamp = @"somestring"; //[NSString stringWithFormat:@" %ld", unixTime];
+    
     NSError* error;
     [self.managedObjectContext save:&error];
     

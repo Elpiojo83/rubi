@@ -21,6 +21,7 @@
 
 @dynamic projectTitle;
 @dynamic projectTimestamp;
+@dynamic unixTimestamp;
 @dynamic projectNote;
 @dynamic employees;
 @dynamic contacts;

@@ -22,6 +22,7 @@
         <attribute name="projectNote" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="projectTimestamp" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="projectTitle" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="unixTitmestamp" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="contacts" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Contact" inverseName="project" inverseEntity="Contact" syncable="YES"/>
         <relationship name="employees" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Employees" inverseName="project" inverseEntity="Employees" syncable="YES"/>
         <relationship name="streets" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Street" inverseName="project" inverseEntity="Street" syncable="YES"/>
@@ -88,7 +89,7 @@
     <elements>
         <element name="Contact" positionX="79" positionY="288" width="128" height="193"/>
         <element name="Employees" positionX="-479" positionY="-81" width="128" height="103"/>
-        <element name="Project" positionX="-207" positionY="-117" width="128" height="133"/>
+        <element name="Project" positionX="-207" positionY="-117" width="128" height="150"/>
         <element name="RatingImage" positionX="90" positionY="99" width="128" height="88"/>
         <element name="Ratingsection" positionX="331" positionY="-54" width="128" height="585"/>
         <element name="RatingsectionSafetyHazard" positionX="88" positionY="189" width="128" height="88"/>
