@@ -12,14 +12,16 @@
 #import "Ratingsection.h"
 #import "PickerViewController.h"
 #import "WidthPickerViewController.h"
+#import "LongWidthPickerViewController.h"
 #import <CoreLocation/CoreLocation.h>
 #import "RatingSectionNotesViewController.h"
 #import "SiGeViewController.h"
 #import "RatingsectionSafetyHazard.h"
 
+
 @interface RatingsectionViewController () <PickerViewControllerDelegate,
                                             UIPopoverControllerDelegate,
-                                            CLLocationManagerDelegate, WidthPickerViewControllerDelegate>
+                                            CLLocationManagerDelegate, WidthPickerViewControllerDelegate, LongWidthPickerViewControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UIButton *btnA;
 @property (weak, nonatomic) IBOutlet UIButton *btnA2;
@@ -188,6 +190,7 @@
     
     [ratingsection setValue:newRatingsectionStartPosition forKey:@"startPositionGPS"];
     
+    [self saveAllButtonTitleValues];
     
     [self.ratingsection.section addRatingSectionObject:(Ratingsection*)ratingsection];
     
@@ -195,6 +198,14 @@
     RatingsectionViewController* controller = [[self storyboard] instantiateViewControllerWithIdentifier:@"RatingsectionViewController"];
     controller.project = self.project;
     controller.ratingsection = ratingsection;
+    
+    //self.ratingsection.endPosition
+    
+    controller.ratingsection.startPosition = self.ratingsection.endPosition;
+    [controller.startPosition setTitle:controller.ratingsection.startPosition forState:normal];
+    
+    NSLog(@"NewStartPosition: %@", controller.ratingsection.startPosition);
+    
     controller.managedObjectContext = self.managedObjectContext;
     
     UINavigationController *navigationController = self.navigationController;
@@ -202,8 +213,6 @@
     [navigationController popToRootViewControllerAnimated:NO];
     [navigationController pushViewController: controller animated:YES];
     
-    
-    [self saveAllButtonTitleValues];
     
 }
     
@@ -271,7 +280,7 @@
 }
 
 -(IBAction)presentEndWidthPopOvercontroller:(id)sender {
-    WidthPickerViewController* controller = [[self storyboard] instantiateViewControllerWithIdentifier:@"WidthPicker"];
+    LongWidthPickerViewController* controller = [[self storyboard] instantiateViewControllerWithIdentifier:@"LongWidthPicker"];
     
     controller.delegate = self;
     controller.sourceControl = (UIButton *)sender;
@@ -412,6 +421,8 @@
     
     self.ratingsection.startPosition = [self.startPosition currentTitle];
     self.ratingsection.endPosition = [self.endPosition currentTitle];
+    
+    
     
 }
 

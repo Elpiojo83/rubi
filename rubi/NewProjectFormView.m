@@ -43,7 +43,7 @@
     
     NSLog(@"The Timestamp: %@", unixTS);
     
-    self.project.unixTimestamp = @"somestring"; //[NSString stringWithFormat:@" %ld", unixTime];
+    self.project.unixTimestamp = [NSString stringWithFormat:@"%ld", unixTime];
     
     NSError* error;
     [self.managedObjectContext save:&error];

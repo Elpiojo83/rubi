@@ -26,6 +26,7 @@
 		DB6A4DB419066E4700863D54 /* RatingImagesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB6A4DB319066E4700863D54 /* RatingImagesViewController.m */; };
 		DB6A4DBC1906926700863D54 /* ALAssetsLibrary+CustomPhotoAlbum.m in Sources */ = {isa = PBXBuildFile; fileRef = DB6A4DBB1906926700863D54 /* ALAssetsLibrary+CustomPhotoAlbum.m */; };
 		DB80FB72192624BD001217BB /* NewStreetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB80FB71192624BD001217BB /* NewStreetViewController.m */; };
+		DB890BF61935B503004902EC /* LongWidthPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB890BF51935B503004902EC /* LongWidthPickerViewController.m */; };
 		DBB9B50E1921532A00B85182 /* CrudOp.m in Sources */ = {isa = PBXBuildFile; fileRef = DBB9B50D1921532A00B85182 /* CrudOp.m */; };
 		DBB9B510192154A700B85182 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = DBB9B50F192154A700B85182 /* libsqlite3.dylib */; };
 		DBC54542191A19B8003073A2 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBC54541191A19B8003073A2 /* QuartzCore.framework */; };
@@ -114,6 +115,8 @@
 		DB6A4DBA1906926600863D54 /* ALAssetsLibrary+CustomPhotoAlbum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ALAssetsLibrary+CustomPhotoAlbum.h"; sourceTree = "<group>"; };
 		DB6A4DBB1906926700863D54 /* ALAssetsLibrary+CustomPhotoAlbum.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ALAssetsLibrary+CustomPhotoAlbum.m"; sourceTree = "<group>"; };
 		DB80FB71192624BD001217BB /* NewStreetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewStreetViewController.m; sourceTree = "<group>"; };
+		DB890BF41935B503004902EC /* LongWidthPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LongWidthPickerViewController.h; sourceTree = "<group>"; };
+		DB890BF51935B503004902EC /* LongWidthPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LongWidthPickerViewController.m; sourceTree = "<group>"; };
 		DBB9B50C1921532A00B85182 /* CrudOp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CrudOp.h; sourceTree = "<group>"; };
 		DBB9B50D1921532A00B85182 /* CrudOp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CrudOp.m; sourceTree = "<group>"; };
 		DBB9B50F192154A700B85182 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
@@ -351,6 +354,8 @@
 				EEC5103A1906EF3300F3CD72 /* PickerViewController.m */,
 				EE9A4A97191C1631006DBA5D /* WidthPickerViewController.h */,
 				EE9A4A98191C1631006DBA5D /* WidthPickerViewController.m */,
+				DB890BF41935B503004902EC /* LongWidthPickerViewController.h */,
+				DB890BF51935B503004902EC /* LongWidthPickerViewController.m */,
 				EE956E2718E44B8100E46F8D /* ProjectStreetsTableTableViewController.h */,
 				EE956E2818E44B8100E46F8D /* ProjectStreetsTableTableViewController.m */,
 				EE586C8E18FFB14700BB5F6A /* RatingSectionsTableViewController.h */,
@@ -497,6 +502,7 @@
 				EE94D24E18E4090200C919DF /* Contact.m in Sources */,
 				DB6A4DBC1906926700863D54 /* ALAssetsLibrary+CustomPhotoAlbum.m in Sources */,
 				DBF949051922988600357FE7 /* MBProgressHUD.m in Sources */,
+				DB890BF61935B503004902EC /* LongWidthPickerViewController.m in Sources */,
 				25AD67AE1900671B0007DF99 /* AnsprechpartnerTVC.m in Sources */,
 				EE956E2918E44B8100E46F8D /* ProjectStreetsTableTableViewController.m in Sources */,
 				25E491541901192F003714E2 /* TeamTVCell.m in Sources */,

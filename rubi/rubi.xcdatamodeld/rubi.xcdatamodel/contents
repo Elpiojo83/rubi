@@ -22,7 +22,7 @@
         <attribute name="projectNote" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="projectTimestamp" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="projectTitle" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="unixTitmestamp" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="unixTimestamp" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="contacts" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Contact" inverseName="project" inverseEntity="Contact" syncable="YES"/>
         <relationship name="employees" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Employees" inverseName="project" inverseEntity="Employees" syncable="YES"/>
         <relationship name="streets" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Street" inverseName="project" inverseEntity="Street" syncable="YES"/>
@@ -83,6 +83,7 @@
     <entity name="Street" representedClassName="Street" syncable="YES">
         <attribute name="streetCrdate" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="streetname" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="streetUnixTimestamp" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="project" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Project" inverseName="streets" inverseEntity="Project" syncable="YES"/>
         <relationship name="section" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Section" inverseName="street" inverseEntity="Section" syncable="YES"/>
     </entity>
@@ -94,6 +95,6 @@
         <element name="Ratingsection" positionX="331" positionY="-54" width="128" height="585"/>
         <element name="RatingsectionSafetyHazard" positionX="88" positionY="189" width="128" height="88"/>
         <element name="Section" positionX="90" positionY="-72" width="128" height="88"/>
-        <element name="Street" positionX="90" positionY="9" width="128" height="103"/>
+        <element name="Street" positionX="90" positionY="9" width="128" height="118"/>
     </elements>
 </model>
