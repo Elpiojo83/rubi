@@ -17,11 +17,13 @@
 #import "RatingSectionNotesViewController.h"
 #import "SiGeViewController.h"
 #import "RatingsectionSafetyHazard.h"
+#import "DrainagePickerViewController.h"
+#import "EdgePickerViewController.h"
 
 
 @interface RatingsectionViewController () <PickerViewControllerDelegate,
                                             UIPopoverControllerDelegate,
-                                            CLLocationManagerDelegate,LongWidthPickerViewControllerDelegate,WidthPickerViewControllerDelegate>
+                                            CLLocationManagerDelegate,LongWidthPickerViewControllerDelegate,WidthPickerViewControllerDelegate,DrainagePickerViewControllerDelegate, EdgePickerViewControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UIButton *btnA;
 @property (weak, nonatomic) IBOutlet UIButton *btnA2;
@@ -61,8 +63,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    
     
     
     UIColor *streetBg = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"street.png"]];
@@ -153,6 +153,11 @@
         controller.delegate = self;
         controller.sourceControl = sender;
     }
+    else if( [segue.identifier isEqualToString:@"showDrainagePickerView"] ) {
+        DrainagePickerViewController *controller = (DrainagePickerViewController *)segue.destinationViewController;
+        controller.delegate = self;
+        controller.sourceControl = sender;
+    }
     else if( [segue.identifier isEqualToString:@"showWidthPickerView"] ) {
         WidthPickerViewController *controller = (WidthPickerViewController *)segue.destinationViewController;
         controller.delegate = self;
@@ -190,7 +195,7 @@
     // NSString* newRatingsectionStartPosition = [NSString stringWithFormat:@"Abschnitt"];
     
     
-    NSString *newRatingsectionStartPosition = [NSString stringWithFormat:@"%@,%@", _longitude, _latidude];
+    NSString *newRatingsectionStartPosition = [NSString stringWithFormat:@"%@,%@",_latidude, _longitude];
     
     [ratingsection setValue:newRatingsectionStartPosition forKey:@"startPositionGPS"];
     
@@ -300,6 +305,46 @@
                           permittedArrowDirections: UIPopoverArrowDirectionRight animated:YES];
         NSLog(@"Button pressed: %ld", [sender tag]);
 
+    
+}
+
+-(IBAction)presentDrainagePopOvercontroller:(id)sender {
+    DrainagePickerViewController* controller = [[self storyboard] instantiateViewControllerWithIdentifier:@"DrainagePickerView"];
+    
+    controller.delegate = self;
+    controller.sourceControl = (UIButton *)sender;
+    
+    self.popController = [[UIPopoverController alloc]
+                          initWithContentViewController: controller];
+    self.popController.delegate = self;
+    //Get the cell from your table that presents the popover
+    
+    
+    [self.popController presentPopoverFromRect: ((UIButton *)sender).bounds
+                                        inView: ((UIButton *)sender)
+                      permittedArrowDirections: UIPopoverArrowDirectionRight animated:YES];
+    NSLog(@"Button pressed: %ld", [sender tag]);
+    
+    
+}
+
+-(IBAction)presentEdgePopOvercontroller:(id)sender {
+    EdgePickerViewController* controller = [[self storyboard] instantiateViewControllerWithIdentifier:@"EdgePicker"];
+    
+    controller.delegate = self;
+    controller.sourceControl = (UIButton *)sender;
+    
+    self.popController = [[UIPopoverController alloc]
+                          initWithContentViewController: controller];
+    self.popController.delegate = self;
+    //Get the cell from your table that presents the popover
+    
+    
+    [self.popController presentPopoverFromRect: ((UIButton *)sender).bounds
+                                        inView: ((UIButton *)sender)
+                      permittedArrowDirections: UIPopoverArrowDirectionRight animated:YES];
+    NSLog(@"Button pressed: %ld", [sender tag]);
+    
     
 }
 

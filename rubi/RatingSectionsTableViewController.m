@@ -44,7 +44,7 @@
    // NSString* newRatingsectionStartPosition = [NSString stringWithFormat:@"Abschnitt"];
     
     
-    NSString *newRatingsectionStartPosition = [NSString stringWithFormat:@"%@,%@", _longitude, _latidude];
+    NSString *newRatingsectionStartPosition = [NSString stringWithFormat:@"%@,%@", _latidude, _longitude];
     
     [ratingsection setValue:newRatingsectionStartPosition forKey:@"startPositionGPS"];
     

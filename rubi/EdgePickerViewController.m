@@ -1,19 +1,20 @@
 //
-//  PickerViewController.m
+//  EdgePickerViewController.m
 //  rubi
 //
-//  Created by David Krachler on 22.04.14.
+//  Created by David Krachler on 28.05.14.
 //  Copyright (c) 2014 koerbler. All rights reserved.
 //
 
-#import "PickerViewController.h"
+#import "EdgePickerViewController.h"
 #import "RatingsectionViewController.h"
 
-@interface PickerViewController ()
+
+@interface EdgePickerViewController ()
 
 @end
 
-@implementation PickerViewController
+@implementation EdgePickerViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -27,8 +28,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.constructionTypes = [[NSMutableArray alloc] initWithObjects: @"Aspahltbauweise", @"Betonbauweise", @"Spritzdecke", @"Sonstige Bauweise", @"Naturstein", nil];
-
+    self.constructionTypes = [[NSMutableArray alloc] initWithObjects: @"Bankett", @"Beton", @"Naturstein", @"Sonstige Bauweise", nil];
+    
     // Do any additional setup after loading the view.
 }
 
