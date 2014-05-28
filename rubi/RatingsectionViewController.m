@@ -21,7 +21,7 @@
 
 @interface RatingsectionViewController () <PickerViewControllerDelegate,
                                             UIPopoverControllerDelegate,
-                                            CLLocationManagerDelegate, WidthPickerViewControllerDelegate, LongWidthPickerViewControllerDelegate>
+                                            CLLocationManagerDelegate,LongWidthPickerViewControllerDelegate,WidthPickerViewControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UIButton *btnA;
 @property (weak, nonatomic) IBOutlet UIButton *btnA2;
@@ -82,6 +82,10 @@
     [self showAllButtonTitles];
     
     
+}
+
+-(void)viewDidAppear{
+    [self.startPosition setTitle:@"00,00" forState:normal];
 }
 
 - (void)didReceiveMemoryWarning

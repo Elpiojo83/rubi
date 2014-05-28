@@ -8,15 +8,20 @@
 
 #import <UIKit/UIKit.h>
 
-@protocol LongWidthPickerViewController;
+@protocol LongWidthPickerViewControllerDelegate;
 @interface LongWidthPickerViewController : UIViewController <UIPickerViewDelegate, UIPickerViewDataSource>
 
+@property (nonatomic, strong) NSMutableArray* tenthousend;
+@property (nonatomic, strong) NSMutableArray* thousend;
 @property (nonatomic, strong) NSMutableArray* houndred;
 @property (nonatomic, strong) NSMutableArray* meter;
 @property (nonatomic, strong) NSMutableArray* dekmeter;
 @property (nonatomic, strong) NSMutableArray* decimeter;
 @property (nonatomic, strong) NSMutableArray* centimeter;
 
+
+@property (nonatomic, strong) NSString *tenthousendValueFromPicker;
+@property (nonatomic, strong) NSString *thousendValueFromPicker;
 @property (nonatomic, strong) NSString *houndredValueFromPicker;
 @property (nonatomic, strong) NSString *meterValueFromPicker;
 @property (nonatomic, strong) NSString *decimeterValueFromPicker;
@@ -26,7 +31,7 @@
 @property (weak, nonatomic) IBOutlet UIPickerView *LongWidthPickerView;
 
 
-@property (assign) id <LongWidthPickerViewController> delegate;
+@property (assign) id <LongWidthPickerViewControllerDelegate> delegate;
 @property (assign) id sourceControl;
 @end
 
