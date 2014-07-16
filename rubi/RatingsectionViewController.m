@@ -279,7 +279,7 @@
         [self.popController presentPopoverFromRect: ((UIButton *)sender).bounds
                                             inView: ((UIButton *)sender)
                           permittedArrowDirections: UIPopoverArrowDirectionRight animated:YES];
-          NSLog(@"Button pressed: %ld", [sender tag]);
+        //  NSLog(@"Button pressed: %ld", [sender tag]);
     }else{
         [self.popController presentPopoverFromRect: ((UIButton *)sender).bounds
                                             inView: ((UIButton *)sender)
@@ -303,7 +303,7 @@
         [self.popController presentPopoverFromRect: ((UIButton *)sender).bounds
                                             inView: ((UIButton *)sender)
                           permittedArrowDirections: UIPopoverArrowDirectionRight animated:YES];
-        NSLog(@"Button pressed: %ld", [sender tag]);
+        //NSLog(@"Button pressed: %ld", [sender tag]);
 
     
 }
@@ -323,7 +323,7 @@
     [self.popController presentPopoverFromRect: ((UIButton *)sender).bounds
                                         inView: ((UIButton *)sender)
                       permittedArrowDirections: UIPopoverArrowDirectionRight animated:YES];
-    NSLog(@"Button pressed: %ld", [sender tag]);
+  //  NSLog(@"Button pressed: %ld", [sender tag]);
     
     
 }
@@ -343,7 +343,7 @@
     [self.popController presentPopoverFromRect: ((UIButton *)sender).bounds
                                         inView: ((UIButton *)sender)
                       permittedArrowDirections: UIPopoverArrowDirectionRight animated:YES];
-    NSLog(@"Button pressed: %ld", [sender tag]);
+   // NSLog(@"Button pressed: %ld", [sender tag]);
     
     
 }
