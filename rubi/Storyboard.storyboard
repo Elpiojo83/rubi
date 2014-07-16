@@ -236,7 +236,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="streetsCell" id="ZZe-lO-Rh8">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MyCustomCell" id="ZZe-lO-Rh8" customClass="CustomCell">
                                 <rect key="frame" x="0.0" y="66" width="470" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ZZe-lO-Rh8" id="TtW-4Y-O0A">
@@ -255,7 +255,6 @@
                     </tableView>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Straßen" id="179-s8-58P">
-                        <barButtonItem key="leftBarButtonItem" title="Bearbeiten" id="hdQ-iy-fvN"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="0FB-a9-kfa">
                             <connections>
                                 <segue destination="64r-T6-1mp" kind="modal" identifier="addStreet" modalPresentationStyle="formSheet" id="ce0-RN-goe"/>

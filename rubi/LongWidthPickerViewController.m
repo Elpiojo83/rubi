@@ -85,15 +85,15 @@
     }
     
     if(_decimeterValueFromPicker == nil){
-        self.decimeterValueFromPicker = @"";
+        self.decimeterValueFromPicker = @"0";
     }
 
     if(_meterValueFromPicker == nil){
-        self.meterValueFromPicker = @"";
+        self.meterValueFromPicker = @"0";
     }
 
     if(_centimeterValueFromPicker == nil){
-        self.centimeterValueFromPicker = @"";
+        self.centimeterValueFromPicker = @"0";
     }
 
     if(_dekmeterValueFromPicker == nil){
