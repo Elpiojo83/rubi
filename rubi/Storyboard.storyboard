@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13E28" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="Oje-1J-4JD">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13D65" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="Oje-1J-4JD">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
@@ -544,7 +544,7 @@
                             <outlet property="delegate" destination="O19-K8-Elh" id="K1c-Ud-cIq"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Bewertungsabschnitte" id="YB8-kV-OE8">
+                    <navigationItem key="navigationItem" title="Teilbewertungen" id="YB8-kV-OE8">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="MDk-dp-EZg">
                             <connections>
                                 <action selector="AddRatingsectionTouchUpInside:" destination="O19-K8-Elh" id="VcI-s5-Le4"/>
@@ -1858,7 +1858,7 @@
                                                         <attributedString key="attributedTitle">
                                                             <fragment content="TEAM">
                                                                 <attributes>
-                                                                    <font key="NSFont" metaFont="toolTip"/>
+                                                                    <font key="NSFont" metaFont="smallSystem"/>
                                                                     <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
                                                                 </attributes>
                                                             </fragment>

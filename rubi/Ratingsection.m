@@ -50,5 +50,10 @@
 @dynamic section;
 @dynamic sectionSafetyHazardImagePath;
 @dynamic sectionSafetyHazardNote;
+@dynamic streetWidthEnd;
+@dynamic leftSidewalkWidthEnd;
+@dynamic leftBikepathWidthEnd;
+@dynamic rightSidewalkWidthEnd;
+@dynamic rightBikepathWidthEnd;
 
 @end

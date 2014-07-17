@@ -37,6 +37,7 @@
 
 @property (nonatomic, strong) UIPopoverController *popController;
 
+
 @end
 
 @implementation RatingsectionViewController
@@ -190,7 +191,13 @@
 - (IBAction)newRatingSection:(UIBarButtonItem *)sender {
     
     
+    
     Ratingsection* ratingsection = [NSEntityDescription insertNewObjectForEntityForName:@"Ratingsection" inManagedObjectContext:_managedObjectContext];
+    
+    
+    NSString *ratingsectionEndPosition = [NSString stringWithFormat:@"%@,%@",_latidude, _longitude];
+    
+    [ratingsection setValue:ratingsectionEndPosition forKey:@"endPositionGPS"];
     
     // NSString* newRatingsectionStartPosition = [NSString stringWithFormat:@"Abschnitt"];
     
@@ -198,6 +205,9 @@
     NSString *newRatingsectionStartPosition = [NSString stringWithFormat:@"%@,%@",_latidude, _longitude];
     
     [ratingsection setValue:newRatingsectionStartPosition forKey:@"startPositionGPS"];
+    
+    
+    
     
     [self saveAllButtonTitleValues];
     
@@ -468,6 +478,14 @@
     self.ratingsection.rightSidewalkWidth = [self.rightSideWalkWidth currentTitle];
     self.ratingsection.righBikepathWidth = [self.rightBikePathWidth currentTitle];
     
+    self.ratingsection.leftSidewalkWidthEnd = [self.leftSideWalkWidthEnd currentTitle];
+    self.ratingsection.leftBikepathWidthEnd = [self.leftBikePathWidthEnd currentTitle];
+    
+    self.ratingsection.streetWidthEnd = [self.streetWidthEnd currentTitle];
+    
+    self.ratingsection.rightSidewalkWidthEnd = [self.rightSideWalkWidthEnd currentTitle];
+    self.ratingsection.rightBikepathWidthEnd = [self.rightBikePathWidthEnd currentTitle];
+    
     //Position
     
     self.ratingsection.startPosition = [self.startPosition currentTitle];
@@ -490,6 +508,9 @@
     [self.rightBikePathConstructionType setTitle:self.ratingsection.rightBikepathMethodOfConstruction forState:normal];
     [self.rightEdgeConstructionType setTitle:self.ratingsection.rightEdgeMethodOfConstruction forState:normal];
     [self.rightDrainageConstructionType setTitle:self.ratingsection.rightDrainageMethodOfConstruction forState:normal];
+    
+    
+    
     
     //Fill in the Stepper Textfields
     
@@ -515,6 +536,14 @@
     
     [self.leftSideWalkWidth setTitle:self.ratingsection.leftSidewalkWidth forState:normal];
     [self.leftBikePathWidth setTitle:self.ratingsection.leftBikepathWidth forState:normal];
+    
+    [self.streetWidthEnd setTitle:self.ratingsection.streetWidthEnd forState:normal];
+    
+    [self.rightSideWalkWidthEnd setTitle:self.ratingsection.rightSidewalkWidthEnd forState:normal];
+    [self.rightBikePathWidthEnd setTitle:self.ratingsection.rightBikepathWidthEnd forState:normal];
+    
+    [self.leftSideWalkWidthEnd setTitle:self.ratingsection.leftSidewalkWidthEnd forState:normal];
+    [self.leftBikePathWidthEnd setTitle:self.ratingsection.leftBikepathWidthEnd forState:normal];
     
     [self.startPosition setTitle:self.ratingsection.startPosition forState:normal];
     [self.endPosition setTitle:self.ratingsection.endPosition forState:normal];

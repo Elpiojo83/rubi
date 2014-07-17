@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="5064" systemVersion="13C1021" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="5064" systemVersion="13D65" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="Contact" representedClassName="Contact" syncable="YES">
         <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="firstname" optional="YES" attributeType="String" syncable="YES"/>
@@ -38,6 +38,7 @@
         <attribute name="leftBikepathCondition" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="leftBikepathMethodOfConstruction" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="leftBikepathWidth" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="leftBikepathWidthEnd" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="leftDrainageCondition" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="leftDrainageMethodOfCondition" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="leftEdgeCondition" optional="YES" attributeType="String" syncable="YES"/>
@@ -45,11 +46,13 @@
         <attribute name="leftSidewalkCondition" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="leftSidewalkMethodOfConstruction" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="leftSidewalkWidth" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="leftSidewalkWidthEnd" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="ratingSectionNotes" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="ratingSectionTitle" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="righBikepathWidth" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="rightBikepathCondition" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="rightBikepathMethodOfConstruction" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="rightBikepathWidthEnd" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="rightDrainageCondition" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="rightDrainageMethodOfConstruction" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="rightEdgeCondition" optional="YES" attributeType="String" syncable="YES"/>
@@ -57,6 +60,7 @@
         <attribute name="rightSidewalkCondition" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="rightSidewalkMethodOfConstruction" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="rightSidewalkWidth" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="rightSidewalkWidthEnd" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="sectionSafetyHazardImagePath" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="sectionSafetyHazardNote" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="startPosition" optional="YES" attributeType="String" syncable="YES"/>
@@ -66,6 +70,7 @@
         <attribute name="streetMethodOfConstruction" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="streetSurfaceDamage" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="streetWidth" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="streetWidthEnd" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="hazards" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="RatingsectionSafetyHazard" inverseName="ratingsections" inverseEntity="RatingsectionSafetyHazard" syncable="YES"/>
         <relationship name="ratingimage" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="RatingImage" inverseName="ratingsection" inverseEntity="RatingImage" syncable="YES"/>
         <relationship name="section" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Section" inverseName="ratingSection" inverseEntity="Section" syncable="YES"/>
@@ -75,6 +80,7 @@
         <attribute name="safetyHazardNote" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="ratingsections" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Ratingsection" inverseName="hazards" inverseEntity="Ratingsection" syncable="YES"/>
     </entity>
+    <entity name="ReviewSection" syncable="YES"/>
     <entity name="Section" representedClassName="Section" syncable="YES">
         <attribute name="sectionname" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="ratingSection" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Ratingsection" inverseName="section" inverseEntity="Ratingsection" syncable="YES"/>
@@ -88,13 +94,14 @@
         <relationship name="section" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Section" inverseName="street" inverseEntity="Section" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Contact" positionX="79" positionY="288" width="128" height="193"/>
-        <element name="Employees" positionX="-479" positionY="-81" width="128" height="103"/>
-        <element name="Project" positionX="-207" positionY="-117" width="128" height="150"/>
-        <element name="RatingImage" positionX="90" positionY="99" width="128" height="88"/>
-        <element name="Ratingsection" positionX="331" positionY="-54" width="128" height="585"/>
-        <element name="RatingsectionSafetyHazard" positionX="88" positionY="189" width="128" height="88"/>
-        <element name="Section" positionX="90" positionY="-72" width="128" height="88"/>
-        <element name="Street" positionX="90" positionY="9" width="128" height="118"/>
+        <element name="Contact" positionX="171" positionY="-468" width="128" height="193"/>
+        <element name="Employees" positionX="-828" positionY="-396" width="128" height="103"/>
+        <element name="Project" positionX="-360" positionY="-387" width="128" height="150"/>
+        <element name="RatingImage" positionX="207" positionY="-18" width="128" height="88"/>
+        <element name="Ratingsection" positionX="-171" positionY="-198" width="128" height="660"/>
+        <element name="RatingsectionSafetyHazard" positionX="171" positionY="-189" width="128" height="88"/>
+        <element name="Section" positionX="178" positionY="497" width="128" height="88"/>
+        <element name="Street" positionX="-803" positionY="296" width="128" height="118"/>
+        <element name="ReviewSection" positionX="-747" positionY="-36" width="128" height="43"/>
     </elements>
 </model>

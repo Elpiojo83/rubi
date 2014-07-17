@@ -46,6 +46,12 @@
 @property (nonatomic, retain) NSString * streetWidth;
 @property (nonatomic, retain) NSString * sectionSafetyHazardImagePath;
 @property (nonatomic, retain) NSString * sectionSafetyHazardNote;
+@property (nonatomic, retain) NSString * streetWidthEnd;
+@property (nonatomic, retain) NSString * leftSidewalkWidthEnd;
+@property (nonatomic, retain) NSString * leftBikepathWidthEnd;
+@property (nonatomic, retain) NSString * rightSidewalkWidthEnd;
+@property (nonatomic, retain) NSString * rightBikepathWidthEnd;
+
 
 @property (nonatomic, retain) RatingsectionSafetyHazard *hazards;
 @property (nonatomic, retain) NSSet *ratingimage;

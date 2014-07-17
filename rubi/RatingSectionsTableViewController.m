@@ -174,14 +174,17 @@
         
         Ratingsection *ratingSection = [[self.fetchedResultsController fetchedObjects] objectAtIndex: self.tableView.indexPathForSelectedRow.row];
         NSLog(@"the section %@",ratingSection );
-                
+        
+        
 
         RatingsectionViewController *dvc = (RatingsectionViewController *)[[segue destinationViewController] topViewController];
         dvc.managedObjectContext = self.managedObjectContext;
         
         dvc.ratingsection = ratingSection;
         
-        NSLog(@"SegueToSectio %@", dvc.managedObjectContext);
+        dvc.title = [NSString stringWithFormat:@"Teilbewertung %i", self.tableView.indexPathForSelectedRow.row+1];
+        
+        NSLog(@"SegueToSectio %@", dvc.title);
         
     }
 

@@ -495,6 +495,9 @@
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = koerbler;
 				TargetAttributes = {
+					EE94D1FE18E4084700C919DF = {
+						DevelopmentTeam = EHMGE7N7F2;
+					};
 					EE94D21E18E4084700C919DF = {
 						TestTargetID = EE94D1FE18E4084700C919DF;
 					};
@@ -713,11 +716,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Mario Koerbler (Y963C6GFRC)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "rubi/rubi-Prefix.pch";
 				INFOPLIST_FILE = "rubi/rubi-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -727,11 +732,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Mario Koerbler (Y963C6GFRC)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "rubi/rubi-Prefix.pch";
 				INFOPLIST_FILE = "rubi/rubi-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
