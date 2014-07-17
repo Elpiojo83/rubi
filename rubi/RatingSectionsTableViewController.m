@@ -51,6 +51,10 @@
     
     [self.section addRatingSectionObject:(Ratingsection*)ratingsection];
     
+    [self.tableView reloadData];
+    
+    
+    
    // NSLog(@"New Section: %@", newRatingsectionStartPosition);
     
     
@@ -103,7 +107,7 @@
     _managedObjectContext = managedObjectContext;
     if (managedObjectContext) {
         NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName: @"Ratingsection"];
-        request.sortDescriptors = @[[ NSSortDescriptor  sortDescriptorWithKey: @"startPositionGPS" ascending:YES ]];
+        request.sortDescriptors = @[[ NSSortDescriptor  sortDescriptorWithKey: @"startPosition" ascending:YES ]];
         request.predicate = [NSPredicate predicateWithFormat: @" section == %@" , self.section];
         
         
@@ -132,7 +136,9 @@
     
     // Configure the cell...
     Ratingsection *ratingsection = [self.fetchedResultsController objectAtIndexPath:indexPath]; // ask NSFRC for the NSMO at the row in question
-    cell.textLabel.text = [NSString stringWithFormat:@"%@",  ratingsection.startPositionGPS];
+   // cell.textLabel.text = [NSString stringWithFormat:@"Abschnitt%@",  ratingsection.startPositionGPS];
+    
+    cell.textLabel.text = [NSString stringWithFormat:@"Teilbewertung %i",  indexPath.row+1];
     
     NSLog(@"RATINGSECTION: %@", ratingsection);
     
@@ -194,6 +200,33 @@
     locationManager.desiredAccuracy = kCLLocationAccuracyBest;
     
     [locationManager startUpdatingLocation];
+    
+    //NSLog(@"SKTION; %@", [cell.count]);
+    
+    /*
+    
+    if(){
+        NSLog(@"Current Section: %@", _section);
+        
+        //AppDelegate* appDelegate = [[UIApplication sharedApplication] delegate];
+        //NSManagedObjectContext* manageObjectContext = appDelegate.managedObjectContext;
+        
+        NSManagedObject* ratingsection = [NSEntityDescription insertNewObjectForEntityForName:@"Ratingsection" inManagedObjectContext:_managedObjectContext];
+        
+        // NSString* newRatingsectionStartPosition = [NSString stringWithFormat:@"Abschnitt"];
+        
+        
+        NSString *newRatingsectionStartPosition = [NSString stringWithFormat:@"%@,%@", _latidude, _longitude];
+        
+        [ratingsection setValue:newRatingsectionStartPosition forKey:@"startPositionGPS"];
+        
+        
+        [self.section addRatingSectionObject:(Ratingsection*)ratingsection];
+        
+        [self.tableView reloadData];
+    }
+    */
+    
 }
 
 

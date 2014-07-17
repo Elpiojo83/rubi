@@ -10,4 +10,9 @@
 
 @interface CustomCell : SWTableViewCell
 
+@property (nonatomic, strong) Project* project;
+@property (nonatomic, strong) Street* street;
+
+@property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
+
 @end

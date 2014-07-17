@@ -79,6 +79,8 @@
         NewSectionFormView *dvc = [segue destinationViewController];
         dvc.street = self.street;
         
+        NSLog(@"DVC Street: %@", dvc.street);
+        
     }
     
     if([segue.identifier isEqualToString:@"toRatingSections"]){
@@ -105,7 +107,7 @@
 -(void)viewDidAppear:(BOOL)animated{
     
     
-    NSLog(@"ProjectData: %@", self.project.streets);
+  //  NSLog(@"ProjectData: %@", self.project.streets);
     
 }
 
