@@ -100,8 +100,8 @@
         <element name="RatingImage" positionX="207" positionY="-18" width="128" height="88"/>
         <element name="Ratingsection" positionX="-171" positionY="-198" width="128" height="660"/>
         <element name="RatingsectionSafetyHazard" positionX="171" positionY="-189" width="128" height="88"/>
+        <element name="ReviewSection" positionX="-747" positionY="-36" width="128" height="43"/>
         <element name="Section" positionX="178" positionY="497" width="128" height="88"/>
         <element name="Street" positionX="-803" positionY="296" width="128" height="118"/>
-        <element name="ReviewSection" positionX="-747" positionY="-36" width="128" height="43"/>
     </elements>
 </model>
