@@ -283,8 +283,10 @@
     }else{
         [self.popController presentPopoverFromRect: ((UIButton *)sender).bounds
                                             inView: ((UIButton *)sender)
-                          permittedArrowDirections: UIPopoverArrowDirectionLeft animated:YES];
+                          permittedArrowDirections: UIPopoverArrowDirectionRight animated:YES];
     }
+    
+
 
 }
 

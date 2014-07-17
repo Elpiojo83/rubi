@@ -107,6 +107,14 @@
 @property (strong, nonatomic) IBOutlet UIButton *rightBikePathWidth;
 @property (strong, nonatomic) IBOutlet UIButton *rightSideWalkWidth;
 
+@property (strong, nonatomic) IBOutlet UIButton *streetWidthEnd;
+@property (strong, nonatomic) IBOutlet UIButton *leftSideWalkWidthEnd;
+@property (strong, nonatomic) IBOutlet UIButton *leftBikePathWidthEnd;
+@property (strong, nonatomic) IBOutlet UIButton *rightBikePathWidthEnd;
+@property (strong, nonatomic) IBOutlet UIButton *rightSideWalkWidthEnd;
+
+
+
 @property (strong, nonatomic) IBOutlet UIButton *endPosition;
 @property (strong, nonatomic) IBOutlet UIButton *startPosition;
 

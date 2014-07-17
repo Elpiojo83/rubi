@@ -85,7 +85,7 @@
   //  [cell setCellHeight:cell.frame.size.height];
     Street *street = [self.fetchedResultsController objectAtIndexPath:indexPath];
     
-    cell.textLabel.text = [NSString stringWithFormat:@"Abschnitt: %@",  street.streetname];
+    cell.textLabel.text = [NSString stringWithFormat:@"%@",  street.streetname];
     
     return cell;
 }
@@ -262,7 +262,7 @@
 
 
 #pragma mark - Navigation
-/*
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // Here, indexpath returns the selection of cell's indexpath, so put your code here
@@ -274,7 +274,7 @@
     //then push your view
     
 }
-*/
+
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if([segue.identifier isEqualToString:@"addStreet"]){
@@ -290,42 +290,15 @@
         ProjectStreetsTableTableViewController *dvc = [segue destinationViewController];
         dvc.project = dvcProject;
         
-        //NSIndexPath *cellIndexPath = [self.tableView indexPathForSelectedRow:cell];
         
-        //Street *street = [[self.project.streets allObjects] objectAtIndex: self.tableView.indexPathForSelectedRow.row];
+        NSIndexPath *path = [self.tableView indexPathForSelectedRow];
         
-        // Street *street = [[self.project.streets allObjects] self.tableView:indexPath.row];
-        
-        NSIndexPath *indexPathItem = [self.tableView indexPathForCell:sender];
-        
-        Street *street = [[self.project.streets allObjects] objectAtIndex:indexPathItem.row];
-        
-        NSLog(@"Selected Row: %i", indexPathItem.row);
+        Street *street = [[self.project.streets allObjects] objectAtIndex:path.row];
         
         dvc.street = street;
         
-        //  dvc.street = [[self.project.streets allObjects] objectAtIndex:indexPathItem.row];
-        
         dvc.managedObjectContext = street.managedObjectContext;
-        
-        // dvc.managedObjectContext = sender;
-        
-        //NSLog(@"DVC-Data: %@", dvc);
-        
-        
-        
-         Project *dvcProject = self.project;
-         NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
-         
-         Street *street = [[self.project.streets allObjects] objectAtIndex:indexPath.row];
-         
-         NewStreetViewController *dvc = [segue destinationViewController];
-         dvc.project = dvcProject;
-         dvc.street = street;
-         dvc.managedObjectContext = street.managedObjectContext;
-        
-        
-        NSIndexPath *path = [self.tableView indexPathForSelectedRow];
+
         NSLog(@"PATH: %i", path.row);
         
         

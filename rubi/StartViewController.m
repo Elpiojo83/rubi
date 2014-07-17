@@ -415,9 +415,20 @@
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection
 {
     NSLog(@"finish requesting: %@", [[NSString alloc] initWithData:self.receivedData encoding:NSUTF8StringEncoding]);
+    
+    
+    
     self.urlConnection = nil;
     HUD.mode = MBProgressHUDModeCustomView;
-	[HUD hide:YES afterDelay:2];
+	[HUD hide:YES afterDelay:5000];
+    
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Export"
+                                                    message:@"Upload erfolgreich."
+                                                   delegate:nil
+                                          cancelButtonTitle:@"OK"
+                                          otherButtonTitles:nil];
+    [alert show];
+    
 }
 
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
@@ -425,6 +436,14 @@
     NSLog(@"requesting error: %@", [error localizedDescription]);
     self.urlConnection = nil;
     [HUD hide:YES];
+    
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Export"
+                                                    message:@"Upload fehlgeschlagen bitte versuchen Sie es erneut."
+                                                   delegate:nil
+                                          cancelButtonTitle:@"OK"
+                                          otherButtonTitles:nil];
+    [alert show];
+    
 }
 
 
@@ -462,6 +481,8 @@
     
 
     NSLog(@"touch: %@", localFile);
+    
+    
     
 }
 
