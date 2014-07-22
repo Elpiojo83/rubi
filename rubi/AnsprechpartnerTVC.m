@@ -73,12 +73,36 @@
 // Action die vom Button ausgelöst wird....
 - (IBAction)openContacts:(id)sender {
     
-    ABPeoplePickerNavigationController *picker = [[ABPeoplePickerNavigationController alloc] init];
-	picker.peoplePickerDelegate = self;
-    picker.modalPresentationStyle = UIModalPresentationFormSheet;
+    if([self.name.text isEqualToString:@""]){
+        ABPeoplePickerNavigationController *picker = [[ABPeoplePickerNavigationController alloc] init];
+        picker.peoplePickerDelegate = self;
+        picker.modalPresentationStyle = UIModalPresentationFormSheet;
+        
+        
+        [self presentViewController: picker animated: YES completion: nil];
+    }else{
+        
+        self.name.text = @"";
+        self.strasse.text = @"";
+        self.adresse.text = @"";
+        
+        self.contact.title = @"";
+        self.contact.firstname = @"";
+        self.contact.lastname = @"";
+        self.contact.street = @"";
+        self.contact.zip = nil;
+        self.contact.place = @"";
+        
+        
+        NSError *error = nil;
+        [self.managedObjectContext save: &error];
+        
+        UIImage *add = [UIImage imageNamed:@"add-contact.png"];
+        [self.search setImage:add forState:normal];
+    }
     
     
-    [self presentViewController: picker animated: YES completion: nil];
+    
     
 }
 
@@ -194,6 +218,11 @@
     error = nil;
     [self.managedObjectContext save: &error];
     
+    //[self.search setEnabled:NO];
+
+    UIImage *remove = [UIImage imageNamed:@"remove.png"];
+    [self.search setImage:remove forState:normal];
+    
     
     [self dismissViewControllerAnimated:YES completion: ^{
         
@@ -256,9 +285,13 @@ shouldPerformDefaultActionForPerson: (ABRecordRef)person
         
         CFRelease(addresses);
         self.showAddressPicker = NO;
+        
+        
+        
     }
     
     [self dismissViewControllerAnimated:YES completion:nil];
+
     return NO;
 }
 
@@ -291,6 +324,13 @@ shouldPerformDefaultActionForPerson: (ABRecordRef)person
 - (void)viewDidAppear:(BOOL)animated{
     
     [super viewDidAppear:animated];
+    
+    if(![self.contact.lastname isEqualToString:@""]){
+        UIImage *remove = [UIImage imageNamed:@"remove.png"];
+        [self.search setImage:remove forState:normal];
+    }
+    
+   
     
 }
 

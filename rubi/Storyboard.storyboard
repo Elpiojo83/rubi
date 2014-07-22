@@ -307,10 +307,10 @@
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="loS-tG-ooC">
-                                                    <rect key="frame" x="428" y="20" width="22" height="22"/>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="loS-tG-ooC">
+                                                    <rect key="frame" x="428" y="17" width="22" height="22"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <state key="normal">
+                                                    <state key="normal" backgroundImage="add-contact">
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
                                                     <connections>
@@ -592,7 +592,7 @@
             </objects>
             <point key="canvasLocation" x="6774" y="992"/>
         </scene>
-        <!--Ratingsection View Controller - Bewertungsabschnitt-->
+        <!--Ratingsection View Controller - Teilbewertung-->
         <scene sceneID="gtb-YR-Ljv">
             <objects>
                 <viewController storyboardIdentifier="RatingsectionViewController" id="nZf-HE-PE4" customClass="RatingsectionViewController" sceneMemberID="viewController">
@@ -1309,7 +1309,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Bewertungsabschnitt" id="WpF-vi-IqH">
+                    <navigationItem key="navigationItem" title="Teilbewertung" id="WpF-vi-IqH">
                         <barButtonItem key="leftBarButtonItem" title="Zurück" id="QUq-bZ-Urf">
                             <connections>
                                 <action selector="dismissViewTouchUpInside:" destination="nZf-HE-PE4" id="Gma-Gz-aNv"/>
@@ -1858,7 +1858,7 @@
                                                         <attributedString key="attributedTitle">
                                                             <fragment content="TEAM">
                                                                 <attributes>
-                                                                    <font key="NSFont" metaFont="smallSystem"/>
+                                                                    <font key="NSFont" metaFont="toolTip"/>
                                                                     <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
                                                                 </attributes>
                                                             </fragment>
@@ -2102,6 +2102,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="add-contact" width="22" height="22"/>
         <image name="bike-icon" width="49" height="32"/>
         <image name="export-icon" width="60" height="60"/>
         <image name="logo_rubi" width="100" height="107"/>

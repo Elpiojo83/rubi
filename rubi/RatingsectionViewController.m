@@ -223,6 +223,22 @@
     controller.ratingsection.startPosition = self.ratingsection.endPosition;
     [controller.startPosition setTitle:controller.ratingsection.startPosition forState:normal];
     
+    controller.ratingsection.leftSidewalkWidth = self.ratingsection.leftSidewalkWidthEnd;
+    [controller.leftSideWalkWidth setTitle:controller.ratingsection.leftSidewalkWidth forState:normal];
+    
+    controller.ratingsection.leftBikepathWidth = self.ratingsection.leftBikepathWidthEnd;
+    [controller.leftBikePathWidth setTitle:controller.ratingsection.leftBikepathWidth forState:normal];
+    
+    controller.ratingsection.streetWidth = self.ratingsection.streetWidthEnd;
+    [controller.streetWidth setTitle:controller.ratingsection.streetWidth forState:normal];
+    
+    controller.ratingsection.righBikepathWidth = self.ratingsection.rightBikepathWidthEnd;
+    [controller.rightBikePathWidth setTitle:controller.ratingsection.righBikepathWidth forState:normal];
+    
+    controller.ratingsection.rightSidewalkWidth = self.ratingsection.rightSidewalkWidthEnd;
+    [controller.rightSideWalkWidth setTitle:controller.ratingsection.rightSidewalkWidth forState:normal];
+    
+    
     NSLog(@"NewStartPosition: %@", controller.ratingsection.startPosition);
     
     controller.managedObjectContext = self.managedObjectContext;
@@ -490,7 +506,7 @@
     
     self.ratingsection.startPosition = [self.startPosition currentTitle];
     self.ratingsection.endPosition = [self.endPosition currentTitle];
-    
+    NSLog(@"EndPosition %@", self.ratingsection.endPosition);
     
     
 }
