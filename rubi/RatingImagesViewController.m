@@ -28,9 +28,9 @@
         request.predicate = [NSPredicate predicateWithFormat: @" ratingsection == %@" , self.ratingsection];
         
         
-        NSLog(@"Curr. Images: %@", request);
+    //    NSLog(@"Curr. Images: %@", request);
         
-        NSLog(@"imaes: %@", self.ratingimage.imagePath);
+      //  NSLog(@"images: %@", self.ratingimage.imagePath);
         
         self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest: request managedObjectContext:managedObjectContext sectionNameKeyPath: nil cacheName: nil];
         
@@ -69,7 +69,7 @@
             UIImage *largeimage = [UIImage imageWithCGImage:[myasset thumbnail]];
                 cell.imageView.frame = CGRectMake(15, 0, 44, 44);
                 [cell.imageView setImage:largeimage];
-            NSLog(@"LARGEIMAGE: %@", largeimage);
+         //   NSLog(@"LARGEIMAGE: %@", largeimage);
         }
     };
     
@@ -111,6 +111,7 @@
 
 
 #pragma mark Image picker delegate methdos
+
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingImage:(UIImage *)image editingInfo:(NSDictionary *)editingInfo
 {
  
@@ -126,6 +127,37 @@
              self.ratingimage = [NSEntityDescription insertNewObjectForEntityForName:@"RatingImage" inManagedObjectContext: self.managedObjectContext];
              
              self.ratingimage.imagePath = [NSString stringWithFormat:@"%@", assetURL];
+             
+             self.ratingimage.deviceID = uniqueDeviceID;
+             
+             
+             
+ 
+            // self.chosenImage = editingInfo[UIImagePickerControllerOriginalImage];
+             
+             self.chosenImage = image;
+             
+             int randX = arc4random() % 9999;
+             
+             //NSData *data = UIImagePNGRepresentation(self.chosenImage);
+             
+             NSData *data = UIImageJPEGRepresentation(self.chosenImage, 0.7);
+             
+             NSString *myNewImage = [NSString stringWithFormat:@"image-%i.jpeg", randX, nil];
+             
+             NSArray *path = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+             NSString *documentDirectory = [path objectAtIndex:0];
+             
+             
+             NSString *fullPathToFile = [documentDirectory stringByAppendingPathComponent:myNewImage];
+             [data writeToFile:fullPathToFile atomically:YES];
+             
+             
+             
+             self.ratingimage.imagePathFilesystem = fullPathToFile;
+             
+             
+              
              [self.ratingsection addRatingimageObject: self.ratingimage];
              
              
@@ -135,8 +167,88 @@
      }];
     
     
+    
+    
+    
+    
+    
     [picker dismissModalViewControllerAnimated:NO];
 }
+
+
+
+/*
+
+-(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info didFinishPickingImage:(UIImage *)image{
+    
+    
+    [self.Mylibrary writeImageToSavedPhotosAlbum: image.CGImage metadata:nil completionBlock:^(NSURL *assetURL, NSError *error2)
+     {
+         //             report_memory(@"After writing to library");
+         if (error2) {
+             NSLog(@"ERROR: the image failed to be written");
+         }
+         else {
+             NSLog(@"PHOTO SAVED - assetURL: %@", assetURL);
+             self.ratingimage = [NSEntityDescription insertNewObjectForEntityForName:@"RatingImage" inManagedObjectContext: self.managedObjectContext];
+             
+             self.ratingimage.imagePath = [NSString stringWithFormat:@"%@", assetURL];
+             
+             self.ratingimage.deviceID = uniqueDeviceID;
+             
+             self.chosenImage = info[UIImagePickerControllerOriginalImage];
+             
+             int randX = arc4random() % 9999;
+             
+             NSData *data = UIImagePNGRepresentation(self.chosenImage);
+             
+             NSString *myGrabbedImage = [NSString stringWithFormat:@"image-%i.png",randX, nil];// @"SiGe.png";
+             
+             
+             
+             NSArray *path = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+             NSString *documentDirectory = [path objectAtIndex:0];
+             
+             
+             [self dismissViewControllerAnimated:YES completion:nil];
+             NSString *fullPathToFile = [documentDirectory stringByAppendingPathComponent:myGrabbedImage];
+             [data writeToFile:fullPathToFile atomically:YES];
+             
+             
+             if(!self.ratingimage){
+                 //  self.ratingsectionsafetyhazard = [NSEntityDescription insertNewObjectForEntityForName:@"RatingsectionSafetyHazard" inManagedObjectContext: self.managedObjectContext];
+                 
+                 // [self.ratingsection addHazardsObject:self.ratingsectionsafetyhazard];
+                 
+             }
+             
+             
+             self.ratingimage.imagePathFilesystem = [NSString stringWithFormat:@"%@", fullPathToFile];
+             
+             
+             
+             //self.ratingsectionsafetyhazard.safetyHazardNote = [NSString stringWithFormat:@"%@", self.HazardNote.text];
+             
+             
+             
+             NSLog(@"Path: %@", self.ratingimage);
+             
+             
+             
+             
+             [self.ratingsection addRatingimageObject: self.ratingimage];
+             
+         //    [picker dismissModalViewControllerAnimated:NO];
+             
+             
+         }
+         
+     }];
+    
+    
+    
+}
+*/
 
 
 - (void)assetForURL:(NSURL *)assetURL resultBlock:(ALAssetsLibraryAssetForURLResultBlock)resultBlock failureBlock:(ALAssetsLibraryAccessFailureBlock)failureBlock{

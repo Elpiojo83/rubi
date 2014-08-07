@@ -24,7 +24,7 @@
     _managedObjectContext = managedObjectContext;
     if (managedObjectContext) {
         NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName: @"Street"];
-        request.sortDescriptors = @[[ NSSortDescriptor  sortDescriptorWithKey: @"streetname" ascending:YES ]];
+        request.sortDescriptors = @[[ NSSortDescriptor  sortDescriptorWithKey: @"streetUnixTimestamp" ascending:YES ]];
         request.predicate = [NSPredicate predicateWithFormat: @" project == %@" , self.project];
         
         self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest: request managedObjectContext:managedObjectContext sectionNameKeyPath: nil cacheName: nil];
@@ -268,7 +268,7 @@
     // Here, indexpath returns the selection of cell's indexpath, so put your code here
     
     //_test.text = [Street objectAtIndex:indexPath.row];
-    [self performSegueWithIdentifier:@"StreetsTable" sender:self.tableView];
+    [self performSegueWithIdentifier:@"StreetsTable" sender:[self.tableView indexPathForSelectedRow]];
     
     NSLog(@"PATH2: %@", indexPath);
     //then push your view
@@ -293,7 +293,19 @@
         
         NSIndexPath *path = [self.tableView indexPathForSelectedRow];
         
-        Street *street = [[self.project.streets allObjects] objectAtIndex:path.row];
+        NSSortDescriptor *firstDescriptor = [[NSSortDescriptor alloc] initWithKey:@"streetUnixTimestamp" ascending:YES];
+        
+        NSArray *sortDescriptors = [NSArray arrayWithObjects:firstDescriptor, nil];
+        
+        NSArray *sortedArray = [self.project.streets sortedArrayUsingDescriptors:sortDescriptors];
+        
+        //Street *street = [[self.project.streets allObjects] objectAtIndex:path.row];
+        
+        Street *street = [sortedArray objectAtIndex:path.row];
+       
+        NSLog(@"Section in Streets: %@", [self.project.streets allObjects]);
+
+       
         
         dvc.street = street;
         

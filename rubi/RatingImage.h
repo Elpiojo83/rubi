@@ -16,5 +16,7 @@
 @property (nonatomic, retain) NSData * image;
 @property (nonatomic, retain) NSString * imagePath;
 @property (nonatomic, retain) Ratingsection *ratingsection;
+@property (nonatomic, retain) NSString * deviceID;
+@property (nonatomic, retain) NSString * imagePathFilesystem;
 
 @end

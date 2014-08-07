@@ -84,6 +84,9 @@
     }
     
     self.ratingsection.sectionSafetyHazardNote = self.HazardNote.text;
+    self.ratingsectionsafetyhazard.deviceID = uniqueDeviceID;
+    
+    
    // self.ratingsectionsafetyhazard.safetyHazardImagePath = self.ratingsectionsafetyhazard.safetyHazardImagePath;
     
     AppDelegate* delegate = [[UIApplication sharedApplication] delegate];
@@ -118,9 +121,16 @@
 -(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info{
     self.chosenImage = info[UIImagePickerControllerOriginalImage];
     
-    NSData *data = UIImagePNGRepresentation(self.chosenImage);
+    int randX = arc4random() % 9999;
     
-    NSString *myGrabbedImage = [NSString stringWithFormat:@"%@.png" , self.ratingsection.startPositionGPS];// @"SiGe.png";
+   //NSData *data = UIImagePNGRepresentation(self.chosenImage);
+    
+    NSData *data = UIImageJPEGRepresentation(self.chosenImage, 0.8);
+    
+    NSString *myGrabbedImage = [NSString stringWithFormat:@"%@-%i.jpeg" , self.ratingsection.startPositionGPS, randX, nil];// @"SiGe.png";
+    
+    
+    
     NSArray *path = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentDirectory = [path objectAtIndex:0];
     
@@ -139,6 +149,9 @@
     
     
     self.ratingsection.sectionSafetyHazardImagePath = [NSString stringWithFormat:@"%@", fullPathToFile];
+    
+    
+    
     //self.ratingsectionsafetyhazard.safetyHazardNote = [NSString stringWithFormat:@"%@", self.HazardNote.text];
     
     

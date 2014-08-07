@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+#define uniqueDeviceID @"ea7e636edf28ac3fb4a23087efc129dbe3cb5755"
+
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;

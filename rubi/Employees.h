@@ -17,6 +17,7 @@
 @property (nonatomic, retain) NSString * lastname;
 @property (nonatomic, retain) NSString * title;
 @property (nonatomic, retain) NSSet *project;
+@property (nonatomic, retain) NSString * deviceID;
 @end
 
 @interface Employees (CoreDataGeneratedAccessors)

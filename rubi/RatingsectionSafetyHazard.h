@@ -16,5 +16,6 @@
 @property (nonatomic, retain) NSString * safetyHazardNote;
 @property (nonatomic, retain) NSString * safetyHazardImagePath;
 @property (nonatomic, retain) Ratingsection *ratingsections;
+@property (nonatomic, retain) NSString * deviceID;
 
 @end

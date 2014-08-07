@@ -26,5 +26,6 @@
 @dynamic employees;
 @dynamic contacts;
 @dynamic streets;
+@dynamic deviceID;
 
 @end

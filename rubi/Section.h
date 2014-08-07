@@ -18,6 +18,7 @@
 @property (nonatomic, retain) NSString * sectionname;
 @property (nonatomic, retain) Street *street;
 @property (nonatomic, retain) NSSet *ratingSection;
+@property (nonatomic, retain) NSString * deviceID;
 @end
 
 @interface Section (CoreDataGeneratedAccessors)

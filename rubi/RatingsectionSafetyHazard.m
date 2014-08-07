@@ -15,5 +15,6 @@
 @dynamic safetyHazardNote;
 @dynamic safetyHazardImagePath;
 @dynamic ratingsections;
+@dynamic deviceID;
 
 @end

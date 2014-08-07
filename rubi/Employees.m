@@ -16,5 +16,6 @@
 @dynamic lastname;
 @dynamic title;
 @dynamic project;
+@dynamic deviceID;
 
 @end

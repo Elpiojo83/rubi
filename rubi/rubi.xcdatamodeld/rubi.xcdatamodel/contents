@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="5064" systemVersion="13D65" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="5064" systemVersion="13E28" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="Contact" representedClassName="Contact" syncable="YES">
+        <attribute name="deviceID" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="firstname" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="lastname" optional="YES" attributeType="String" syncable="YES"/>
@@ -13,12 +14,14 @@
         <relationship name="project" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Project" inverseName="contacts" inverseEntity="Project" syncable="YES"/>
     </entity>
     <entity name="Employees" representedClassName="Employees" syncable="YES">
+        <attribute name="deviceID" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="firstname" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="lastname" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="project" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Project" inverseName="employees" inverseEntity="Project" syncable="YES"/>
     </entity>
     <entity name="Project" representedClassName="Project" syncable="YES">
+        <attribute name="deviceID" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="projectNote" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="projectTimestamp" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="projectTitle" optional="YES" attributeType="String" syncable="YES"/>
@@ -28,11 +31,14 @@
         <relationship name="streets" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Street" inverseName="project" inverseEntity="Street" syncable="YES"/>
     </entity>
     <entity name="RatingImage" representedClassName="RatingImage" syncable="YES">
+        <attribute name="deviceID" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="image" optional="YES" attributeType="Binary" syncable="YES"/>
         <attribute name="imagePath" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="imagePathFilesystem" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="ratingsection" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Ratingsection" inverseName="ratingimage" inverseEntity="Ratingsection" syncable="YES"/>
     </entity>
     <entity name="Ratingsection" representedClassName="Ratingsection" syncable="YES">
+        <attribute name="deviceID" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="endPosition" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="endPositionGPS" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="leftBikepathCondition" optional="YES" attributeType="String" syncable="YES"/>
@@ -76,17 +82,20 @@
         <relationship name="section" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Section" inverseName="ratingSection" inverseEntity="Section" syncable="YES"/>
     </entity>
     <entity name="RatingsectionSafetyHazard" representedClassName="RatingsectionSafetyHazard" syncable="YES">
+        <attribute name="deviceID" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="safetyHazardImagePath" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="safetyHazardNote" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="ratingsections" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Ratingsection" inverseName="hazards" inverseEntity="Ratingsection" syncable="YES"/>
     </entity>
     <entity name="ReviewSection" syncable="YES"/>
     <entity name="Section" representedClassName="Section" syncable="YES">
+        <attribute name="deviceID" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="sectionname" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="ratingSection" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Ratingsection" inverseName="section" inverseEntity="Ratingsection" syncable="YES"/>
         <relationship name="street" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Street" inverseName="section" inverseEntity="Street" syncable="YES"/>
     </entity>
     <entity name="Street" representedClassName="Street" syncable="YES">
+        <attribute name="deviceID" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="streetCrdate" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="streetname" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="streetUnixTimestamp" optional="YES" attributeType="String" syncable="YES"/>
@@ -94,14 +103,14 @@
         <relationship name="section" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Section" inverseName="street" inverseEntity="Section" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Contact" positionX="171" positionY="-468" width="128" height="193"/>
-        <element name="Employees" positionX="-828" positionY="-396" width="128" height="103"/>
-        <element name="Project" positionX="-360" positionY="-387" width="128" height="150"/>
-        <element name="RatingImage" positionX="207" positionY="-18" width="128" height="88"/>
-        <element name="Ratingsection" positionX="-171" positionY="-198" width="128" height="660"/>
-        <element name="RatingsectionSafetyHazard" positionX="171" positionY="-189" width="128" height="88"/>
-        <element name="ReviewSection" positionX="-747" positionY="-36" width="128" height="43"/>
-        <element name="Section" positionX="178" positionY="497" width="128" height="88"/>
-        <element name="Street" positionX="-803" positionY="296" width="128" height="118"/>
+        <element name="Contact" positionX="171" positionY="-468" width="128" height="208"/>
+        <element name="Employees" positionX="-828" positionY="-396" width="128" height="118"/>
+        <element name="Project" positionX="-360" positionY="-387" width="128" height="163"/>
+        <element name="RatingImage" positionX="207" positionY="-18" width="128" height="120"/>
+        <element name="Ratingsection" positionX="-171" positionY="-198" width="128" height="673"/>
+        <element name="RatingsectionSafetyHazard" positionX="171" positionY="-189" width="128" height="103"/>
+        <element name="ReviewSection" positionX="-747" positionY="-36" width="128" height="45"/>
+        <element name="Section" positionX="178" positionY="497" width="128" height="103"/>
+        <element name="Street" positionX="-803" positionY="296" width="128" height="133"/>
     </elements>
 </model>

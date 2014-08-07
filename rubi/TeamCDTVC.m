@@ -50,6 +50,9 @@
     
     NSManagedObject* employee = [NSEntityDescription insertNewObjectForEntityForName:@"Employees" inManagedObjectContext:self.managedObjectContext];
     
+    //self.employee.deviceID = uniqueDeviceID
+    [employee setValue:uniqueDeviceID forKey:@"deviceID"];
+    
     NSLog(@"Mitarbeiter: %@", employee);
     
     NSError *error = nil;

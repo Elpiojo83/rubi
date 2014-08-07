@@ -119,16 +119,20 @@
     
     NSArray *allProjects = [managedObject executeFetchRequest:fetch error:&error];
     
+    
+    
     self.projectArray = allProjects;
     
     UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self
                                                                                             action:@selector(longPressHandler:)];
     longPress.delegate = self;
-    
 
     [self.projectCV addGestureRecognizer:longPress];
 
 }
+
+
+
 
 
 
@@ -347,49 +351,8 @@
     
     self.urlConnection = [NSURLConnection connectionWithRequest:request delegate:self];
     
-}
-
-- (void)sendImage:(NSString *)filePath toServer:(NSString *)serverURL
-{
-    
-    
-    NSData *fileData = [NSData dataWithContentsOfFile:filePath];
-    if (!fileData) {
-        NSLog(@"Error: file error");
-        return;
-    }
-    
-    if (self.urlConnection) {
-        [self.urlConnection cancel];
-        self.urlConnection = nil;
-    }
-    
-    NSMutableURLRequest *request = [[NSMutableURLRequest alloc]
-                                    initWithURL:[NSURL URLWithString:serverURL]];
-    [request setTimeoutInterval:30.0];
-    [request setHTTPMethod:@"POST"];
-    NSString *boundary = @"780808070779786865757";
-    
-    /* Header */
-    NSString *contentType = [NSString stringWithFormat:@"multipart/form-data; boundary=%@", boundary];
-    [request addValue:contentType forHTTPHeaderField:@"Content-Type"];
-    
-    int r = rand();
-    
-    /* Body */
-    NSMutableData *postData = [NSMutableData data];
-    [postData appendData:[[NSString stringWithFormat:@"--%@\r\n", boundary] dataUsingEncoding:NSUTF8StringEncoding]];
-    [postData appendData:[[NSString stringWithFormat:@"Content-Disposition:form-data; name=\"file\"; filename=\"@%d.png\"\r\n", r] dataUsingEncoding:NSUTF8StringEncoding]];
-    [postData appendData:[@"Content-Type: application/octet-stream\r\n\r\n" dataUsingEncoding:NSUTF8StringEncoding]];
-    [postData appendData:fileData];
-    [postData appendData:[[NSString stringWithFormat:@"\r\n--%@--\r\n", boundary] dataUsingEncoding:NSUTF8StringEncoding]];
-    [request setHTTPBody:postData];
-    
-    self.urlConnection = [NSURLConnection connectionWithRequest:request delegate:self];
     
 }
-
-
 
 
 
@@ -414,11 +377,14 @@
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection
 {
+    
+    
+    
     NSLog(@"finish requesting: %@", [[NSString alloc] initWithData:self.receivedData encoding:NSUTF8StringEncoding]);
+
     
+    //self.urlConnection = nil;
     
-    
-    self.urlConnection = nil;
     HUD.mode = MBProgressHUDModeCustomView;
 	[HUD hide:YES afterDelay:5000];
     
@@ -462,28 +428,216 @@
 	// myProgressTask uses the HUD instance to update progress
 	[HUD showWhileExecuting:@selector(sendFile:toServer:) onTarget:self withObject:nil animated:YES];
     
+    //[HUD showWhileExecuting:@selector(pushImages:toServer:) onTarget:self withObject:nil animated:YES];
+    
     NSString *localFile = [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0] stringByAppendingPathComponent:@"rubi.sqlite"];
 
     
-    //NSString *myGrabbedImage = [NSString stringWithFormat:@"%@.png" , @"15.43078893,47.06967842"];//@"SiGe.png";
-    
-    //NSArray *path = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,          NSUserDomainMask, YES);
-    //NSString *documentDirectory = [path objectAtIndex:0];
-    //NSString *fullPath = [documentDirectory stringByAppendingPathComponent:myGrabbedImage];
-    //NSData *data = [NSData dataWithContentsOfFile:fullPath];
-    
-    
     NSString *api = @"http://app.rubi.st.automatix.koerbler.com/app/upload/upload.php";
     
+    NSString *upload = @"http://app.rubi.st.automatix.koerbler.com/app/upload/image-upload.php";
     
-    //[self sendImage:fullPath toServer:api];
+    NSString *img = @"Send";
+    
     [self sendFile:localFile toServer:api];
+    
+    
+    [self pushImages:img toServer:upload];
     
 
     NSLog(@"touch: %@", localFile);
     
     
     
+}
+
+//-(void)pushImages upload:(NSString *)uploadURL{
+    
+-(void)pushImages:(NSString *)imagFile toServer:(NSString *)serverURL{
+    
+    NSLog(@"UPLOADING: %@",imagFile);
+    
+    NSLog(@"API URL: %@",serverURL);
+    
+    //fetch data
+    
+    AppDelegate* delegate = [[UIApplication sharedApplication] delegate];
+    self.managedObjectContext = delegate.managedObjectContext;
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(saveManagedObjectContext:) name:NSManagedObjectContextObjectsDidChangeNotification object:self.managedObjectContext];
+    
+    
+    NSManagedObjectContext* managedObject = delegate.managedObjectContext;
+    
+    
+    NSFetchRequest* fetchImages = [NSFetchRequest fetchRequestWithEntityName:@"Ratingsection"];
+    
+    NSFetchRequest* fetchRatingImages = [NSFetchRequest fetchRequestWithEntityName:@"RatingImage"];
+    
+    NSError* error;
+    
+    NSArray *allRatingsections = [managedObject executeFetchRequest:fetchImages error:&error];
+    
+    NSArray *allRatingimages = [managedObject executeFetchRequest:fetchRatingImages error:&error];
+    
+    int e;
+    
+    for(e=0; e < [allRatingimages count]; e++){
+    
+        NSLog(@"Ratingimages %i", [allRatingimages count]);
+        
+        //create request
+        NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
+        
+        //Set Params
+        [request setHTTPShouldHandleCookies:NO];
+        [request setTimeoutInterval:60];
+        [request setHTTPMethod:@"POST"];
+        
+        //Create boundary, it can be anything
+        NSString *boundary = @"------VohpleBoundary4QuqLuM1cE1615lMwCy";
+        
+        // set Content-Type in HTTP header
+        NSString *contentType = [NSString stringWithFormat:@"multipart/form-data; boundary=%@", boundary];
+        [request setValue:contentType forHTTPHeaderField: @"Content-Type"];
+        
+        // post body
+        NSMutableData *body = [NSMutableData data];
+        
+        //Populate a dictionary with all the regular values you would like to send.
+        NSMutableDictionary *parameters = [[NSMutableDictionary alloc] init];
+        
+        NSString *param1 = @"test";
+        
+        [parameters setValue:param1 forKey:@"param1-name"];
+        
+        
+        NSString *filePath = [NSString stringWithFormat:@"%@", [[allRatingimages objectAtIndex:e] valueForKey:@"imagePathFilesystem"]];
+        
+        NSLog(@"THE FILEPATH TO Ratingimage: %@", filePath);
+        
+        NSData *ratingImagesData = [NSData dataWithContentsOfFile:filePath];
+        
+       // NSLog(@"DATA: %@", ratingImagesData);
+        
+        //Assuming data is not nil we add this to the multipart form
+        if (ratingImagesData)
+        {
+            [body appendData:[[NSString stringWithFormat:@"--%@\r\n", boundary] dataUsingEncoding:NSUTF8StringEncoding]];
+            [body appendData:[[NSString stringWithFormat:@"Content-Disposition: form-data; name=\"file\"; filename=\"%@\"\r\n", filePath] dataUsingEncoding:NSUTF8StringEncoding]];
+            [body appendData:[@"Content-Type:image/jpeg\r\n\r\n" dataUsingEncoding:NSUTF8StringEncoding]];
+            [body appendData:ratingImagesData];
+            [body appendData:[[NSString stringWithFormat:@"\r\n"] dataUsingEncoding:NSUTF8StringEncoding]];
+        }
+        
+        
+        //Close off the request with the boundary
+        [body appendData:[[NSString stringWithFormat:@"--%@--\r\n", boundary] dataUsingEncoding:NSUTF8StringEncoding]];
+        
+        // setting the body of the post to the request
+        [request setHTTPBody:body];
+        
+        NSString *baseUrl = @"http://app.rubi.st.automatix.koerbler.com/app/upload/image-upload.php";
+        
+       // NSString *baseUrl = serverURL;
+        
+        // set URL
+        [request setURL:[NSURL URLWithString:baseUrl]];
+        
+        [NSURLConnection sendAsynchronousRequest:request
+                                           queue:[NSOperationQueue mainQueue]
+                               completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
+                                   
+                                   NSHTTPURLResponse* httpResponse = (NSHTTPURLResponse*)response;
+                                   
+                                   if ([httpResponse statusCode] == 200) {
+                                       
+                                       NSLog(@"success");
+                                   }
+                                   else{
+                                       NSLog(@"error on response");
+                                   }
+                                   
+                               }];
+    
+    }
+    
+    int i = 0;
+    
+    for(i=0; i < [allRatingsections count]; i++){
+    
+    //create request
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
+    
+    //Set Params
+    [request setHTTPShouldHandleCookies:NO];
+    [request setTimeoutInterval:60];
+    [request setHTTPMethod:@"POST"];
+    
+    //Create boundary, it can be anything
+    NSString *boundary = @"------VohpleBoundary4QuqLuM1cE5lMwCy";
+    
+    // set Content-Type in HTTP header
+    NSString *contentType = [NSString stringWithFormat:@"multipart/form-data; boundary=%@", boundary];
+    [request setValue:contentType forHTTPHeaderField: @"Content-Type"];
+    
+    // post body
+    NSMutableData *body = [NSMutableData data];
+    
+    //Populate a dictionary with all the regular values you would like to send.
+    NSMutableDictionary *parameters = [[NSMutableDictionary alloc] init];
+    
+    NSString *param1 = @"test";
+    
+    [parameters setValue:param1 forKey:@"param1-name"];
+    
+    
+    NSString *filePath = [NSString stringWithFormat:@"%@", [[allRatingsections objectAtIndex:i] valueForKey:@"sectionSafetyHazardImagePath"]];
+    
+    NSLog(@"THE FILEPATH to safetyhazardimages: %@", filePath);
+    
+    NSData *imageData = [NSData dataWithContentsOfFile:filePath];
+    
+       // NSLog(@"DATA: %@", imageData);
+    
+    //Assuming data is not nil we add this to the multipart form
+    if (imageData)
+    {
+        [body appendData:[[NSString stringWithFormat:@"--%@\r\n", boundary] dataUsingEncoding:NSUTF8StringEncoding]];
+        [body appendData:[[NSString stringWithFormat:@"Content-Disposition: form-data; name=\"file\"; filename=\"%@\"\r\n", filePath] dataUsingEncoding:NSUTF8StringEncoding]];
+        [body appendData:[@"Content-Type:image/jpeg\r\n\r\n" dataUsingEncoding:NSUTF8StringEncoding]];
+        [body appendData:imageData];
+        [body appendData:[[NSString stringWithFormat:@"\r\n"] dataUsingEncoding:NSUTF8StringEncoding]];
+    }
+ 
+        
+    //Close off the request with the boundary
+    [body appendData:[[NSString stringWithFormat:@"--%@--\r\n", boundary] dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    // setting the body of the post to the request
+    [request setHTTPBody:body];
+    
+    NSString *baseUrl = @"http://app.rubi.st.automatix.koerbler.com/app/upload/image-upload.php";
+    
+    // set URL
+    [request setURL:[NSURL URLWithString:baseUrl]];
+    
+    [NSURLConnection sendAsynchronousRequest:request
+                                       queue:[NSOperationQueue mainQueue]
+                           completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
+                               
+                               NSHTTPURLResponse* httpResponse = (NSHTTPURLResponse*)response;
+                               
+                               if ([httpResponse statusCode] == 200) {
+                                   
+                                   NSLog(@"success");
+                               }
+                               else{
+                                   NSLog(@"error on response");
+                               }
+                               
+                           }];
+    }
 }
 
 

@@ -22,6 +22,7 @@
 @property (nonatomic, retain) NSSet *employees;
 @property (nonatomic, retain) NSSet *contacts;
 @property (nonatomic, retain) NSSet *streets;
+@property (nonatomic, retain) NSString * deviceID;
 @end
 
 @interface Project (CoreDataGeneratedAccessors)

@@ -48,8 +48,11 @@
     
     [ratingsection setValue:newRatingsectionStartPosition forKey:@"startPositionGPS"];
     
+    [ratingsection setValue:uniqueDeviceID forKey:@"deviceID"];
     
     [self.section addRatingSectionObject:(Ratingsection*)ratingsection];
+    
+    
     
     [self.tableView reloadData];
     

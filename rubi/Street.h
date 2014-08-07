@@ -19,6 +19,7 @@
 @property (nonatomic, retain) NSDate * streetCrdate;
 @property (nonatomic, retain) Project *project;
 @property (nonatomic, retain) NSSet *section;
+@property (nonatomic, retain) NSString * deviceID;
 @end
 
 @interface Street (CoreDataGeneratedAccessors)

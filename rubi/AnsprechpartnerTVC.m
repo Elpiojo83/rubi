@@ -151,6 +151,10 @@
         self.contact = [NSEntityDescription insertNewObjectForEntityForName: @"Contact"
                                                      inManagedObjectContext: self.managedObjectContext];
 
+        
+        self.contact.deviceID = uniqueDeviceID;
+        //[contact setValue:uniqueDeviceID forKey:@"deviceID"];
+        
         [self.project addContactsObject: self.contact];
         
     }

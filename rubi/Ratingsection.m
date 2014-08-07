@@ -55,5 +55,6 @@
 @dynamic leftBikepathWidthEnd;
 @dynamic rightSidewalkWidthEnd;
 @dynamic rightBikepathWidthEnd;
+@dynamic deviceID;
 
 @end

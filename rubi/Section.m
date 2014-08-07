@@ -21,5 +21,6 @@
 @dynamic sectionname;
 @dynamic street;
 @dynamic ratingSection;
+@dynamic deviceID;
 
 @end

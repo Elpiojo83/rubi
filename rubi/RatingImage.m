@@ -15,5 +15,7 @@
 @dynamic image;
 @dynamic imagePath;
 @dynamic ratingsection;
+@dynamic deviceID;
+@dynamic imagePathFilesystem;
 
 @end

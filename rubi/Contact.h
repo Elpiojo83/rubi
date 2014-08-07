@@ -23,6 +23,7 @@
 @property (nonatomic, retain) NSString * phone;
 @property (nonatomic, retain) NSString * position;
 @property (nonatomic, retain) NSSet *project;
+@property (nonatomic, retain) NSString * deviceID;
 @end
 
 @interface Contact (CoreDataGeneratedAccessors)

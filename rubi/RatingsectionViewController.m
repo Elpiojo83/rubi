@@ -238,6 +238,7 @@
     controller.ratingsection.rightSidewalkWidth = self.ratingsection.rightSidewalkWidthEnd;
     [controller.rightSideWalkWidth setTitle:controller.ratingsection.rightSidewalkWidth forState:normal];
     
+    controller.ratingsection.deviceID = uniqueDeviceID;
     
     NSLog(@"NewStartPosition: %@", controller.ratingsection.startPosition);
     
@@ -261,6 +262,8 @@
     //ConstructionTypes
     
     [self saveAllButtonTitleValues];
+    
+    
     
     [self dismissViewControllerAnimated:YES completion:nil];
     
@@ -506,6 +509,11 @@
     
     self.ratingsection.startPosition = [self.startPosition currentTitle];
     self.ratingsection.endPosition = [self.endPosition currentTitle];
+    
+    self.ratingsection.deviceID = uniqueDeviceID;
+    
+    
+    
     NSLog(@"EndPosition %@", self.ratingsection.endPosition);
     
     

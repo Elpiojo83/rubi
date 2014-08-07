@@ -22,5 +22,6 @@
 @dynamic phone;
 @dynamic position;
 @dynamic project;
+@dynamic deviceID;
 
 @end

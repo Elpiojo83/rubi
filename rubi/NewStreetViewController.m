@@ -48,6 +48,8 @@
     [street setValue:newStreet forKey:@"streetname"];
     [street setValue:unixTS forKey:@"streetUnixTimestamp"];
     
+    [street setValue:uniqueDeviceID forKey:@"deviceID"];
+    
     
     [self.project addStreetsObject:(Street*)street];
     

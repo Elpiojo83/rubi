@@ -45,6 +45,9 @@
     
     self.project.unixTimestamp = [NSString stringWithFormat:@"%ld", unixTime];
     
+    
+    self.project.deviceID = uniqueDeviceID;
+    
     NSError* error;
     [self.managedObjectContext save:&error];
     

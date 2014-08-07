@@ -26,8 +26,8 @@ typedef void (^ALAssetsLibraryAccessFailureBlock)(NSError *error);
 
 @property (strong, atomic) ALAssetsLibrary* Mylibrary;
 @property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
-
-
+@property (nonatomic, strong) UIImage *chosenImage;
+@property (nonatomic, strong) NSData *theImage;
 
 
 - (IBAction)takePictureTouchUpInside:(id)sender;

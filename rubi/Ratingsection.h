@@ -51,6 +51,7 @@
 @property (nonatomic, retain) NSString * leftBikepathWidthEnd;
 @property (nonatomic, retain) NSString * rightSidewalkWidthEnd;
 @property (nonatomic, retain) NSString * rightBikepathWidthEnd;
+@property (nonatomic, retain) NSString * deviceID;
 
 
 @property (nonatomic, retain) RatingsectionSafetyHazard *hazards;

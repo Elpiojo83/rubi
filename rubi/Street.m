@@ -21,5 +21,6 @@
 @dynamic streetCrdate;
 @dynamic project;
 @dynamic section;
+@dynamic deviceID;
 
 @end

@@ -15,6 +15,8 @@
 @property (nonatomic, strong) NSManagedObjectContext* managedObjectContext;
 @property (nonatomic, strong) NSFetchedResultsController* fetchedResultsController;
 
+
+
 @end
 
 @implementation NewSectionFormView
@@ -29,10 +31,13 @@
     
     NSString* newSection = [NSString stringWithFormat:@"%@", self.NewSectionTextField.text];
     
+    [section setValue:uniqueDeviceID forKey:@"deviceID"];
+    
     [section setValue:newSection forKey:@"sectionname"];
     
     
     [self.street addSectionObject:(Section*)section];
+    
     
     NSLog(@"New Section: %@", section);
     
@@ -57,6 +62,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    
     
     //NSLog(@"Street in Form%@", [[self.street.section allObjects] objectAtIndex:0]);
     
