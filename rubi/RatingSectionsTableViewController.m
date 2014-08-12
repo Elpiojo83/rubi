@@ -33,6 +33,8 @@
 
 
 - (IBAction)AddRatingsectionTouchUpInside:(id)sender {
+    
+    
 
     NSLog(@"Current Section: %@", _section);
     
@@ -45,6 +47,11 @@
     
     
     NSString *newRatingsectionStartPosition = [NSString stringWithFormat:@"%@,%@", _latidude, _longitude];
+    NSDate * newDate = [NSDate date];
+    
+    time_t unixTime = (time_t) [newDate timeIntervalSince1970];
+    NSString *unixTS = [NSString stringWithFormat:@" %ld", unixTime];
+    [ratingsection setValue:unixTS forKey:@"timestamp"];
     
     [ratingsection setValue:newRatingsectionStartPosition forKey:@"startPositionGPS"];
     
@@ -110,7 +117,7 @@
     _managedObjectContext = managedObjectContext;
     if (managedObjectContext) {
         NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName: @"Ratingsection"];
-        request.sortDescriptors = @[[ NSSortDescriptor  sortDescriptorWithKey: @"startPosition" ascending:YES ]];
+        request.sortDescriptors = @[[ NSSortDescriptor  sortDescriptorWithKey: @"timestamp" ascending:YES ]];
         request.predicate = [NSPredicate predicateWithFormat: @" section == %@" , self.section];
         
         
@@ -140,6 +147,9 @@
     // Configure the cell...
     Ratingsection *ratingsection = [self.fetchedResultsController objectAtIndexPath:indexPath]; // ask NSFRC for the NSMO at the row in question
    // cell.textLabel.text = [NSString stringWithFormat:@"Abschnitt%@",  ratingsection.startPositionGPS];
+    
+    
+    
     
     cell.textLabel.text = [NSString stringWithFormat:@"Teilbewertung %i",  indexPath.row+1];
     

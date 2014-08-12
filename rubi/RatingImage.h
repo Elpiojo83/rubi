@@ -18,5 +18,6 @@
 @property (nonatomic, retain) Ratingsection *ratingsection;
 @property (nonatomic, retain) NSString * deviceID;
 @property (nonatomic, retain) NSString * imagePathFilesystem;
+@property (nonatomic, retain) NSString * filename;
 
 @end

@@ -199,6 +199,8 @@
     
     [ratingsection setValue:ratingsectionEndPosition forKey:@"endPositionGPS"];
     
+    NSLog(@"AKTUELLE ENDPOS: %@", ratingsectionEndPosition);
+    
     // NSString* newRatingsectionStartPosition = [NSString stringWithFormat:@"Abschnitt"];
     
     
@@ -206,7 +208,11 @@
     
     [ratingsection setValue:newRatingsectionStartPosition forKey:@"startPositionGPS"];
     
+    NSDate * newDate = [NSDate date];
     
+    time_t unixTime = (time_t) [newDate timeIntervalSince1970];
+    NSString *unixTS = [NSString stringWithFormat:@" %ld", unixTime];
+    [ratingsection setValue:unixTS forKey:@"timestamp"];
     
     
     [self saveAllButtonTitleValues];

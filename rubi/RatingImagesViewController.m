@@ -155,6 +155,7 @@
              
              
              self.ratingimage.imagePathFilesystem = fullPathToFile;
+             self.ratingimage.filename = myNewImage;
              
              
               

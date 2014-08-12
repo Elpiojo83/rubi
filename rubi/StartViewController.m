@@ -388,12 +388,15 @@
     HUD.mode = MBProgressHUDModeCustomView;
 	[HUD hide:YES afterDelay:5000];
     
+    
+    
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Export"
                                                     message:@"Upload erfolgreich."
                                                    delegate:nil
                                           cancelButtonTitle:@"OK"
                                           otherButtonTitles:nil];
     [alert show];
+     
     
 }
 
@@ -553,9 +556,12 @@
                                    if ([httpResponse statusCode] == 200) {
                                        
                                        NSLog(@"success");
+                                       
+                                     
                                    }
                                    else{
                                        NSLog(@"error on response");
+                                       
                                    }
                                    
                                }];

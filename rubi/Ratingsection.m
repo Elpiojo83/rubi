@@ -56,5 +56,7 @@
 @dynamic rightSidewalkWidthEnd;
 @dynamic rightBikepathWidthEnd;
 @dynamic deviceID;
+@dynamic sectionSafetyHazardImage;
+@dynamic timestamp;
 
 @end

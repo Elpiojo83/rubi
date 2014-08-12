@@ -32,6 +32,7 @@
     </entity>
     <entity name="RatingImage" representedClassName="RatingImage" syncable="YES">
         <attribute name="deviceID" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="filename" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="image" optional="YES" attributeType="Binary" syncable="YES"/>
         <attribute name="imagePath" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="imagePathFilesystem" optional="YES" attributeType="String" syncable="YES"/>
@@ -67,6 +68,7 @@
         <attribute name="rightSidewalkMethodOfConstruction" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="rightSidewalkWidth" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="rightSidewalkWidthEnd" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="sectionSafetyHazardImage" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="sectionSafetyHazardImagePath" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="sectionSafetyHazardNote" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="startPosition" optional="YES" attributeType="String" syncable="YES"/>
@@ -77,6 +79,7 @@
         <attribute name="streetSurfaceDamage" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="streetWidth" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="streetWidthEnd" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="timestamp" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="hazards" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="RatingsectionSafetyHazard" inverseName="ratingsections" inverseEntity="RatingsectionSafetyHazard" syncable="YES"/>
         <relationship name="ratingimage" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="RatingImage" inverseName="ratingsection" inverseEntity="RatingImage" syncable="YES"/>
         <relationship name="section" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Section" inverseName="ratingSection" inverseEntity="Section" syncable="YES"/>
@@ -106,8 +109,8 @@
         <element name="Contact" positionX="171" positionY="-468" width="128" height="208"/>
         <element name="Employees" positionX="-828" positionY="-396" width="128" height="118"/>
         <element name="Project" positionX="-360" positionY="-387" width="128" height="163"/>
-        <element name="RatingImage" positionX="207" positionY="-18" width="128" height="120"/>
-        <element name="Ratingsection" positionX="-171" positionY="-198" width="128" height="673"/>
+        <element name="RatingImage" positionX="207" positionY="-18" width="128" height="135"/>
+        <element name="Ratingsection" positionX="-171" positionY="-198" width="128" height="705"/>
         <element name="RatingsectionSafetyHazard" positionX="171" positionY="-189" width="128" height="103"/>
         <element name="ReviewSection" positionX="-747" positionY="-36" width="128" height="45"/>
         <element name="Section" positionX="178" positionY="497" width="128" height="103"/>

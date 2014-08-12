@@ -62,6 +62,9 @@
     //self.Mylibrary = [[ALAssetsLibrary alloc] init];
     
     NSString *myGrabbedImage = [NSString stringWithFormat:@"%@.png" , self.ratingsection.startPositionGPS];//@"SiGe.png";
+    
+  
+    
     NSArray *path = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,          NSUserDomainMask, YES);
     NSString *documentDirectory = [path objectAtIndex:0];
     NSString *fullPath = [documentDirectory stringByAppendingPathComponent:myGrabbedImage];
@@ -129,7 +132,7 @@
     
     NSString *myGrabbedImage = [NSString stringWithFormat:@"%@-%i.jpeg" , self.ratingsection.startPositionGPS, randX, nil];// @"SiGe.png";
     
-    
+    self.ratingsection.sectionSafetyHazardImage = myGrabbedImage;
     
     NSArray *path = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentDirectory = [path objectAtIndex:0];
