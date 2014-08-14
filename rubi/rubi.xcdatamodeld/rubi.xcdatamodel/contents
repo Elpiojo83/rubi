@@ -36,6 +36,8 @@
         <attribute name="image" optional="YES" attributeType="Binary" syncable="YES"/>
         <attribute name="imagePath" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="imagePathFilesystem" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="latidude" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="longitude" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="ratingsection" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Ratingsection" inverseName="ratingimage" inverseEntity="Ratingsection" syncable="YES"/>
     </entity>
     <entity name="Ratingsection" representedClassName="Ratingsection" syncable="YES">
@@ -109,7 +111,7 @@
         <element name="Contact" positionX="171" positionY="-468" width="128" height="208"/>
         <element name="Employees" positionX="-828" positionY="-396" width="128" height="118"/>
         <element name="Project" positionX="-360" positionY="-387" width="128" height="163"/>
-        <element name="RatingImage" positionX="207" positionY="-18" width="128" height="135"/>
+        <element name="RatingImage" positionX="207" positionY="-18" width="128" height="165"/>
         <element name="Ratingsection" positionX="-171" positionY="-198" width="128" height="705"/>
         <element name="RatingsectionSafetyHazard" positionX="171" positionY="-189" width="128" height="103"/>
         <element name="ReviewSection" positionX="-747" positionY="-36" width="128" height="45"/>

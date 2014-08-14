@@ -9,11 +9,12 @@
 
 #import "CoreDataTableViewController.h"
 #import <AssetsLibrary/AssetsLibrary.h>
+#import <MapKit/MapKit.h>
 
 
 
 
-@interface RatingImagesViewController : CoreDataTableViewController  <UINavigationControllerDelegate, UIImagePickerControllerDelegate, UITableViewDelegate>{
+@interface RatingImagesViewController : CoreDataTableViewController  <UINavigationControllerDelegate, UIImagePickerControllerDelegate, UITableViewDelegate, CLLocationManagerDelegate>{
     NSMutableArray *assets;
 }
 
@@ -29,6 +30,8 @@ typedef void (^ALAssetsLibraryAccessFailureBlock)(NSError *error);
 @property (nonatomic, strong) UIImage *chosenImage;
 @property (nonatomic, strong) NSData *theImage;
 
+@property (nonatomic, strong) NSString *longitude;
+@property (nonatomic, strong) NSString *latidude;
 
 - (IBAction)takePictureTouchUpInside:(id)sender;
 

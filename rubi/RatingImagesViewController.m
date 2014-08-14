@@ -158,6 +158,7 @@
              self.ratingimage.filename = myNewImage;
              
              
+             
               
              [self.ratingsection addRatingimageObject: self.ratingimage];
              

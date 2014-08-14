@@ -19,5 +19,7 @@
 @property (nonatomic, retain) NSString * deviceID;
 @property (nonatomic, retain) NSString * imagePathFilesystem;
 @property (nonatomic, retain) NSString * filename;
+@property (nonatomic, retain) NSString * longitude;
+@property (nonatomic, retain) NSString * latitude;
 
 @end

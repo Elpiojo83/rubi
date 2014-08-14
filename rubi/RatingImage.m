@@ -18,5 +18,7 @@
 @dynamic deviceID;
 @dynamic imagePathFilesystem;
 @dynamic filename;
+@dynamic longitude;
+@dynamic latitude;
 
 @end
