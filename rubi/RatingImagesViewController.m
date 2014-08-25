@@ -16,7 +16,11 @@
 
 @end
 
-@implementation RatingImagesViewController
+@implementation RatingImagesViewController{
+    CLLocationManager *locationManager;
+    CLGeocoder *geocoder;
+    CLPlacemark *placemark;
+}
 
 
 -(void)setManagedObjectContext:(NSManagedObjectContext *)managedObjectContext {
@@ -110,6 +114,48 @@
 }
 
 
+
+- (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
+{
+    NSLog(@"didFailWithError: %@", error);
+    UIAlertView *errorAlert = [[UIAlertView alloc]
+                               initWithTitle:@"Error" message:@"Failed to Get Your Location" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    [errorAlert show];
+}
+
+- (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation
+{
+    //NSLog(@"didUpdateToLocation: %@", newLocation);
+    CLLocation *currentLocation = newLocation;
+    
+    if (currentLocation != nil) {
+        self.longitude = [NSString stringWithFormat:@"%.8f", currentLocation.coordinate.longitude];
+        self.latitude  = [NSString stringWithFormat:@"%.8f", currentLocation.coordinate.latitude];
+        
+        NSLog(@"Position FUCKING PSORITOION %@ %@", _longitude, _latitude);
+    }
+    
+    [locationManager stopUpdatingLocation];
+    
+    NSLog(@"Resolving the Address");
+    [geocoder reverseGeocodeLocation:currentLocation completionHandler:^(NSArray *placemarks, NSError *error) {
+        NSLog(@"Found placemarks: %@, error: %@", placemarks, error);
+        if (error == nil && [placemarks count] > 0) {
+            placemark = [placemarks lastObject];
+            NSString *adress = [NSString stringWithFormat:@"%@ %@\n%@ %@\n%@\n%@",
+                                placemark.subThoroughfare, placemark.thoroughfare,
+                                placemark.postalCode, placemark.locality,
+                                placemark.administrativeArea,
+                                placemark.country];
+            NSLog(@"Adress: %@", adress);
+            
+        } else {
+            NSLog(@"%@", error.debugDescription);
+        }
+    } ];
+}
+
+
 #pragma mark Image picker delegate methdos
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingImage:(UIImage *)image editingInfo:(NSDictionary *)editingInfo
@@ -129,6 +175,7 @@
              self.ratingimage.imagePath = [NSString stringWithFormat:@"%@", assetURL];
              
              self.ratingimage.deviceID = uniqueDeviceID;
+             
              
              
              
@@ -157,7 +204,12 @@
              self.ratingimage.imagePathFilesystem = fullPathToFile;
              self.ratingimage.filename = myNewImage;
              
+             self.ratingimage.longitude = _longitude;
+             self.ratingimage.latitude = _latitude;
              
+             
+             
+             NSLog(@"lat, lat:%@", self.ratingimage.longitude);
              
               
              [self.ratingsection addRatingimageObject: self.ratingimage];
@@ -261,15 +313,23 @@
 
 
 
+
+
 #pragma mark images from album
 
 
 -(void)viewDidAppear:(BOOL)animated{
     
     self.Mylibrary = [[ALAssetsLibrary alloc] init];
+    locationManager = [[CLLocationManager alloc] init];
+    geocoder = [[CLGeocoder alloc] init];
+    
+    locationManager.delegate = self;
+    locationManager.desiredAccuracy = kCLLocationAccuracyBestForNavigation;
     
     
     
+    [locationManager startUpdatingLocation];
     
 }
 

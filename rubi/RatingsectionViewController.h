@@ -99,6 +99,8 @@
 - (IBAction)leftEdgeStepper:(id)sender;
 @property (strong, nonatomic) IBOutlet UIStepper *UIleftEdge;
 
+- (IBAction)finishRatingButton:(id)sender;
+
 // Buttons for Width
 
 @property (strong, nonatomic) IBOutlet UIButton *streetWidth;

@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-#define uniqueDeviceID @"ea7e636edf28ac3fb4a23087efc129dbe3cb5755"
+#define uniqueDeviceID @"ea7e636edf28ac3fb4a23087efc129dbe3cb575875"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 

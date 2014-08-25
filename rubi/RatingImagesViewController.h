@@ -31,7 +31,7 @@ typedef void (^ALAssetsLibraryAccessFailureBlock)(NSError *error);
 @property (nonatomic, strong) NSData *theImage;
 
 @property (nonatomic, strong) NSString *longitude;
-@property (nonatomic, strong) NSString *latidude;
+@property (nonatomic, strong) NSString *latitude;
 
 - (IBAction)takePictureTouchUpInside:(id)sender;
 

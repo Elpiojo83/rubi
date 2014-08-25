@@ -32,8 +32,12 @@
 @property (strong, nonatomic) CLLocationManager *locationManager;
 @property (strong, nonatomic) CLGeocoder *geocoder;
 
+@property (strong, nonatomic) CLLocation *myNewLocation;
+
 @property (nonatomic, strong) NSString *longitude;
 @property (nonatomic, strong) NSString *latidude;
+@property (nonatomic, strong) NSString *longitudeEnd;
+@property (nonatomic, strong) NSString *latidudeEnd;
 
 @property (nonatomic, strong) UIPopoverController *popController;
 
@@ -41,6 +45,10 @@
 @end
 
 @implementation RatingsectionViewController
+
+@synthesize locationManager;
+@synthesize myNewLocation;
+@synthesize latidude, latidudeEnd, longitude, longitudeEnd;
 
 -(void)selectedString:(NSString *)value
            forControl:(id)sourceControl
@@ -72,13 +80,7 @@
     NSLog(@"TYPE: %@", self.ratingsection);
 
     // Do any additional setup after loading the view.
-    self.locationManager = [[CLLocationManager alloc] init];
-    self.geocoder = [[CLGeocoder alloc] init];
     
-    self.locationManager.delegate = self;
-    self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
-    
-    [self.locationManager startUpdatingLocation];
     
     [self showAllButtonTitles];
     
@@ -87,6 +89,17 @@
 
 -(void)viewDidAppear{
     [self.startPosition setTitle:@"00,00" forState:normal];
+    
+    self.locationManager = [[CLLocationManager alloc] init];
+    self.geocoder = [[CLGeocoder alloc] init];
+    
+    self.locationManager.delegate = self;
+    self.locationManager.desiredAccuracy = kCLLocationAccuracyBestForNavigation;
+    
+    [self.locationManager startUpdatingLocation];
+    
+    NSLog(@"long, lat: %@, %@", self.longitude, self.latidude);
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -190,12 +203,23 @@
 
 - (IBAction)newRatingSection:(UIBarButtonItem *)sender {
     
+    NSString *ratingsectionEndPosition = [NSString stringWithFormat:@"%@,%@",self.latidude, self.longitude];
+    self.ratingsection.endPositionGPS = ratingsectionEndPosition;
     
+    
+    NSError* error;
+    
+    if (![self.managedObjectContext save:&error]) {
+        NSLog(@"Can't Save! %@ %@", error, [error localizedDescription]);
+    }
+    else{
+        NSLog(@"Data saved: %@", self.ratingsection.endPositionGPS);
+    }
     
     Ratingsection* ratingsection = [NSEntityDescription insertNewObjectForEntityForName:@"Ratingsection" inManagedObjectContext:_managedObjectContext];
     
     
-    NSString *ratingsectionEndPosition = [NSString stringWithFormat:@"%@,%@",_latidude, _longitude];
+ 
     
     [ratingsection setValue:ratingsectionEndPosition forKey:@"endPositionGPS"];
     
@@ -204,9 +228,8 @@
     // NSString* newRatingsectionStartPosition = [NSString stringWithFormat:@"Abschnitt"];
     
     
-    NSString *newRatingsectionStartPosition = [NSString stringWithFormat:@"%@,%@",_latidude, _longitude];
-    
-    [ratingsection setValue:newRatingsectionStartPosition forKey:@"startPositionGPS"];
+    //NSString *newRatingsectionStartPosition = [NSString stringWithFormat:@"%@,%@",self.latidude, self.latidude];
+    //[ratingsection setValue:newRatingsectionStartPosition forKey:@"startPositionGPS"];
     
     NSDate * newDate = [NSDate date];
     
@@ -223,6 +246,8 @@
     RatingsectionViewController* controller = [[self storyboard] instantiateViewControllerWithIdentifier:@"RatingsectionViewController"];
     controller.project = self.project;
     controller.ratingsection = ratingsection;
+    
+    controller.ratingsection.startPositionGPS = self.ratingsection.endPositionGPS;
     
     //self.ratingsection.endPosition
     
@@ -404,27 +429,49 @@
         self.longitude = [NSString stringWithFormat:@"%.8f", currentLocation.coordinate.longitude];
         self.latidude  = [NSString stringWithFormat:@"%.8f", currentLocation.coordinate.latitude];
         
-        //  NSLog(@"Position %@ %@", _longitude, _latidude);
+        NSLog(@"Position from CUrrent place:%@ %@", self.longitude, self.longitude);
+    }
+    else{
+       NSLog(@"Resolving NO the Address");
     }
     
-    [self.locationManager stopUpdatingLocation];
+    //[self.locationManager stopUpdatingLocation];
     
-    NSLog(@"Resolving the Address");
-    [self.geocoder reverseGeocodeLocation:currentLocation completionHandler:^(NSArray *placemarks, NSError *error) {
-        NSLog(@"Found placemarks: %@, error: %@", placemarks, error);
-        if (error == nil && [placemarks count] > 0) {
-            CLPlacemark *placemark = [placemarks lastObject];
-            NSString *adress = [NSString stringWithFormat:@"%@ %@\n%@ %@\n%@\n%@",
-                                placemark.subThoroughfare, placemark.thoroughfare,
-                                placemark.postalCode, placemark.locality,
-                                placemark.administrativeArea,
-                                placemark.country];
-            NSLog(@"Adress: %@", adress);
-            
-        } else {
-            NSLog(@"%@", error.debugDescription);
-        }
-    } ];
+    
+}
+
+
+-(void)getNewLocation{
+    
+    if(nil == locationManager)
+    locationManager = [[CLLocationManager alloc] init];
+   
+    locationManager.delegate = self;
+    locationManager.desiredAccuracy = kCLLocationAccuracyBestForNavigation;
+    
+    locationManager.distanceFilter = 50;
+    
+    [locationManager startUpdatingLocation];
+    
+}
+
+- (IBAction)finishRatingButton:(id)sender {
+    
+
+    NSLog(@"Position from CUrrent place:%@ %@", self.latidude, self.longitude);
+
+    
+    NSString *ratingsectionEndPosition = [NSString stringWithFormat:@"%@,%@",self.latidude, self.longitude];
+    
+    self.ratingsection.endPositionGPS = ratingsectionEndPosition;
+    
+    //[ratingsection setValue:ratingsectionEndPosition forKey:@"endPositionGPS"];
+    
+    [self saveAllButtonTitleValues];
+    
+    NSLog(@"Saved endPos %@", self.ratingsection.endPositionGPS);
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 
@@ -580,5 +627,6 @@
     
     
 }
+
 
 @end
