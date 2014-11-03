@@ -5,34 +5,34 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>AE44E522-1782-42E5-A388-EDD32C241BC4</string>
+	<string>89FF9F16-FCBC-41AD-B574-610948B8C2AA</string>
 	<key>IDESourceControlProjectName</key>
 	<string>rubi</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>CD8A9DE5-5432-4C0E-93F3-BF51F129D42A</key>
+		<key>3723CF898235A30C7D1925B862ED6413D75426FA</key>
 		<string>https://github.com/Elpiojo83/rubi.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>rubi.xcodeproj/project.xcworkspace</string>
+	<string>rubi.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>CD8A9DE5-5432-4C0E-93F3-BF51F129D42A</key>
+		<key>3723CF898235A30C7D1925B862ED6413D75426FA</key>
 		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://github.com/Elpiojo83/rubi.git</string>
 	<key>IDESourceControlProjectVersion</key>
-	<integer>110</integer>
+	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>CD8A9DE5-5432-4C0E-93F3-BF51F129D42A</string>
+	<string>3723CF898235A30C7D1925B862ED6413D75426FA</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>CD8A9DE5-5432-4C0E-93F3-BF51F129D42A</string>
+			<string>3723CF898235A30C7D1925B862ED6413D75426FA</string>
 			<key>IDESourceControlWCCName</key>
 			<string>rubi</string>
 		</dict>
