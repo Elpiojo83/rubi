@@ -61,9 +61,12 @@
     
     //self.Mylibrary = [[ALAssetsLibrary alloc] init];
     
-    NSString *myGrabbedImage = [NSString stringWithFormat:@"%@.png" , self.ratingsection.startPositionGPS];//@"SiGe.png";
+    //NSString *myGrabbedImage = [NSString stringWithFormat:@"%@.jpeg" , self.ratingsection.startPositionGPS];//@"SiGe.png";
     
   
+    NSString *myGrabbedImage  = [NSString stringWithFormat:@"%@",self.ratingsection.sectionSafetyHazardImage];
+    
+    NSLog(@"display image form path: %@", myGrabbedImage);
     
     NSArray *path = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,          NSUserDomainMask, YES);
     NSString *documentDirectory = [path objectAtIndex:0];
@@ -90,12 +93,17 @@
     self.ratingsectionsafetyhazard.deviceID = uniqueDeviceID;
     
     
+    NSLog(@"Notiz %@", self.HazardNote.text);
+    
+    
    // self.ratingsectionsafetyhazard.safetyHazardImagePath = self.ratingsectionsafetyhazard.safetyHazardImagePath;
     
-    AppDelegate* delegate = [[UIApplication sharedApplication] delegate];
+   // AppDelegate* delegate = [[UIApplication sharedApplication] delegate];
+    
+    AppDelegate *delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     [delegate saveContext];
     
-    NSLog(@"Nnote %@", self.ratingsectionsafetyhazard.safetyHazardNote);
+    NSLog(@"Note %@", self.ratingsectionsafetyhazard.safetyHazardNote);
     
     NSLog(@"Save Notes");
 }
@@ -130,7 +138,7 @@
     
     NSData *data = UIImageJPEGRepresentation(self.chosenImage, 0.8);
     
-    NSString *myGrabbedImage = [NSString stringWithFormat:@"%@-%i.jpeg" , self.ratingsection.startPositionGPS, randX, nil];// @"SiGe.png";
+    NSString *myGrabbedImage = [NSString stringWithFormat:@"%@-%i.jpeg" , self.ratingsection.startPositionGPS, randX];// @"SiGe.png";
     
     self.ratingsection.sectionSafetyHazardImage = myGrabbedImage;
     

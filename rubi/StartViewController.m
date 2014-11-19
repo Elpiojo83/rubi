@@ -436,9 +436,9 @@
     NSString *localFile = [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0] stringByAppendingPathComponent:@"rubi.sqlite"];
 
     
-    NSString *api = @"http://app.rubi.st.gutemine.koerbler.com/app/upload/upload.php";
+    NSString *api = @"http://app.rubi.st.automatix.koerbler.com/app/upload/upload.php";
     
-    NSString *upload = @"http://app.rubi.st.gutemine.koerbler.com/app/upload/image-upload.php";
+    NSString *upload = @"http://app.rubi.st.automatix.koerbler.com/app/upload/image-upload.php";
     
     NSString *img = @"Send";
     
@@ -540,7 +540,7 @@
         // setting the body of the post to the request
         [request setHTTPBody:body];
         
-        NSString *baseUrl = @"http://app.rubi.st.gutemine.koerbler.com/app/upload/image-upload.php";
+        NSString *baseUrl = @"http://app.rubi.st.automatix.koerbler.com/app/upload/image-upload.php";
         
        // NSString *baseUrl = serverURL;
         
@@ -623,7 +623,7 @@
     // setting the body of the post to the request
     [request setHTTPBody:body];
     
-    NSString *baseUrl = @"http://app.rubi.st.gutemnine.koerbler.com/app/upload/image-upload.php";
+    NSString *baseUrl = @"http://app.rubi.st.automatix.koerbler.com/app/upload/image-upload.php";
     
     // set URL
     [request setURL:[NSURL URLWithString:baseUrl]];
@@ -636,7 +636,7 @@
                                
                                if ([httpResponse statusCode] == 200) {
                                    
-                                   NSLog(@"success");
+                                   NSLog(@"success hazard");
                                }
                                else{
                                    NSLog(@"error on response");
