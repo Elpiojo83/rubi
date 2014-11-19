@@ -73,6 +73,20 @@
 {
     [super viewDidLoad];
     
+    [self.locationManager requestWhenInUseAuthorization];
+    [self.locationManager requestAlwaysAuthorization];
+    
+    
+    self.locationManager = [[CLLocationManager alloc] init];
+    self.locationManager.delegate = self;
+    
+    // Check for iOS 8. Without this guard the code will crash with "unknown selector" on iOS 7.
+    if ([self.locationManager respondsToSelector:@selector(requestWhenInUseAuthorization)]) {
+        [self.locationManager requestWhenInUseAuthorization];
+    }
+    [self.locationManager startUpdatingLocation];
+    
+    
     
     UIColor *streetBg = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"street.png"]];
     self.RatingSectionInterfaceView.backgroundColor = streetBg;
@@ -98,9 +112,11 @@
     
     [self.locationManager startUpdatingLocation];
     
-    NSLog(@"long, lat: %@, %@", self.longitude, self.latidude);
+    //NSLog(@"long, lat: %@, %@", self.longitude, self.latidude);
     
 }
+
+
 
 - (void)didReceiveMemoryWarning
 {
@@ -203,6 +219,22 @@
 
 - (IBAction)newRatingSection:(UIBarButtonItem *)sender {
     
+    
+    [self.locationManager startUpdatingLocation];
+    
+    NSLog(@"Hurra lat, long: %@ %@", self.latidude, self.longitude);
+    
+    if(self.latidude == nil || self.longitude == nil){
+    
+        
+        UIAlertView *gpsError = [[UIAlertView alloc] initWithTitle:@"Fehler" message:@"GPS ist nicht verfügbar" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [gpsError show];
+        
+    }
+    else{
+        
+   
+    
     NSString *ratingsectionEndPosition = [NSString stringWithFormat:@"%@,%@",self.latidude, self.longitude];
     self.ratingsection.endPositionGPS = ratingsectionEndPosition;
     
@@ -216,10 +248,10 @@
         NSLog(@"Data saved: %@", self.ratingsection.endPositionGPS);
     }
     
+     //   abort();
+        
     Ratingsection* ratingsection = [NSEntityDescription insertNewObjectForEntityForName:@"Ratingsection" inManagedObjectContext:_managedObjectContext];
     
-    
- 
     
     [ratingsection setValue:ratingsectionEndPosition forKey:@"endPositionGPS"];
     
@@ -279,7 +311,7 @@
     // Pop to root view controller (not animated) before pushing
     [navigationController popToRootViewControllerAnimated:NO];
     [navigationController pushViewController: controller animated:YES];
-    
+     }
     
 }
     
@@ -412,13 +444,7 @@
 
 #pragma LocationManager Methoden
 
-- (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
-{
-    NSLog(@"didFailWithError: %@", error);
-    UIAlertView *errorAlert = [[UIAlertView alloc]
-                               initWithTitle:@"Error" message:@"Failed to Get Your Location" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-    [errorAlert show];
-}
+
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation
 {
@@ -436,9 +462,20 @@
     }
     
     //[self.locationManager stopUpdatingLocation];
-    
-    
+
 }
+
+- (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
+{
+    NSLog(@"didFailWithError: %@", error);
+    /*
+    UIAlertView *errorAlert = [[UIAlertView alloc]
+                               initWithTitle:@"Error" message:@"Failed to Get Your Location" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    [errorAlert show];
+     */
+}
+
+
 
 
 -(void)getNewLocation{
@@ -458,20 +495,33 @@
 - (IBAction)finishRatingButton:(id)sender {
     
 
+     [self.locationManager startUpdatingLocation];
+    
     NSLog(@"Position from CUrrent place:%@ %@", self.latidude, self.longitude);
+    
+    if(self.latidude == nil || self.longitude == nil){
+        
+        
+        UIAlertView *gpsError = [[UIAlertView alloc] initWithTitle:@"Fehler" message:@"GPS ist nicht verfügbar" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [gpsError show];
+        
+    }
+    else{
+        NSString *ratingsectionEndPosition = [NSString stringWithFormat:@"%@,%@",self.latidude, self.longitude];
+        
+        self.ratingsection.endPositionGPS = ratingsectionEndPosition;
+        
+        //[ratingsection setValue:ratingsectionEndPosition forKey:@"endPositionGPS"];
+        
+        [self saveAllButtonTitleValues];
+        
+        NSLog(@"Saved endPos %@", self.ratingsection.endPositionGPS);
+        
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }
 
     
-    NSString *ratingsectionEndPosition = [NSString stringWithFormat:@"%@,%@",self.latidude, self.longitude];
-    
-    self.ratingsection.endPositionGPS = ratingsectionEndPosition;
-    
-    //[ratingsection setValue:ratingsectionEndPosition forKey:@"endPositionGPS"];
-    
-    [self saveAllButtonTitleValues];
-    
-    NSLog(@"Saved endPos %@", self.ratingsection.endPositionGPS);
-    
-    [self dismissViewControllerAnimated:YES completion:nil];
+
 }
 
 

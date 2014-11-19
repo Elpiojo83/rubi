@@ -11,15 +11,24 @@
 
 @implementation AppDelegate
 
+
 @synthesize managedObjectContext = _managedObjectContext;
 @synthesize managedObjectModel = _managedObjectModel;
 @synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
-
+@synthesize locationManager;
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     
+    // Create a location manager
+    self.locationManager = [[CLLocationManager alloc] init];
+    // Set a delegate to receive location callbacks
+    self.locationManager.delegate = self;
+    
+    
+    [self.locationManager requestWhenInUseAuthorization];
+    [self.locationManager requestAlwaysAuthorization];
     
     return YES;
 }
